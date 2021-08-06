@@ -67,7 +67,7 @@ public class CharacterMovement : MonoBehaviour
     {
         Move();
 
-        StartCoroutine("Colision");
+        
 
         Collision2();
     }
@@ -136,7 +136,7 @@ public class CharacterMovement : MonoBehaviour
 
             yield return new WaitForSeconds(0.01f);
 
-            this.transform.transform.position = new Vector2(-9f, -1f);
+            this.transform.transform.position = new Vector2(-8.5f, -2.5f);
             now_Rotate = rotate = 0f;
             bNeedle = bFire = bWater = false;
         }
@@ -179,10 +179,10 @@ public class CharacterMovement : MonoBehaviour
         RaycastHit2D[] hits = new RaycastHit2D[4];
         Vector3 now_Position = new Vector3 (this.transform.position.x,this.transform.position.y);
         Vector3[] end_Position = new Vector3[4];
-        end_Position[0] = now_Position + transform.right * 3f;
-        end_Position[1] = now_Position - transform.right * 3f;
-        end_Position[2] = now_Position + transform.up * 3f;
-        end_Position[3] = now_Position - transform.up * 3f;
+        end_Position[0] = now_Position + transform.right * 0.5f;
+        end_Position[1] = now_Position + transform.up * 0.5f;
+        end_Position[2] = now_Position - transform.right * 0.5f;
+        end_Position[3] = now_Position - transform.up * 0.5f;
 
         hits[0] = Physics2D.Linecast(now_Position, end_Position[0], Gimmick_Layer);
         hits[1] = Physics2D.Linecast(now_Position, end_Position[1], Gimmick_Layer);
@@ -192,12 +192,25 @@ public class CharacterMovement : MonoBehaviour
         for (int i = 0; i < hits.Length; i++)
         {
             if (hits[i])
+            {
                 Debug.DrawLine(now_Position, end_Position[i], Color.red);
+                if (0 <= i && i <= 2)
+                    Cols[i].GetComponent<Renderer>().material.color = setColor;
+                else
+                {
+                    for (int j = 0; j < Cols.Length; j++)
+                        Cols[j].GetComponent<Renderer>().material.color = new Color(1, 1, 1, 0);
+                }
+
+                this.transform.transform.position = new Vector2(-8.5f, -2.5f);
+                        now_Rotate = rotate = 0f;
+                        bNeedle = bFire = bWater = false;
+            }
             else
+            {
                 Debug.DrawLine(now_Position, end_Position[i], Color.blue);
-
+            }
         }
-
     }
 
     //“–‚½‚è”»’èŽæ“¾—p(‰¼)
