@@ -18,9 +18,15 @@ public class CharacterMovement : MonoBehaviour
     //ギミックの当たり判定用bool
     bool bNeedle,bLava,bIce;
 
+    //生死判定用のbool
+    bool bDeth;
+
     //移動方向判別用
     [SerializeField] float MaxSpeed;//最高速度
     float direction;
+
+    [Header("死んだ後の移動無効時間")]
+    [SerializeField] float DethCoolTime;
 
     //プレイヤーの角度用
     float rotate;
@@ -55,8 +61,11 @@ public class CharacterMovement : MonoBehaviour
         //物理演算コンポーネント取得
         rb = GetComponent<Rigidbody2D>();
 
-        //各bool初期化
+        //各ギミックbool初期化
         bNeedle = bLava = bIce = false;
+
+        //生死判定用のbool初期化
+        bDeth = false;
 
         //移動方向用数値初期化
         direction = 0f;
@@ -74,9 +83,13 @@ public class CharacterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move();
+        if(!bDeth)
+            Move();
 
-        StartCoroutine("Collision2");
+        StartCoroutine("Collision");
+
+        //回転処理反映 
+        this.rb.transform.eulerAngles = new Vector3(0, 0, rotate);
     }
 
     //キーボード入力等の処理
@@ -107,11 +120,8 @@ public class CharacterMovement : MonoBehaviour
         //左右移動
         rb.position += new Vector2(direction, 0.0f);
 
-        //回転処理反映 
-        this.rb.transform.eulerAngles = new Vector3(0, 0, rotate);
-
         //疑似完成
-        direction *= 0.8f;
+        direction *= 0.99f;
     }
 
     //ジャンプ時の回転の処理(コルーチン)
@@ -141,41 +151,11 @@ public class CharacterMovement : MonoBehaviour
     }
 
     //Ray当たり判定取得用(開発中)&(コルーチン)
-    IEnumerator Collision2()
+    IEnumerator Collision()
     {
-        //RaycastHit2D[,] hits2 = new RaycastHit2D[4, 6];
-
-        //for (int i = 0; i < 4; i++)
-        //{
-
-        //    Vector3 ray_Direction = Vector3.zero;
-        //    switch (i)
-        //    {
-        //        case 0:
-        //            ray_Direction = transform.right;
-        //            break;
-        //        case 1:
-        //            ray_Direction = -transform.right;
-        //            break;
-        //        case 2:
-        //            ray_Direction = transform.up;
-        //            break;
-        //        case 3:
-        //            ray_Direction = -transform.up;
-        //            break;
-        //    }
-
-
-        //    for (int j = 0; j < 6; j++)
-        //    {
-
-        //        Vector3 now_Position2 = new Vector3(this.transform.position.x, this.transform.position.y + 2 * i);
-
-        //    }
-        //}
 
         //現在座標取得
-        Vector3 now_Position = new Vector3 (this.rb.transform.position.x,this.rb.transform.position.y);
+        Vector3 now_Position = new Vector3(this.rb.transform.position.x, this.rb.transform.position.y);
 
         //当たり判定の終点座標配列(上下左右)
         Vector3[] end_Position = new Vector3[4];
@@ -226,12 +206,19 @@ public class CharacterMovement : MonoBehaviour
                 //死んでからワープまでの待ち時間(仮)
                 yield return new WaitForSeconds(0.05f);
 
-                        //初期位置にワープ(場所は仮設定)
-                        this.rb.transform.transform.position = new Vector2(-8.5f, -2.5f);
-                        //各角度リセット
-                        now_Rotate = rotate = 0f;
-                        //各boolリセット
-                        bNeedle = bLava = bIce = false;
+                //初期位置にワープ(場所は仮設定)
+                this.rb.transform.transform.position = new Vector2(-8.5f, -2.5f);
+                //各角度リセット
+                now_Rotate = rotate = 0f;
+                //各boolリセット
+                bNeedle = bLava = bIce = false;
+                //生死boolをtrueに変更
+                bDeth = true;
+
+                //死んでからN秒間待つ
+                yield return new WaitForSeconds(DethCoolTime);
+                //生死boolをfalseに戻す
+                bDeth = false;
             }
             else
             {
@@ -239,6 +226,12 @@ public class CharacterMovement : MonoBehaviour
                 Debug.DrawLine(now_Position, end_Position[i], Color.blue);
             }
         }
+    }
+
+    //生死判断用bool取得用
+    public bool GetDeth()
+    {
+        return bDeth;
     }
 
     //当たり判定取得用(仮)
