@@ -3,33 +3,37 @@ using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
 {
+    //上、左右の耐性オブジェクト(仮)
     GameObject[] Cols;
 
+    //Rigidbody2D
     Rigidbody2D rb;
 
+    //耐性を持った部分色付け用
     Color setColor;
 
+    //ギミックの当たり判定用bool
     bool bNeedle,bFire,bWater;
 
+    //移動方向判別用
     float direction;
 
+    //プレイヤーの角度用
     float rotate;
 
+    //プレイヤーの回転角度計算用
     float now_Rotate;
 
+    //2段ジャンプカウント用
     int jumpCount;
 
     // Start is called before the first frame update
     void Start()
     {
         Cols = new GameObject[3];
-
         Cols[0] = transform.Find("Right").gameObject;
-
         Cols[1] = transform.Find("Top").gameObject;
-        
         Cols[2] = transform.Find("Left").gameObject;
-
         for(int i = 0; i < Cols.Length; i++)
         {
             Cols[i].GetComponent<SpriteRenderer>().material.color = new Color(1, 1, 1, 0);
@@ -56,6 +60,7 @@ public class CharacterMovement : MonoBehaviour
         StartCoroutine("Colision");
     }
 
+    //キーボード入力等の処理
     void Move()
     {
         if (Input.GetKeyDown(KeyCode.Space) && jumpCount != 0)
@@ -81,6 +86,7 @@ public class CharacterMovement : MonoBehaviour
         this.transform.eulerAngles = new Vector3(0, 0, rotate);
     }
 
+    //ジャンプ時の回転の処理
     IEnumerator Rotarion()
     {
         float time = 0.0f;
@@ -97,6 +103,7 @@ public class CharacterMovement : MonoBehaviour
         }
     }
 
+    //ギミックに当たった時の処理(仮)
     IEnumerator Colision()
     {
         if(bNeedle || bFire || bWater)
@@ -122,6 +129,7 @@ public class CharacterMovement : MonoBehaviour
         
     }
 
+    //当たり判定取得用
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
