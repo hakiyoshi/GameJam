@@ -73,11 +73,6 @@ public class PlayerGimmick : MonoBehaviour
     //EndèIì_Å@
     private Vector2 Move(Vector2 Start, Vector2 End, float Time)
     {
-        Vector2 set = Start + ((End - Start) * Time);
-
-        return set;
+        return Start + ((End - Start) * Time);
     }
-
-
-
 }
