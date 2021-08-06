@@ -174,9 +174,11 @@ GameObject:
   m_Component:
   - component: {fileID: 7973623528100968259}
   - component: {fileID: 7973623528100968316}
-  - component: {fileID: 7973623528100968317}
+  - component: {fileID: 5770438688439943418}
   - component: {fileID: 7973623528100968258}
   - component: {fileID: 7973623528100968257}
+  - component: {fileID: 6982812650805186677}
+  - component: {fileID: 3200432026267776699}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -252,7 +254,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &7973623528100968317
+--- !u!61 &5770438688439943418
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -265,7 +267,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.12121153, y: -0.28855652}
+  m_Offset: {x: 0.1097886, y: -0.30193663}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -276,7 +278,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.9496884, y: 3.2967544}
+  m_Size: {x: 2.849979, y: 3.3061266}
   m_EdgeRadius: 0
 --- !u!50 &7973623528100968258
 Rigidbody2D:
@@ -312,6 +314,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxSpeed: 0.01
+--- !u!114 &6982812650805186677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7973623528100968318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fef3c7fbe1e9d8042bc83ac6e9ecd963, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3200432026267776699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7973623528100968318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c84c5000b3d0526449b382880c9b026d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveFlame: 5
 --- !u!1 &7973623528665178923
 GameObject:
   m_ObjectHideFlags: 0
