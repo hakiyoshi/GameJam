@@ -153,31 +153,91 @@ public class CharacterMovement : MonoBehaviour
     //Ray当たり判定取得用(開発中)&(コルーチン)
     IEnumerator Collision()
     {
+        RaycastHit2D[] hits = new RaycastHit2D[12];
 
-        //現在座標取得
-        Vector3 now_Position = new Vector3(this.rb.transform.position.x, this.rb.transform.position.y);
+        Vector3[] now_Position = new Vector3[12]; 
+        Vector3[] end_Position = new Vector3[12];
 
-        //当たり判定の終点座標配列(上下左右)
-        Vector3[] end_Position = new Vector3[4];
-        //当たり判定の終点座標(右)
-        end_Position[0] = now_Position + rb.transform.right * 0.4f;
-        //当たり判定の終点座標(上)
-        end_Position[1] = now_Position + rb.transform.up * 0.4f;
-        //当たり判定の終点座標(左)
-        end_Position[2] = now_Position - rb.transform.right * 0.4f;
-        //当たり判定の終点座標(下)
-        end_Position[3] = now_Position - rb.transform.up * 0.4f;
+        for (int i = 0; i < hits.Length; i++)
+        {
+            switch (i % 6) 
+            {
+                case 0:
+                case 3:
+                    now_Position[i] = new Vector3(this.rb.transform.position.x, this.rb.transform.position.y);
+                break;
 
-        //当たり判定用のRay配列(上下左右)
-        RaycastHit2D[] hits = new RaycastHit2D[4];
-        //当たり判定用のRay設定(右)
-        hits[0] = Physics2D.Linecast(now_Position, end_Position[0], Gimmick_Layer);
-        //当たり判定用のRay設定(上)
-        hits[1] = Physics2D.Linecast(now_Position, end_Position[1], Gimmick_Layer);
-        //当たり判定用のRay設定(左)
-        hits[2] = Physics2D.Linecast(now_Position, end_Position[2], Gimmick_Layer);
-        //当たり判定用のRay設定(下)
-        hits[3] = Physics2D.Linecast(now_Position, end_Position[3], Gimmick_Layer);
+                case 1:
+                    now_Position[i] = new Vector3(this.rb.transform.position.x , this.rb.transform.position.y + 0.3f);
+                break;
+
+                case 2:
+                    now_Position[i] = new Vector3(this.rb.transform.position.x , this.rb.transform.position.y - 0.3f);
+                break;
+
+                case 4:
+                    now_Position[i] = new Vector3(this.rb.transform.position.x + 0.3f, this.rb.transform.position.y);
+                break;
+
+                case 5:
+                    now_Position[i] = new Vector3(this.rb.transform.position.x + 0.3f, this.rb.transform.position.y);
+                break;
+            }
+
+
+            switch (i) 
+            {
+                case 0:
+                case 1:
+                case 2:
+                    end_Position[i] = now_Position[i] + rb.transform.right * 0.4f;
+                    break;
+
+                case 3:
+                case 4:
+                case 5:
+                    end_Position[i] = now_Position[i] + rb.transform.up * 0.4f;
+                    break;
+
+                case 6:
+                case 7:
+                case 8:
+                    end_Position[i] = now_Position[i] - rb.transform.right * 0.4f;
+                    break;
+                
+                case 9:
+                case 10:
+                case 11:
+                    end_Position[i] = now_Position[i] - rb.transform.up * 0.4f;
+                    break;
+            }
+            hits[i] = Physics2D.Linecast(now_Position[i], end_Position[i], Gimmick_Layer);
+        }
+
+        ////現在座標取得
+        //Vector3 now_Position = new Vector3(this.rb.transform.position.x, this.rb.transform.position.y);
+
+        ////当たり判定の終点座標配列(上下左右)
+        //Vector3[] end_Position = new Vector3[4];
+        ////当たり判定の終点座標(右)
+        //end_Position[0] = now_Position + rb.transform.right * 0.4f;
+        ////当たり判定の終点座標(上)
+        //end_Position[1] = now_Position + rb.transform.up * 0.4f;
+        ////当たり判定の終点座標(左)
+        //end_Position[2] = now_Position - rb.transform.right * 0.4f;
+        ////当たり判定の終点座標(下)
+        //end_Position[3] = now_Position - rb.transform.up * 0.4f;
+
+        ////当たり判定用のRay配列(上下左右)
+        //RaycastHit2D[] hits = new RaycastHit2D[4];
+        ////当たり判定用のRay設定(右)
+        //hits[0] = Physics2D.Linecast(now_Position, end_Position[0], Gimmick_Layer);
+        ////当たり判定用のRay設定(上)
+        //hits[1] = Physics2D.Linecast(now_Position, end_Position[1], Gimmick_Layer);
+        ////当たり判定用のRay設定(左)
+        //hits[2] = Physics2D.Linecast(now_Position, end_Position[2], Gimmick_Layer);
+        ////当たり判定用のRay設定(下)
+        //hits[3] = Physics2D.Linecast(now_Position, end_Position[3], Gimmick_Layer);
 
         //当たり判定確認用ループ
         for (int i = 0; i < hits.Length; i++)
@@ -186,10 +246,10 @@ public class CharacterMovement : MonoBehaviour
             if (hits[i])
             {
                 //デバッグでLineを見る用
-                Debug.DrawLine(now_Position, end_Position[i], Color.red);
+                Debug.DrawLine(now_Position[i], end_Position[i], Color.red);
 
                 //足元以外に当たったか
-                if (0 <= i && i <= 2)
+                if (0 <= i && i <= 8)
                 {
                     //当たった部分に色(耐性)を表示
                     Cols[i].GetComponent<Renderer>().material.color = setColor;
@@ -207,7 +267,7 @@ public class CharacterMovement : MonoBehaviour
                 yield return new WaitForSeconds(0.05f);
 
                 //初期位置にワープ(場所は仮設定)
-                this.rb.transform.transform.position = new Vector2(-8.5f, -2.5f);
+                //this.rb.transform.transform.position = new Vector2(-8.5f, -2.5f);
                 //各角度リセット
                 now_Rotate = rotate = 0f;
                 //各boolリセット
@@ -223,7 +283,7 @@ public class CharacterMovement : MonoBehaviour
             else
             {
                 //デバッグでLineを見る用
-                Debug.DrawLine(now_Position, end_Position[i], Color.blue);
+                Debug.DrawLine(now_Position[i], end_Position[i], Color.blue);
             }
         }
     }
