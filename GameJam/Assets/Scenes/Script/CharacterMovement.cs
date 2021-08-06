@@ -121,7 +121,7 @@ public class CharacterMovement : MonoBehaviour
         rb.position += new Vector2(direction, 0.0f);
 
         //疑似完成
-        direction *= 0.99f;
+        direction *= 0.9f;
     }
 
     //ジャンプ時の回転の処理(コルーチン)
