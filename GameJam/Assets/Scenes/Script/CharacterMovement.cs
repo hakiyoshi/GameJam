@@ -111,7 +111,7 @@ public class CharacterMovement : MonoBehaviour
         this.rb.transform.eulerAngles = new Vector3(0, 0, rotate);
 
         //疑似完成
-        direction *= 0.9f;
+        direction *= 0.99f;
     }
 
     //ジャンプ時の回転の処理(コルーチン)
