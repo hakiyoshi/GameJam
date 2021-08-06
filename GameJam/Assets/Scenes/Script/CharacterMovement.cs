@@ -65,7 +65,7 @@ public class CharacterMovement : MonoBehaviour
         bNeedle = bLava = bIce = false;
 
         //生死判定用のbool初期化
-        bDeth = false;
+        SetDeth(false);
 
         //移動方向用数値初期化
         direction = 0f;
@@ -83,7 +83,7 @@ public class CharacterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!bDeth)
+        if(!GetDeth())
             Move();
 
         StartCoroutine("Collision");
@@ -160,13 +160,13 @@ public class CharacterMovement : MonoBehaviour
         //当たり判定の終点座標配列(上下左右)
         Vector3[] end_Position = new Vector3[4];
         //当たり判定の終点座標(右)
-        end_Position[0] = now_Position + rb.transform.right * 0.5f;
+        end_Position[0] = now_Position + rb.transform.right * 0.4f;
         //当たり判定の終点座標(上)
-        end_Position[1] = now_Position + rb.transform.up * 0.5f;
+        end_Position[1] = now_Position + rb.transform.up * 0.4f;
         //当たり判定の終点座標(左)
-        end_Position[2] = now_Position - rb.transform.right * 0.5f;
+        end_Position[2] = now_Position - rb.transform.right * 0.4f;
         //当たり判定の終点座標(下)
-        end_Position[3] = now_Position - rb.transform.up * 0.5f;
+        end_Position[3] = now_Position - rb.transform.up * 0.4f;
 
         //当たり判定用のRay配列(上下左右)
         RaycastHit2D[] hits = new RaycastHit2D[4];
@@ -213,12 +213,12 @@ public class CharacterMovement : MonoBehaviour
                 //各boolリセット
                 bNeedle = bLava = bIce = false;
                 //生死boolをtrueに変更
-                bDeth = true;
+                SetDeth(true);
 
                 //死んでからN秒間待つ
                 yield return new WaitForSeconds(DethCoolTime);
                 //生死boolをfalseに戻す
-                bDeth = false;
+                SetDeth(false);
             }
             else
             {
@@ -232,6 +232,11 @@ public class CharacterMovement : MonoBehaviour
     public bool GetDeth()
     {
         return bDeth;
+    }
+    //生死判断用bool設定用
+    void SetDeth(bool set)
+    {
+        bDeth = set;
     }
 
     //当たり判定取得用(仮)

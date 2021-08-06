@@ -243,6 +243,10 @@ PrefabInstance:
       propertyPath: MaxSpeed
       value: 0.005
       objectReference: {fileID: 0}
+    - target: {fileID: 7973623528100968257, guid: b59aba602970da249954a76fb55a2aea, type: 3}
+      propertyPath: DethCoolTime
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7973623528100968259, guid: b59aba602970da249954a76fb55a2aea, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -286,6 +290,14 @@ PrefabInstance:
     - target: {fileID: 7973623528100968259, guid: b59aba602970da249954a76fb55a2aea, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7973623528100968317, guid: b59aba602970da249954a76fb55a2aea, type: 3}
+      propertyPath: m_Size.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7973623528100968317, guid: b59aba602970da249954a76fb55a2aea, type: 3}
+      propertyPath: m_Size.y
+      value: 3.3
       objectReference: {fileID: 0}
     - target: {fileID: 7973623528100968318, guid: b59aba602970da249954a76fb55a2aea, type: 3}
       propertyPath: m_Name
