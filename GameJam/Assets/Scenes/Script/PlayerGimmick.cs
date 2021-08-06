@@ -12,14 +12,8 @@ public class PlayerGimmick : MonoBehaviour
     [SerializeField] int MoveFlame;//移動フレーム
     private int FlameCount = 0;
 
-    enum HIT : int
-    {
-        NONE = 0,
-        LAVA = 1,
-        NEEDLE = 2,
-        ICE = 3,
-    }
-    private int HitFlag = ((int)HIT.NONE);
+
+    private bool HitFlag = false;
 
     //必要なもの
     private Rigidbody2D rb;//物理
@@ -40,7 +34,7 @@ public class PlayerGimmick : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (HitFlag != ((int)HIT.NONE))
+        if (HitFlag)
         {
             rb.position = Move(StartPosi, EndPosi, (float)FlameCount / (float)MoveFlame);
             rb.velocity = new Vector2(rb.velocity.x, 0.0f);
@@ -49,22 +43,28 @@ public class PlayerGimmick : MonoBehaviour
 
             if (FlameCount == MoveFlame)
             {
-                HitFlag = ((int)HIT.NONE);
+                HitFlag = false;
                 FlameCount = 0;
                 rb.position = EndPosi;
             }
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    //ギミックに当たった時に呼ばれる関数
+    public void HitGimmick()
     {
-        if (collision.tag == "Lava")//マグマヒット時
-        {
-            EndPosi = last.LastPosition;
-            StartPosi = rb.position;
-            last.LastPosiFlag = false;
-            HitFlag = ((int)HIT.LAVA);
-        }
+        EndPosi = last.LastPosition;
+        StartPosi = rb.position;
+        last.LastPosiFlag = false;
+        HitFlag = true;
+    }
+    
+    //ヒットした際指定した場所に移動中かを確認する関数
+    //true 移動中
+    //false 移動してない
+    public bool GetHitMoveFlag()
+    {
+        return HitFlag;
     }
 
     //移動関数
@@ -77,6 +77,7 @@ public class PlayerGimmick : MonoBehaviour
 
         return set;
     }
+
 
 
 }
