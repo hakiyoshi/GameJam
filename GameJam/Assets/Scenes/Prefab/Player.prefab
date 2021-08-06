@@ -323,7 +323,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7973623528100968318}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fef3c7fbe1e9d8042bc83ac6e9ecd963, type: 3}
+  m_Script: {fileID: 11500000, guid: 6560d0a61ec105041ad75feb223362ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &3200432026267776699
@@ -338,7 +338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c84c5000b3d0526449b382880c9b026d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveFlame: 5
+  MoveFlame: 12
 --- !u!1 &7973623528665178923
 GameObject:
   m_ObjectHideFlags: 0
