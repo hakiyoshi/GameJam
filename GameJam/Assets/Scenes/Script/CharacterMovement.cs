@@ -197,7 +197,7 @@ public class CharacterMovement : MonoBehaviour
 
     }
 
-    //“–‚½‚è”»’èŽæ“¾—p
+    //“–‚½‚è”»’èŽæ“¾—p(‰¼)
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
@@ -209,12 +209,12 @@ public class CharacterMovement : MonoBehaviour
             bNeedle = true;
             setColor = Color.gray;
         }
-        else if (collision.gameObject.CompareTag("Fire"))
+        else if (collision.gameObject.CompareTag("Lava"))
         {
             bFire = true;
             setColor = Color.red;
         }
-        else if (collision.gameObject.CompareTag("Water"))
+        else if (collision.gameObject.CompareTag("Ice"))
         {
             bWater = true;
             setColor = Color.cyan;
