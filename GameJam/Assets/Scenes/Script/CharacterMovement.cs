@@ -19,6 +19,7 @@ public class CharacterMovement : MonoBehaviour
     bool bNeedle,bFire,bWater;
 
     //移動方向判別用
+    [SerializeField] float MaxSpeed;//最高速度
     float direction;
 
     //プレイヤーの角度用
@@ -86,15 +87,17 @@ public class CharacterMovement : MonoBehaviour
         }
 
         if (Input.GetKey(KeyCode.D))
-            direction = 3f;
+            direction = MaxSpeed;
         else if (Input.GetKey(KeyCode.A))
-            direction = -3f;
-        else
-            direction = 0f;
+            direction = -MaxSpeed;
 
-        rb.velocity = new Vector2(direction, rb.velocity.y);
+        //左右移動
+        rb.position += new Vector2(direction, 0.0f);
 
         this.transform.eulerAngles = new Vector3(0, 0, rotate);
+
+        //疑似完成
+        direction *= 0.99f;
     }
 
     //ジャンプ時の回転の処理
@@ -197,7 +200,7 @@ public class CharacterMovement : MonoBehaviour
 
     }
 
-    //当たり判定取得用(仮)
+    //当たり判定取得用
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
