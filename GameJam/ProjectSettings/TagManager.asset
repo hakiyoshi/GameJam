@@ -10,6 +10,8 @@ TagManager:
   - Needle
   - Ice
   - LavaDrop
+  - Fall
+  - IceGround
   layers:
   - Default
   - TransparentFX
