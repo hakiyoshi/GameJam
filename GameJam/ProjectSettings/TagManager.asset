@@ -9,6 +9,7 @@ TagManager:
   - Lava
   - Needle
   - Ice
+  - LavaDrop
   layers:
   - Default
   - TransparentFX
