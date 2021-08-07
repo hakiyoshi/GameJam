@@ -1,0 +1,95 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Icicle : MonoBehaviour
+{
+    [Header("キャラクターのオブジェクトを選択する")]
+    public GameObject Charcter;
+    //キャラクターのポジションを取得
+    Vector3 CharPos;
+    //つららの座標を取得
+    Vector3 Ice;
+    //ギミック自体の座標
+    float IcePos;
+    [Header("つららが反応する範囲")]
+    public float Range;
+    [Header("つららが落ちる速度")]
+    public float YSpeed;
+    [Header("つららの復活する高さ(元々の高さ + 復活する高さ)")]
+    public float YHight;
+    [Header("つららが復活する速度")]
+    public float ReSpeed;
+    //つららが落下できる状態かフラグを立てる
+    int Fall_Flag;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        //キャラクターのオブジェクトのコンポーネントを取得する
+        GameObject Charcter = GetComponent<GameObject>();
+        //つららの座標を取得
+        Ice = this.transform.position;
+        IcePos = Ice.y;
+        //落下フラグを立てる
+        Fall_Flag = 0;
+    }
+    //落下の判定をする
+    void Fall()
+    {
+        //キャラクターの座標を取得する
+        CharPos = Charcter.transform.position;
+        //x座標距離の絶対値を算出する
+        float Dis = Mathf.Abs(Ice.x - CharPos.x);
+        //キャラクターとつららの範囲を確認する
+        if (Dis < Range || Fall_Flag == 1)
+        {
+            //つららを落とすフラグを1にする
+            Fall_Flag = 1;
+            //落下処理
+            IcePos -= YSpeed;
+        }
+    }
+    //つららが上から生えてくる処理
+    void Re()
+    {
+        //つららが生えてくる速度
+        IcePos -= ReSpeed;
+        //つららが生えている初期の座標よりも低いか判断する
+        if (IcePos < Ice.y)
+        {
+            //つららのy座標の変更
+            IcePos = Ice.y;
+            //つららのフラグを0にする
+            Fall_Flag = 0;
+        }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        //フラグを判別して処理をする
+        if (Fall_Flag != -1)
+        {
+            //落下処理をする
+            Fall();
+        }
+        else if (Fall_Flag == -1)
+        {
+            //落下後の復活判定
+            Re();
+        }
+        //オブジェクトの座標を変更する
+        transform.position = new Vector2(Ice.x, IcePos);
+    }
+    //コリジョンの判定する
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        //つららを初期よりも少し大きめに設定する
+        if (Fall_Flag == 1)
+        {
+            Fall_Flag = -1;
+            IcePos = Ice.y + YHight;
+        }
+    }
+}
