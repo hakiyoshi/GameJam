@@ -53,7 +53,24 @@ public class PlayerGimmick : MonoBehaviour
     //ギミックに当たった時に呼ばれる関数
     public void HitGimmick()
     {
-        EndPosi = last.LastPosition;
+        GimmickSet(last.LastPosition);
+    }
+
+    //ギミックに当たった時に呼ばれる関数
+    public void HitGimmick(Collider2D collision)
+    {
+        GimmickSet(last.LastPosition);
+    }
+
+    //ギミックに当たった時に呼ばれる関数
+    public void HitGimmick(Collision2D collision)
+    {
+        GimmickSet(last.LastPosition);
+    }
+
+    private void GimmickSet(Vector2 LastPosi)
+    {
+        EndPosi = LastPosi;
         StartPosi = rb.position;
         last.LastPosiFlag = false;
         HitFlag = true;

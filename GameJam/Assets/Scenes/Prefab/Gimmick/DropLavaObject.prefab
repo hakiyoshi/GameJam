@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 735595041588487615}
   - component: {fileID: 735595041588487585}
   - component: {fileID: 53266915174153212}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DropLavaObject
   m_TagString: Lava
   m_Icon: {fileID: 0}
