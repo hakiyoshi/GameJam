@@ -37,6 +37,9 @@ public class CharacterMovement : MonoBehaviour
     [Header("ジャンプの高さ")]
     [SerializeField] float JumpPower;//ジャンプの高さ
 
+    [Header("慣性 初期0.99")]
+    [SerializeField] float Inertia;//慣性
+
     //プレイヤーの角度用
     float rotate;
 
@@ -134,7 +137,7 @@ public class CharacterMovement : MonoBehaviour
         rb.position += new Vector2(direction, 0.0f);
 
         //疑似完成
-        direction *= 0.9f;
+        direction *= Inertia;
     }
 
     //ジャンプ時の回転の処理(コルーチン)
