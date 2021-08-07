@@ -154,6 +154,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Ice
       objectReference: {fileID: 0}
+    - target: {fileID: 3971745405643224613, guid: 70f7ec3b6e1cb7d4ba6eb16ed114127c, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6873528357200549519, guid: 70f7ec3b6e1cb7d4ba6eb16ed114127c, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -900,6 +904,10 @@ PrefabInstance:
     - target: {fileID: 2026704900949101765, guid: 70f7ec3b6e1cb7d4ba6eb16ed114127c, type: 3}
       propertyPath: m_TagString
       value: Lava
+      objectReference: {fileID: 0}
+    - target: {fileID: 3971745405643224613, guid: 70f7ec3b6e1cb7d4ba6eb16ed114127c, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6873528357200549519, guid: 70f7ec3b6e1cb7d4ba6eb16ed114127c, type: 3}
       propertyPath: m_RootOrder

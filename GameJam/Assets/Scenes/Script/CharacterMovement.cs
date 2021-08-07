@@ -25,6 +25,8 @@ public class CharacterMovement : MonoBehaviour
 
     //針ギミック用bool
     bool bNeedle;
+    //マグマギミック用bool
+    bool bLava;
 
     //移動方向判別用
     [Header("移動速度")]
@@ -76,7 +78,9 @@ public class CharacterMovement : MonoBehaviour
         //生死判定用のbool初期化
         SetDeth(false);
 
+        //各ギミック判定用bool初期化
         bNeedle = false;
+        bLava = false;
 
         //移動方向用数値初期化
         direction = 0f;
@@ -95,7 +99,7 @@ public class CharacterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!GetDeth())
+        if (!PG.GetHitMoveFlag())
         {
             Move();
             StartCoroutine("Collision");
@@ -132,7 +136,6 @@ public class CharacterMovement : MonoBehaviour
             }
         }
 
-        Vector3 scale = this.rb.transform.localScale;
 
         //キー入力での移動処理
         if (Input.GetKey(KeyCode.D))
@@ -149,8 +152,6 @@ public class CharacterMovement : MonoBehaviour
             if (jumpCount == 2 && rotateZ == 0)
                 rotateY = 180;
         }
-
-        this.rb.transform.localScale = scale;
         //左右移動
         rb.position += new Vector2(direction, 0.0f);
 
@@ -244,7 +245,7 @@ public class CharacterMovement : MonoBehaviour
                         change_Sprite = NeedleSprite;
                     }
                     //マグマギミックに当たったか
-                    else if (hits[i].collider.gameObject.tag == "Lava" || hits[i].collider.gameObject.tag == "LavaDrop")
+                    else if (hits[i].collider.gameObject.tag == "Lava")
                     {
                         //変更スプライトをマグマに設定
                         change_Sprite = LavaSprite;
@@ -277,8 +278,12 @@ public class CharacterMovement : MonoBehaviour
                 {
                     //全免疫削除処理
                     for (int j = 0; j < Cols.Length; j++)
+                    {
                         //全ての免疫を透明化
                         Cols[j].GetComponent<Renderer>().material.color = new Color(1, 1, 1, 0);
+                        //ギミックに対応した耐性を付与
+                        Cols[j].GetComponent<SpriteRenderer>().sprite = null;
+                    }
 
                     PG.HitGimmick();
                     yield return new WaitForSeconds(0.2f);
@@ -345,5 +350,12 @@ public class CharacterMovement : MonoBehaviour
             {
                 bNeedle = true;
             }
-        }
+
+            //マグマとの当たり判定
+            if (collision.gameObject.CompareTag("Lava"))
+            {
+                bLava = true;
+            }
+
+    }
     }
