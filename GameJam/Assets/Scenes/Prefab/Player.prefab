@@ -313,10 +313,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a05dc1879284d4746abf6d788267bfa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NeedleSprite: {fileID: 0}
-  LavaSprite: {fileID: 0}
-  IceSprite: {fileID: 0}
+  NeedleSprite: {fileID: 7605701695760223124, guid: 62533abae837b8b45a43451bb85a9f5e, type: 3}
+  LavaSprite: {fileID: -8738991188577906888, guid: 62533abae837b8b45a43451bb85a9f5e, type: 3}
+  IceSprite: {fileID: 1577048955958470783, guid: 62533abae837b8b45a43451bb85a9f5e, type: 3}
   MaxSpeed: 0.01
+  JumpPower: 0
+  Inertia: 0
 --- !u!114 &6982812650805186677
 MonoBehaviour:
   m_ObjectHideFlags: 0

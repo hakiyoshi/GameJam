@@ -17,9 +17,6 @@ public class CharacterMovement : MonoBehaviour
     //Rigidbody2D
     Rigidbody2D rb;
 
-    //耐性を持った部分色付け用(仮)
-    Color setColor;
-
     //Gimmick取得用レイヤー
     LayerMask Gimmick_Layer;
 
@@ -173,7 +170,7 @@ public class CharacterMovement : MonoBehaviour
         //当たり判定用Ray
         RaycastHit2D[] hits = new RaycastHit2D[12];
         //rayの長さ
-        float end_distance = 0.4f;
+        float end_distance = 0.43f;
 
         //方向ベクトル
         Vector3[] Dire_Vec = { rb.transform.right * end_distance,  //右
@@ -190,17 +187,17 @@ public class CharacterMovement : MonoBehaviour
 
         //rayの各終点設定(上下座右)
         end_Position[0] = sta_Position + Dire_Vec[0];
-        end_Position[1] = end_Position[0] + Dire_Vec[1] / 2f;
-        end_Position[2] = end_Position[0] + Dire_Vec[3] / 2f;
+        end_Position[1] = end_Position[0] + Dire_Vec[1] / 2.5f;
+        end_Position[2] = end_Position[0] + Dire_Vec[3] / 2.5f;
         end_Position[3] = sta_Position + Dire_Vec[1];
-        end_Position[4] = end_Position[3] + Dire_Vec[0] / 2f;
-        end_Position[5] = end_Position[3] + Dire_Vec[2] / 2f;
+        end_Position[4] = end_Position[3] + Dire_Vec[0] / 2.5f;
+        end_Position[5] = end_Position[3] + Dire_Vec[2] / 2.5f;
         end_Position[6] = sta_Position + Dire_Vec[2];
-        end_Position[7] = end_Position[6] + Dire_Vec[1] / 2f;
-        end_Position[8] = end_Position[6] + Dire_Vec[3] / 2f;
+        end_Position[7] = end_Position[6] + Dire_Vec[1] / 2.5f;
+        end_Position[8] = end_Position[6] + Dire_Vec[3] / 2.5f;
         end_Position[9] = sta_Position + Dire_Vec[3];
-        end_Position[10] = end_Position[9] + Dire_Vec[0] / 2f;
-        end_Position[11] = end_Position[9] + Dire_Vec[2] / 2f;
+        end_Position[10] = end_Position[9] + Dire_Vec[0] / 2.5f;
+        end_Position[11] = end_Position[9] + Dire_Vec[2] / 2.5f;
 
         //sta_Position - rb.transform.up * end_distance + rb.transform.right * end_distance / 1.5f
 
@@ -224,13 +221,15 @@ public class CharacterMovement : MonoBehaviour
                     //当たった部分に色(耐性)を表示
                     Cols[i / 3].GetComponent<Renderer>().material.color = new Color(1, 1, 1, 1);
 
-                    if(bNeedle)
+                    if(bNeedle && !bLava && !bIce)
                         Cols[i / 3].GetComponent<SpriteRenderer>().sprite = NeedleSprite;
-                    else if(bLava)
+                    else if(!bNeedle && bLava && !bIce)
                         Cols[i / 3].GetComponent<SpriteRenderer>().sprite = LavaSprite;
-                    else if(bIce)
+                    else if(!bNeedle && !bLava && bIce)
                         Cols[i / 3].GetComponent<SpriteRenderer>().sprite = IceSprite;
 
+                    //Debug.Log("Needle =" + bNeedle + "  Lava =" + bLava + "  Ice =" + bIce);
+                    
                     PG.HitGimmick();
                     yield return new WaitForSeconds(0.2f);
                     ParameterReset();
@@ -264,8 +263,9 @@ public class CharacterMovement : MonoBehaviour
         //各角度リセット
         now_Rotate = rotate = 0f;
         //各boolリセット
-        bNeedle = bLava = bIce = false;
-
+        bNeedle = false;
+        bLava = false;
+        bIce = false;
     }
 
     //生死判断用bool取得用
@@ -289,23 +289,24 @@ public class CharacterMovement : MonoBehaviour
             jumpCount = 2;
         }
 
-        //針との当たり判定
-        if (collision.gameObject.CompareTag("Needle"))
-        {
-            bNeedle = true;
-            setColor = Color.gray;
-        }
         //マグマとの当たり判定
-        else if (collision.gameObject.CompareTag("Lava"))
+        if (collision.gameObject.CompareTag("Lava"))
         {
             bLava = true;
-            setColor = Color.red;
         }
         //氷との当たり判定
         else if (collision.gameObject.CompareTag("Ice"))
         {
             bIce = true;
-            setColor = Color.cyan;
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        //針との当たり判定
+        if (collision.gameObject.CompareTag("Needle"))
+        {
+            bNeedle = true;
         }
     }
 }
