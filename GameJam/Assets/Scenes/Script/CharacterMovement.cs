@@ -9,6 +9,11 @@ public class CharacterMovement : MonoBehaviour
     //上、左右の耐性オブジェクト(仮)
     GameObject[] Cols;
 
+    //各耐性のスプライト
+    public Sprite NeedleSprite;
+    public Sprite LavaSprite;
+    public Sprite IceSprite;
+
     //Rigidbody2D
     Rigidbody2D rb;
 
@@ -25,8 +30,12 @@ public class CharacterMovement : MonoBehaviour
     bool bDeth;
 
     //移動方向判別用
+    [Header("移動速度")]
     [SerializeField] float MaxSpeed;//最高速度
     float direction;
+
+    [Header("ジャンプの高さ")]
+    [SerializeField] float JumpPower;//ジャンプの高さ
 
     //プレイヤーの角度用
     float rotate;
@@ -86,9 +95,10 @@ public class CharacterMovement : MonoBehaviour
     void Update()
     {
         if (!GetDeth())
+        {
             Move();
-
-        StartCoroutine("Collision");
+            StartCoroutine("Collision");
+        }
 
         //回転処理反映 
         this.rb.transform.eulerAngles = new Vector3(0, 0, rotate);
@@ -108,7 +118,7 @@ public class CharacterMovement : MonoBehaviour
             jumpCount -= 1;
 
             //ジャンプ処理
-            rb.AddForce(Vector2.up * 800);
+            rb.AddForce(Vector2.up * JumpPower);
 
             //回転処理開始
             StartCoroutine("Rotation");
@@ -158,25 +168,43 @@ public class CharacterMovement : MonoBehaviour
     IEnumerator Collision()
     {
         //当たり判定用Ray
-        RaycastHit2D[] hits = new RaycastHit2D[4];
-        //rayの始点
-        Vector3 sta_Position = new Vector3(this.rb.transform.position.x, this.rb.transform.position.y);
-        //rayの終点
-        Vector3[] end_Position = new Vector3[4];
+        RaycastHit2D[] hits = new RaycastHit2D[12];
         //rayの長さ
         float end_distance = 0.4f;
 
+        //方向ベクトル
+        Vector3[] Dire_Vec = { rb.transform.right * end_distance,  //右
+                                    rb.transform.up * end_distance,     //上
+                                    -rb.transform.right * end_distance, //左
+                                    -rb.transform.up * end_distance};   //下
+
+        //rayの始点
+        Vector3 sta_Position = new Vector3(this.rb.transform.position.x + 0.01f, this.rb.transform.position.y - 0.01f);
+        
+        //rayの終点
+        Vector3[] end_Position = new Vector3[12];
+
+
         //rayの各終点設定(上下座右)
-        end_Position[0] = sta_Position + rb.transform.right * end_distance;
-        end_Position[1] = sta_Position + rb.transform.up * end_distance;
-        end_Position[2] = sta_Position - rb.transform.right * end_distance;
-        end_Position[3] = sta_Position - rb.transform.up * end_distance;
+        end_Position[0] = sta_Position + Dire_Vec[0];
+        end_Position[1] = end_Position[0] + Dire_Vec[1] / 2f;
+        end_Position[2] = end_Position[0] + Dire_Vec[3] / 2f;
+        end_Position[3] = sta_Position + Dire_Vec[1];
+        end_Position[4] = end_Position[3] + Dire_Vec[0] / 2f;
+        end_Position[5] = end_Position[3] + Dire_Vec[2] / 2f;
+        end_Position[6] = sta_Position + Dire_Vec[2];
+        end_Position[7] = end_Position[6] + Dire_Vec[1] / 2f;
+        end_Position[8] = end_Position[6] + Dire_Vec[3] / 2f;
+        end_Position[9] = sta_Position + Dire_Vec[3];
+        end_Position[10] = end_Position[9] + Dire_Vec[0] / 2f;
+        end_Position[11] = end_Position[9] + Dire_Vec[2] / 2f;
+
+        //sta_Position - rb.transform.up * end_distance + rb.transform.right * end_distance / 1.5f
 
         //rayの各設定(上下座右)
-        hits[0] = Physics2D.Linecast(sta_Position, end_Position[0], Gimmick_Layer);
-        hits[1] = Physics2D.Linecast(sta_Position, end_Position[1], Gimmick_Layer);
-        hits[2] = Physics2D.Linecast(sta_Position, end_Position[2], Gimmick_Layer);
-        hits[3] = Physics2D.Linecast(sta_Position, end_Position[3], Gimmick_Layer);
+
+        for(int i = 0; i < hits.Length; i++)
+            hits[i] = Physics2D.Linecast(sta_Position, end_Position[i], Gimmick_Layer);
 
         //当たり判定確認用ループ
         for (int i = 0; i < hits.Length; i++)
@@ -188,10 +216,23 @@ public class CharacterMovement : MonoBehaviour
                 Debug.DrawLine(sta_Position, end_Position[i], Color.red);
 
                 //足元以外に当たったか
-                if (0 <= i && i <= 2)
+                if (0 <= i && i <= 8)
                 {
                     //当たった部分に色(耐性)を表示
-                    Cols[i].GetComponent<Renderer>().material.color = setColor;
+                    Cols[i / 3].GetComponent<Renderer>().material.color = new Color(1, 1, 1, 1);
+
+                    if(bNeedle)
+                        Cols[i / 3].GetComponent<SpriteRenderer>().sprite = NeedleSprite;
+                    else if(bLava)
+                        Cols[i / 3].GetComponent<SpriteRenderer>().sprite = LavaSprite;
+                    else if(bIce)
+                        Cols[i / 3].GetComponent<SpriteRenderer>().sprite = IceSprite;
+
+                    PG.HitGimmick();
+                    yield return new WaitForSeconds(0.2f);
+                    ParameterReset();
+
+                    break;
                 }
                 //足元に当たったら
                 else
@@ -200,16 +241,12 @@ public class CharacterMovement : MonoBehaviour
                     for (int j = 0; j < Cols.Length; j++)
                         //全ての免疫を透明化
                         Cols[j].GetComponent<Renderer>().material.color = new Color(1, 1, 1, 0);
+
+                    PG.HitGimmick();
+                    yield return new WaitForSeconds(0.05f);
+                    ParameterReset();
                 }
 
-
-                PG.HitGimmick();
-
-                yield return new WaitForSeconds(0.1f);
-                //各角度リセット
-                now_Rotate = rotate = 0f;
-                //各boolリセット
-                bNeedle = bLava = bIce = false;
             }
             else
             {
@@ -219,7 +256,14 @@ public class CharacterMovement : MonoBehaviour
         }
     }
 
+    void ParameterReset()
+    {
+        //各角度リセット
+        now_Rotate = rotate = 0f;
+        //各boolリセット
+        bNeedle = bLava = bIce = false;
 
+    }
 
     //生死判断用bool取得用
     public bool GetDeth()
