@@ -399,7 +399,7 @@ MonoBehaviour:
   LavaSprite: {fileID: -8738991188577906888, guid: 62533abae837b8b45a43451bb85a9f5e, type: 3}
   IceSprite: {fileID: 1577048955958470783, guid: 62533abae837b8b45a43451bb85a9f5e, type: 3}
   MaxSpeed: 0.06
-  JumpPower: 1000
+  JumpPower: 2000
   Inertia: 0.93
 --- !u!114 &5646426775338551220
 MonoBehaviour:

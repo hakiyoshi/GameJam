@@ -32,7 +32,7 @@ public class Drop : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.tag != "Lava" && collision.gameObject.transform.position.y > this.transform.position.y)
+        if (collision.gameObject.tag != "Lava" && collision.gameObject.transform.position.y + 0.3f > this.transform.position.y)
         {
             Destroy(this.gameObject);//©•ª‚ğíœ
         }
@@ -40,7 +40,7 @@ public class Drop : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag != "Lava" && collision.gameObject.transform.position.y > this.transform.position.y)
+        if (collision.tag != "Lava" && collision.gameObject.transform.position.y + 0.3f > this.transform.position.y)
         {
             Destroy(this.gameObject);//©•ª‚ğíœ
         }
