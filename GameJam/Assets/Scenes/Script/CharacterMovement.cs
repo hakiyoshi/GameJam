@@ -23,6 +23,9 @@ public class CharacterMovement : MonoBehaviour
     //生死判定用のbool
     bool bDeth;
 
+    //針ギミック用bool
+    bool bNeedle;
+
     //移動方向判別用
     [Header("移動速度")]
     [SerializeField] float MaxSpeed;//最高速度
@@ -73,6 +76,8 @@ public class CharacterMovement : MonoBehaviour
         //生死判定用のbool初期化
         SetDeth(false);
 
+        bNeedle = false;
+
         //移動方向用数値初期化
         direction = 0f;
 
@@ -98,13 +103,11 @@ public class CharacterMovement : MonoBehaviour
 
         //回転処理反映 
         this.rb.transform.eulerAngles = new Vector3(0, rotateY, rotateZ);
-
     }
 
     //キーボード入力等の処理
     void Move()
     {
-
         //スペースキーを押したときのジャンプ処理
         if (Input.GetKeyDown(KeyCode.Space) && jumpCount != 0)
         {
@@ -187,7 +190,7 @@ public class CharacterMovement : MonoBehaviour
         //当たり判定用Ray
         RaycastHit2D[] hits = new RaycastHit2D[10];
         //rayの長さ
-        float end_distance = 1.7f;
+        float end_distance = 1.8f;
         //方向ベクトル
         Vector3[] Dire_Vec = { rb.transform.right * end_distance,       //右
                                     rb.transform.up * end_distance,     //上
@@ -195,7 +198,7 @@ public class CharacterMovement : MonoBehaviour
                                     -rb.transform.up * end_distance};   //下 
         //rayの始点
         Vector3 sta_Position = new Vector3(this.rb.transform.position.x + this.GetComponent<BoxCollider2D>().offset.x
-                                         , this.rb.transform.position.y + this.GetComponent<BoxCollider2D>().offset.y);
+                                         , this.rb.transform.position.y + this.GetComponent<BoxCollider2D>().offset.y + 0.1f);
         //rayの終点配列
         Vector3[] end_Position = new Vector3[10];
 
@@ -235,7 +238,7 @@ public class CharacterMovement : MonoBehaviour
                     Cols[i / 3].GetComponent<Renderer>().material.color = new Color(1, 1, 1, 1);
 
                     //針ギミックに当たったか
-                    if (hits[i].collider.gameObject.tag == "Needle")
+                    if (hits[i].collider.gameObject.tag == "Needle" && bNeedle)
                     {
                         //変更スプライトを針に設定
                         change_Sprite = NeedleSprite;
@@ -333,6 +336,7 @@ public class CharacterMovement : MonoBehaviour
                 bIce = true;
             }
         }
+        */
 
         void OnTriggerEnter2D(Collider2D collision)
         {
@@ -341,5 +345,5 @@ public class CharacterMovement : MonoBehaviour
             {
                 bNeedle = true;
             }
-        }*/
+        }
     }
