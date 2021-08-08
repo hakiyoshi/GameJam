@@ -47,6 +47,9 @@ TextureImporter:
   - first:
       213: -4747872031406891487
     second: CHA&Gate_14
+  - first:
+      213: 4342706133109485233
+    second: CHA&Gate_15
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -139,12 +142,12 @@ TextureImporter:
       name: CHA&Gate_0
       rect:
         serializedVersion: 2
-        x: 16
+        x: 0
         y: 768
-        width: 225
+        width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -160,12 +163,12 @@ TextureImporter:
       name: CHA&Gate_1
       rect:
         serializedVersion: 2
-        x: 272
+        x: 256
         y: 768
-        width: 225
+        width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -181,12 +184,12 @@ TextureImporter:
       name: CHA&Gate_2
       rect:
         serializedVersion: 2
-        x: 530
+        x: 512
         y: 768
-        width: 225
+        width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -202,12 +205,12 @@ TextureImporter:
       name: CHA&Gate_3
       rect:
         serializedVersion: 2
-        x: 783
+        x: 768
         y: 768
-        width: 226
+        width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -223,12 +226,12 @@ TextureImporter:
       name: CHA&Gate_4
       rect:
         serializedVersion: 2
-        x: 27
+        x: 0
         y: 512
-        width: 202
-        height: 217
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -244,12 +247,12 @@ TextureImporter:
       name: CHA&Gate_5
       rect:
         serializedVersion: 2
-        x: 284
+        x: 256
         y: 512
-        width: 202
-        height: 217
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -265,12 +268,12 @@ TextureImporter:
       name: CHA&Gate_6
       rect:
         serializedVersion: 2
-        x: 539
+        x: 512
         y: 512
-        width: 202
-        height: 217
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -286,12 +289,12 @@ TextureImporter:
       name: CHA&Gate_7
       rect:
         serializedVersion: 2
-        x: 853
+        x: 768
         y: 512
-        width: 86
-        height: 175
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -307,12 +310,12 @@ TextureImporter:
       name: CHA&Gate_8
       rect:
         serializedVersion: 2
-        x: 62
+        x: 0
         y: 256
-        width: 133
-        height: 191
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -328,12 +331,12 @@ TextureImporter:
       name: CHA&Gate_9
       rect:
         serializedVersion: 2
-        x: 319
+        x: 256
         y: 256
-        width: 133
-        height: 191
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -349,12 +352,12 @@ TextureImporter:
       name: CHA&Gate_10
       rect:
         serializedVersion: 2
-        x: 574
+        x: 512
         y: 256
-        width: 133
-        height: 191
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -370,12 +373,12 @@ TextureImporter:
       name: CHA&Gate_11
       rect:
         serializedVersion: 2
-        x: 804
+        x: 768
         y: 0
-        width: 440
-        height: 412
+        width: 512
+        height: 512
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -388,36 +391,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CHA&Gate_12
-      rect:
-        serializedVersion: 2
-        x: 44
-        y: 0
-        width: 170
-        height: 149
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8527663e5bfb82660800000000000000
-      internalID: 7361344378862203480
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: CHA&Gate_13
       rect:
         serializedVersion: 2
-        x: 301
+        x: 0
         y: 0
-        width: 170
-        height: 149
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -433,12 +415,12 @@ TextureImporter:
       name: CHA&Gate_14
       rect:
         serializedVersion: 2
-        x: 557
+        x: 256
         y: 0
-        width: 170
-        height: 149
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -446,6 +428,27 @@ TextureImporter:
       bones: []
       spriteID: 12edaf0fa8b2c1eb0800000000000000
       internalID: -4747872031406891487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CHA&Gate_15
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bea6eb2834644c30800000000000000
+      internalID: 4342706133109485233
       vertices: []
       indices: 
       edges: []
