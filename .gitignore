@@ -69,3 +69,4 @@ GameJam/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
 # Temporary auto-generated Android Assets
 GameJam/[Aa]ssets/[Ss]treamingAssets/aa.meta
 GameJam/[Aa]ssets/[Ss]treamingAssets/aa/*
+GameJam/ProjectSettings/EditorBuildSettings.asset
