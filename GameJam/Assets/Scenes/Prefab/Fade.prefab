@@ -12,16 +12,10 @@ GameObject:
   - component: {fileID: 282944343562306364}
   - component: {fileID: 282944343562306367}
   - component: {fileID: 282944343562306366}
+  - component: {fileID: 282944343562306337}
   - component: {fileID: 282944343562306363}
   - component: {fileID: 282944343562306362}
-  - component: {fileID: 282944343562306337}
-<<<<<<< Updated upstream
   - component: {fileID: 1540522803483452246}
-  - component: {fileID: -1307492767310573992}
-=======
-  - component: {fileID: -2748777424488738705}
-  - component: {fileID: 7536711896744346588}
->>>>>>> Stashed changes
   m_Layer: 5
   m_Name: Fade
   m_TagString: Untagged
@@ -109,6 +103,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &282944343562306337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282944343562306336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07fba34ac6b9db541aba0819d4531d2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &282944343562306363
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -147,7 +153,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &282944343562306337
+--- !u!114 &1540522803483452246
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -155,48 +161,7 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 282944343562306336}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07fba34ac6b9db541aba0819d4531d2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
---- !u!114 &1540522803483452246
-=======
---- !u!114 &-2748777424488738705
->>>>>>> Stashed changes
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 282944343562306336}
-<<<<<<< Updated upstream
-  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c40515b08ebf12441b7d4f664346567f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &-1307492767310573992
-=======
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43a94036aa745004780a52236688f789, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &7536711896744346588
->>>>>>> Stashed changes
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 282944343562306336}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-<<<<<<< Updated upstream
-  m_Script: {fileID: 11500000, guid: 3576a944586d10f4b9c6177f1b9b12ee, type: 3}
-=======
-  m_Script: {fileID: 11500000, guid: 3accc16a0a78e7d4f8005e06052e4c9a, type: 3}
->>>>>>> Stashed changes
   m_Name: 
   m_EditorClassIdentifier: 
