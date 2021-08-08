@@ -8,9 +8,9 @@ public class RespawnPoint : MonoBehaviour
     [SerializeField] Transform Point;//リスポーンポイント
     
 
-    public Vector3 GetRespawnPoint()
+    public Transform GetRespawnPoint()
     {
-        return Point.position;
+        return Point;
     }
 
     public void SetRespawnPoint(Vector3 position)

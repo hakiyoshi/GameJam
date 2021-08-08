@@ -18,16 +18,24 @@ public class MoveGround : MonoBehaviour
 
     Vector2 Vec = Vector3.zero;
 
+    Rigidbody2D rb;
+
     // Start is called before the first frame update
     void Start()
     {
         this.transform.position = StartPosition.position;
+        rb = this.GetComponent<Rigidbody2D>();
+    }
+
+    private void Update()
+    {
+        
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        this.transform.position = Move(StartPosition.position, EndPosition.position, (float)FlameCount / (float)MoveFlame);
+        rb.position = Move(StartPosition.position, EndPosition.position, (float)FlameCount / (float)MoveFlame);
 
         if (MoveFlag)
         {
@@ -54,5 +62,13 @@ public class MoveGround : MonoBehaviour
         Vec = (End - Start) * Time;
 
         return Start + Vec;
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            this.transform.parent = collision.transform;
+        }
     }
 }

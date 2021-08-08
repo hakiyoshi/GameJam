@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerLastField : MonoBehaviour
 {
-    public Vector3 LastPosition { get; set; }//プレイヤーが最後に着地していた座標
+    public Vector2 LastPosition { get; set; }//プレイヤーが最後に着地していた座標
     public bool LastPosiFlag { get; set; }//最終地点を記録するかしないか
 
     // Start is called before the first frame update
@@ -17,7 +17,10 @@ public class PlayerLastField : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+#if UNITY_EDITOR
+        Debug.DrawLine(LastPosition + new Vector2(-1.0f, 0.0f), LastPosition + new Vector2(1.0f, 0.0f), Color.red);
+        Debug.DrawLine(LastPosition + new Vector2(0.0f, -1.0f), LastPosition + new Vector2(0.0f, 1.0f), Color.red);
+#endif
     }
 
     private void OnCollisionExit2D(Collision2D collision)

@@ -19,11 +19,14 @@ public class PlayerGimmick : MonoBehaviour
     private Rigidbody2D rb;//ï®óù
     private PlayerLastField last;//ç≈å„ÇÃíÖínì_
 
+    private BoxCollider2D box;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
         last = this.GetComponent<PlayerLastField>();
+        box = this.GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
@@ -68,7 +71,15 @@ public class PlayerGimmick : MonoBehaviour
         RespawnPoint rp = collision.gameObject.GetComponent<RespawnPoint>();
         if (rp != null)
         {
-            GimmickSet(rp.GetRespawnPoint());
+            Transform vec = rp.GetRespawnPoint();
+            if (vec == null)
+            {
+                GimmickSet(last.LastPosition);
+            }
+            else
+            {
+                GimmickSet(vec.position);
+            }
         }
         else
         {
@@ -82,7 +93,15 @@ public class PlayerGimmick : MonoBehaviour
         RespawnPoint rp = collision.gameObject.GetComponent<RespawnPoint>();
         if (rp != null)
         {
-            GimmickSet(rp.GetRespawnPoint());
+            Transform vec = rp.GetRespawnPoint();
+            if (vec == null)
+            {
+                GimmickSet(last.LastPosition);
+            }
+            else
+            {
+                GimmickSet(vec.position);
+            }
         }
         else
         {
