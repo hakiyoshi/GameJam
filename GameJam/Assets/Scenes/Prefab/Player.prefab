@@ -176,6 +176,7 @@ GameObject:
   - component: {fileID: 7973623528100968316}
   - component: {fileID: 5770438688439943418}
   - component: {fileID: 7973623528100968258}
+  - component: {fileID: 389151907053977559}
   - component: {fileID: 7973623528100968257}
   - component: {fileID: 6982812650805186677}
   - component: {fileID: 3200432026267776699}
@@ -301,6 +302,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &389151907053977559
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7973623528100968318}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 23a297e74d4d7434abf428ba33c5b4c6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &7973623528100968257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,7 +363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c84c5000b3d0526449b382880c9b026d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveFlame: 12
+  MoveFlame: 50
 --- !u!1 &7973623528665178923
 GameObject:
   m_ObjectHideFlags: 0
