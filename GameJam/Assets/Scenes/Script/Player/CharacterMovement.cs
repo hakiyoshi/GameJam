@@ -266,7 +266,7 @@ public class CharacterMovement : MonoBehaviour
                     Cols[i / 3].GetComponent<Renderer>().material.color = new Color(1, 1, 1, 1);
 
                     //針ギミックに当たったか
-                    if (hits[i].collider.gameObject.tag == "Needle" && bNeedle)
+                    if (hits[i].collider.gameObject.tag == "Needle")
                     {
                         //変更スプライトを針に設定
                         change_Sprite = NeedleSprite;
