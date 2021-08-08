@@ -136,22 +136,23 @@ public class CharacterMovement : MonoBehaviour
             }
         }
 
-
         //キー入力での移動処理
         if (Input.GetKey(KeyCode.D))
         {
             direction = MaxSpeed;
             
-            if(jumpCount == 2 && rotateZ == 0)
+            if(jumpCount == 2)
                 rotateY = 0;
         }
         else if (Input.GetKey(KeyCode.A))
         {
             direction = -MaxSpeed;
 
-            if (jumpCount == 2 && rotateZ == 0)
+            if (jumpCount == 2)
                 rotateY = 180;
         }
+
+
         //左右移動
         rb.position += new Vector2(direction, 0.0f);
 
@@ -191,7 +192,7 @@ public class CharacterMovement : MonoBehaviour
         //当たり判定用Ray
         RaycastHit2D[] hits = new RaycastHit2D[10];
         //rayの長さ
-        float end_distance = 1.8f;
+        float end_distance = 1.4f;
         //方向ベクトル
         Vector3[] Dire_Vec = { rb.transform.right * end_distance,       //右
                                     rb.transform.up * end_distance,     //上
@@ -356,6 +357,5 @@ public class CharacterMovement : MonoBehaviour
             {
                 bLava = true;
             }
-
     }
-    }
+}

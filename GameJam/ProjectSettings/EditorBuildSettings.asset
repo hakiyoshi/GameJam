@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Scene/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Scene/TitleTest_Kitauchi.unity
+    guid: ddbe1f80947e19143a7c40cb217afced
+  - enabled: 1
+    path: Assets/Scenes/Scene/Test_Kitauchi.unity
+    guid: 19db8f2337319c645a667f9e84df1790
   m_configObjects: {}
