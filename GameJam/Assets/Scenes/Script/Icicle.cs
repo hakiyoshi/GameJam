@@ -16,18 +16,23 @@ public class Icicle : MonoBehaviour
     public float Range;
     [Header("つららが落ちる速度")]
     public float YSpeed;
-    [Header("つららの復活する高さ(元々の高さ + 復活する高さ)")]
+    [Header("つららの復活する高さ")]
     public float YHight;
     [Header("つららが復活する速度")]
     public float ReSpeed;
     //つららが落下できる状態かフラグを立てる
+    //-2:移動なし -1:つらら生成 0:落下範囲の設定 1:つららの落下
     int Fall_Flag;
+    //プレイヤーのデスのフラグをゲットする
+    bool Re_Flag;
+    //PlayerGimmick のスクリプトをゲットする
+    private PlayerGimmick PG;
 
     // Start is called before the first frame update
     void Start()
     {
         //キャラクターのオブジェクトのコンポーネントを取得する
-        GameObject Charcter = GetComponent<GameObject>();
+        PG = Charcter.GetComponent<PlayerGimmick>();
         //つららの座標を取得
         Ice = this.transform.position;
         IcePos = Ice.y;
@@ -68,8 +73,13 @@ public class Icicle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Re_Flag = PG.GetHitMoveFlag();
         //フラグを判別して処理をする
-        if (Fall_Flag != -1)
+        if(Re_Flag == true)
+        {
+            Fall_Flag = -1;
+        }
+        if (Fall_Flag != -1 && Fall_Flag != -2)
         {
             //落下処理をする
             Fall();
@@ -88,7 +98,7 @@ public class Icicle : MonoBehaviour
         //つららを初期よりも少し大きめに設定する
         if (Fall_Flag == 1)
         {
-            Fall_Flag = -1;
+            Fall_Flag = -2;
             IcePos = Ice.y + YHight;
         }
     }
