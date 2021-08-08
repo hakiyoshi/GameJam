@@ -254,6 +254,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3200432026267776699, guid: b59aba602970da249954a76fb55a2aea, type: 3}
+      propertyPath: MoveFlame
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5770438688439943418, guid: b59aba602970da249954a76fb55a2aea, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7973623527324018709, guid: b59aba602970da249954a76fb55a2aea, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7973623527992815677, guid: b59aba602970da249954a76fb55a2aea, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7973623528100968258, guid: b59aba602970da249954a76fb55a2aea, type: 3}
       propertyPath: m_CollisionDetection
       value: 1
@@ -302,9 +318,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7973623528100968316, guid: b59aba602970da249954a76fb55a2aea, type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7973623528100968318, guid: b59aba602970da249954a76fb55a2aea, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7973623528665178921, guid: b59aba602970da249954a76fb55a2aea, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b59aba602970da249954a76fb55a2aea, type: 3}
