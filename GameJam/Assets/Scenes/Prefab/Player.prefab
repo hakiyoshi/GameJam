@@ -300,7 +300,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!95 &389151907053977559
 Animator:
@@ -336,7 +336,7 @@ MonoBehaviour:
   NeedleSprite: {fileID: 7605701695760223124, guid: 62533abae837b8b45a43451bb85a9f5e, type: 3}
   LavaSprite: {fileID: -8738991188577906888, guid: 62533abae837b8b45a43451bb85a9f5e, type: 3}
   IceSprite: {fileID: 1577048955958470783, guid: 62533abae837b8b45a43451bb85a9f5e, type: 3}
-  MaxSpeed: 0.03
+  MaxSpeed: 0.15
   dashPower: 1.28
   JumpPower: 1250
   Inertia: 0.93

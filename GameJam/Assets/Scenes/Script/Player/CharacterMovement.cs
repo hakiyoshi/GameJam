@@ -14,7 +14,6 @@ public class CharacterMovement : MonoBehaviour
     public Sprite LavaSprite;
     public Sprite IceSprite;
 
-    
     //Rigidbody2D
     Rigidbody2D rb;
 
@@ -24,13 +23,8 @@ public class CharacterMovement : MonoBehaviour
     //死亡時の表情変化用
     Animator anim;
 
-    //生死判定用のbool
-    bool bDeth;
-
-    //針ギミック用bool
-    bool bNeedle;
-    //マグマギミック用bool
-    bool bLava;
+    //移動可能か判定用のbool
+    bool bMove;
 
     //移動方向判別用
     [Header("移動速度")]
@@ -85,12 +79,8 @@ public class CharacterMovement : MonoBehaviour
         //アニメーター取得
         anim = this.GetComponent<Animator>();
 
-        //生死判定用のbool初期化
-        SetDeth(false);
-
-        //各ギミック判定用bool初期化
-        bNeedle = false;
-        bLava = false;
+        //移動可能判定bool初期化
+        SetMove(true);
 
         //移動方向用数値初期化
         direction = 0f;
@@ -105,9 +95,8 @@ public class CharacterMovement : MonoBehaviour
         //ジャンプカウント初期化
         jumpCount = 2;
     }
-
-    // Update is called once per frame
-    void Update()
+    /*
+    private void Update()
     {
         if (!PG.GetHitMoveFlag())
         {
@@ -123,10 +112,75 @@ public class CharacterMovement : MonoBehaviour
         //回転処理反映 
         this.rb.transform.eulerAngles = new Vector3(0, rotateY, rotateZ);
     }
+    */
+
+    void Update()
+    {
+        if (!PG.GetHitMoveFlag())
+        {
+            //生き返った時の表情変更
+            anim.SetBool("isDeth", false);
+
+            Jump();
+            StartCoroutine("Collision");
+        }
+        else
+        {
+            //死んだときの表情変更
+            anim.SetBool("isDeth", true);
+        }
+    }
+
+    void FixedUpdate()
+    {
+        if (!PG.GetHitMoveFlag())
+        {
+            //移動
+            Move();
+        }
+        //回転処理反映 
+        this.rb.transform.eulerAngles = new Vector3(0, rotateY, rotateZ);
+    }
 
     //キーボード入力等の処理
     void Move()
     {
+        //キー入力での移動処理
+        if (Input.GetKey(KeyCode.D))
+        {
+            direction = MaxSpeed;
+            
+            if(jumpCount == 2)
+                rotateY = 0;
+        }
+        else if (Input.GetKey(KeyCode.A))
+        {
+            direction = -MaxSpeed;
+
+            if (jumpCount == 2)
+                rotateY = 180;
+        }
+
+        //左右移動
+        rb.position += new Vector2(direction, 0.0f);
+
+        //疑似完成
+        direction *= Inertia;
+    }
+
+    void Jump()
+    {
+
+        //ダッシュ判定用
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            MaxSpeed *= dashPower;
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            MaxSpeed /= dashPower;
+        }
+
         //スペースキーを押したときのジャンプ処理
         if (Input.GetKeyDown(KeyCode.Space) && jumpCount != 0)
         {
@@ -150,38 +204,6 @@ public class CharacterMovement : MonoBehaviour
                 StartCoroutine("Rotation", 90);
             }
         }
-
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            MaxSpeed *= dashPower;
-        }
-        else if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            MaxSpeed /= dashPower;
-        }
-
-        //キー入力での移動処理
-        if (Input.GetKey(KeyCode.D))
-        {
-            direction = MaxSpeed;
-            
-            if(jumpCount == 2)
-                rotateY = 0;
-        }
-        else if (Input.GetKey(KeyCode.A))
-        {
-            direction = -MaxSpeed;
-
-            if (jumpCount == 2)
-                rotateY = 180;
-        }
-
-
-        //左右移動
-        rb.position += new Vector2(direction, 0.0f);
-
-        //疑似完成
-        direction *= Inertia;
     }
 
     //ジャンプ時の回転の処理(コルーチン)
@@ -329,14 +351,14 @@ public class CharacterMovement : MonoBehaviour
     }
 
     //生死判断用bool取得用
-    public bool GetDeth()
+    public bool GetMove()
     {
-        return bDeth;
+        return bMove;
     }
     //生死判断用bool設定用
-    public void SetDeth(bool set)
+    public void SetMove(bool set)
     {
-        bDeth = set;
+        bMove = set;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -371,18 +393,4 @@ public class CharacterMovement : MonoBehaviour
         }
         */
 
-        void OnTriggerEnter2D(Collider2D collision)
-        {
-            //針との当たり判定
-            if (collision.gameObject.CompareTag("Needle"))
-            {
-                bNeedle = true;
-            }
-
-            //マグマとの当たり判定
-            if (collision.gameObject.CompareTag("Lava"))
-            {
-                bLava = true;
-            }
-    }
 }
