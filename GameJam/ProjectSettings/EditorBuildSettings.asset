@@ -6,11 +6,16 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+<<<<<<< Updated upstream
     path: Assets/Scenes/Scene/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/Scene/TitleTest_Kitauchi.unity
     guid: ddbe1f80947e19143a7c40cb217afced
+=======
+    path: Assets/Scenes/Scene/HakiyoshiScene.unity
+    guid: 5b1cdd4c6d3c58e469503a39df2d53b3
+>>>>>>> Stashed changes
   - enabled: 1
     path: Assets/Scenes/Scene/Test_Kitauchi.unity
     guid: 19db8f2337319c645a667f9e84df1790
