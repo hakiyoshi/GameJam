@@ -8,6 +8,8 @@ public class MoveGround : MonoBehaviour
     public GameObject start;
     [Header("ゴールのゲームオブジェクト")]
     public GameObject end;
+    [Header("プレイヤーオブジェクト")]
+    public GameObject pl;
     [Header("移動量の調整0.0～1.0fの間に値")]
     public float MoveSpeed;
     //x座標の移動量
@@ -26,6 +28,10 @@ public class MoveGround : MonoBehaviour
     Vector3 PosS;
     //エンドのオブジェクトの座標を取得する
     Vector3 PosE;
+    //プレイヤーが乗っているか判定
+    bool Player_Flag;
+    //リッジトボディを宣言する
+    private Rigidbody2D rb;
     
     // Start is called before the first frame update
     void Start()
@@ -33,12 +39,14 @@ public class MoveGround : MonoBehaviour
         //ゲームオブジェクトのコンポーネントを取得する
         GameObject start = GetComponent<GameObject>();
         GameObject end = GetComponent<GameObject>();
+        rb = pl.GetComponent<Rigidbody2D>();
         //初期化フラグを倒す
         Init_Flag = false;
+        Player_Flag = false;
         //移動判別変数の初期化
         Norm = 0.5f;
     }
-
+    //移動の向きを変更する
     void TurnMove()
     {
         //移動量を反転する
@@ -48,7 +56,7 @@ public class MoveGround : MonoBehaviour
         Debug.Log("向きが変わる");
         Norm = 0.0f;
     }
-
+    //初期化
     void Init()
     {
         //取得したオブジェクトの座標を取得
@@ -77,12 +85,33 @@ public class MoveGround : MonoBehaviour
         Posx += Movex;
         Posy += Movey;
         Norm += MoveSpeed;
+        //座標を変更する
+        transform.position = new Vector2(Posx, Posy);
+        if(Player_Flag == true)
+        {
+            rb.transform.position = new Vector2(pl.transform.position.x + Movex,
+                pl.transform.position.y + Movey);
+        }
         //取得したオブジェクトの範囲を越えた場合の条件文
-        if(Norm > 1.0f)
+        if (Norm > 1.0f)
         {
             TurnMove();
         }
-        //座標を変更する
-        transform.position = new Vector2(Posx, Posy);
+    }
+    //プレイヤーオブジェクトがトリガーに入ったら
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if(collider.tag == "Player")
+        {
+            Player_Flag = true;
+        }
+    }
+    //プレイヤーオブジェクトがトリガーから抜けたら
+    private void OnTriggerExit2D(Collider2D collider)
+    {
+        if (collider.tag == "Player")
+        {
+            Player_Flag = false;
+        }
     }
 }
