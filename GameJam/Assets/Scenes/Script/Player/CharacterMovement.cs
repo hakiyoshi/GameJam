@@ -265,7 +265,7 @@ public class CharacterMovement : MonoBehaviour
                         change_Sprite = LavaSprite;
                     }
                     //氷ギミックに当たったか
-                    else if (hits[i].collider.gameObject.tag == "Ice")
+                    else if (hits[i].collider.gameObject.tag == "Ice" || hits[i].collider.gameObject.tag == "IceGround")
                     {
                         //変更スプライトを氷に設定
                         change_Sprite = IceSprite;
