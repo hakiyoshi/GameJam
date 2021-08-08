@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6611388405551541473}
   - component: {fileID: 6873129232955414350}
   - component: {fileID: 8346290920235553618}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: IceGroundWave
   m_TagString: IceGround
   m_Icon: {fileID: 0}

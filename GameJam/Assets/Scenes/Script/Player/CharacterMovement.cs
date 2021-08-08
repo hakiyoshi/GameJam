@@ -200,7 +200,7 @@ public class CharacterMovement : MonoBehaviour
                                     -rb.transform.up * end_distance};   //下 
         //rayの始点
         Vector3 sta_Position = new Vector3(this.rb.transform.position.x + this.GetComponent<BoxCollider2D>().offset.x
-                                         , this.rb.transform.position.y + this.GetComponent<BoxCollider2D>().offset.y + 0.1f);
+                                         , this.rb.transform.position.y + this.GetComponent<BoxCollider2D>().offset.y);
         //rayの終点配列
         Vector3[] end_Position = new Vector3[10];
 
