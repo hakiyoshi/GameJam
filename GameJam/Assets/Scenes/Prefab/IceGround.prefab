@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5965015276703511814}
   - component: {fileID: 6225630466172571305}
   - component: {fileID: 8850796116813056693}
+  - component: {fileID: 4276138191365639892}
   m_Layer: 6
   m_Name: IceGround
   m_TagString: IceGround
@@ -109,3 +110,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.12, y: 5.12}
   m_EdgeRadius: 0
+--- !u!114 &4276138191365639892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2487808079823389064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c2a803c153afc346b81f388bd5d74c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Point: {fileID: 0}

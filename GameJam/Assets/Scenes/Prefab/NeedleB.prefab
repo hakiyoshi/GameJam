@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 717674147587898652}
   - component: {fileID: 454943632413841364}
   - component: {fileID: 8627783578948270786}
+  - component: {fileID: 1219691501098850780}
   m_Layer: 6
   m_Name: NeedleB
   m_TagString: Needle
@@ -109,3 +110,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.32, y: 1.28}
   m_EdgeRadius: 0
+--- !u!114 &1219691501098850780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7199654742656727453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c2a803c153afc346b81f388bd5d74c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Point: {fileID: 0}
