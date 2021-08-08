@@ -20,6 +20,9 @@ public class CharacterMovement : MonoBehaviour
     //Gimmick取得用レイヤー
     LayerMask Gimmick_Layer;
 
+    //死亡時の表情変化用
+    Animator anim;
+
     //生死判定用のbool
     bool bDeth;
 
@@ -75,6 +78,9 @@ public class CharacterMovement : MonoBehaviour
         //物理演算コンポーネント取得
         rb = GetComponent<Rigidbody2D>();
 
+        //アニメーター取得
+        anim = this.GetComponent<Animator>();
+
         //生死判定用のbool初期化
         SetDeth(false);
 
@@ -101,8 +107,13 @@ public class CharacterMovement : MonoBehaviour
     {
         if (!PG.GetHitMoveFlag())
         {
+            anim.SetBool("isDeth", false);
             Move();
             StartCoroutine("Collision");
+        }
+        else
+        {
+            anim.SetBool("isDeth", true);
         }
 
         //回転処理反映 
@@ -190,7 +201,7 @@ public class CharacterMovement : MonoBehaviour
     IEnumerator Collision()
     {
         //当たり判定用Ray
-        RaycastHit2D[] hits = new RaycastHit2D[10];
+        RaycastHit2D[] hits = new RaycastHit2D[12];
         //rayの長さ
         float end_distance = 1.4f;
         //方向ベクトル
@@ -202,7 +213,7 @@ public class CharacterMovement : MonoBehaviour
         Vector3 sta_Position = new Vector3(this.rb.transform.position.x + this.GetComponent<BoxCollider2D>().offset.x
                                          , this.rb.transform.position.y + this.GetComponent<BoxCollider2D>().offset.y);
         //rayの終点配列
-        Vector3[] end_Position = new Vector3[10];
+        Vector3[] end_Position = new Vector3[12];
 
         //rayの各終点設定(上下座右)
         end_Position[0] = sta_Position + Dire_Vec[0];
@@ -215,10 +226,12 @@ public class CharacterMovement : MonoBehaviour
         end_Position[7] = end_Position[6] + Dire_Vec[1] / 2f;
         end_Position[8] = end_Position[6] + Dire_Vec[3] / 2f;
         end_Position[9] = sta_Position + Dire_Vec[3];
+        end_Position[10]= end_Position[9] + Dire_Vec[0] / 2f;
+        end_Position[11]= end_Position[9] + Dire_Vec[2] / 2f;
 
 
         //rayの各設定(上下座右)
-        for(int i = 0; i < hits.Length; i++)
+        for (int i = 0; i < hits.Length; i++)
             hits[i] = Physics2D.Linecast(sta_Position, end_Position[i], Gimmick_Layer);
 
         //変更スプライト格納用
@@ -265,7 +278,7 @@ public class CharacterMovement : MonoBehaviour
                         Cols[i / 3].GetComponent<SpriteRenderer>().sprite = change_Sprite;
 
                         //ギミックにヒットしたことを通知してチェックポイントに戻す
-                        PG.HitGimmick();
+                        PG.HitGimmick(hits[i].collider);
 
                         yield return new WaitForSeconds(0.2f);
 
@@ -286,7 +299,7 @@ public class CharacterMovement : MonoBehaviour
                         Cols[j].GetComponent<SpriteRenderer>().sprite = null;
                     }
 
-                    PG.HitGimmick();
+                    PG.HitGimmick(hits[i].collider);
                     yield return new WaitForSeconds(0.2f);
                     //各角度リセット
                     now_Rotate = rotateZ = 0f;
