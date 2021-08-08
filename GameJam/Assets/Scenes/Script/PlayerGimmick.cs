@@ -36,6 +36,12 @@ public class PlayerGimmick : MonoBehaviour
     {
         if (HitFlag)
         {
+#if UNITY_EDITOR
+            Debug.DrawLine(EndPosi + new Vector2(-1.0f, 0.0f), EndPosi + new Vector2(1.0f, 0.0f), Color.red);
+            Debug.DrawLine(EndPosi + new Vector2(0.0f, -1.0f), EndPosi + new Vector2(0.0f, 1.0f), Color.red);
+#endif
+
+
             rb.position = Move(StartPosi, EndPosi, (float)FlameCount / (float)MoveFlame);
             rb.velocity = new Vector2(rb.velocity.x, 0.0f);
 
@@ -59,13 +65,29 @@ public class PlayerGimmick : MonoBehaviour
     //ギミックに当たった時に呼ばれる関数
     public void HitGimmick(Collider2D collision)
     {
-        GimmickSet(last.LastPosition);
+        RespawnPoint rp = collision.gameObject.GetComponent<RespawnPoint>();
+        if (rp != null)
+        {
+            GimmickSet(rp.GetRespawnPoint());
+        }
+        else
+        {
+            GimmickSet(last.LastPosition);
+        }
     }
 
     //ギミックに当たった時に呼ばれる関数
     public void HitGimmick(Collision2D collision)
     {
-        GimmickSet(last.LastPosition);
+        RespawnPoint rp = collision.gameObject.GetComponent<RespawnPoint>();
+        if (rp != null)
+        {
+            GimmickSet(rp.GetRespawnPoint());
+        }
+        else
+        {
+            GimmickSet(last.LastPosition);
+        }
     }
 
     private void GimmickSet(Vector2 LastPosi)

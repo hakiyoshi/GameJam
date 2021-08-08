@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 735595041588487615}
   - component: {fileID: 735595041588487585}
   - component: {fileID: 53266915174153212}
+  - component: {fileID: 6605543319011086741}
   m_Layer: 6
   m_Name: DropLavaObject
   m_TagString: Lava
@@ -125,3 +126,16 @@ MonoBehaviour:
   DropIntervalFlame: 60
   Speed: 0.1
   DropObject: {fileID: 1066464262398419253, guid: 60f85731eaad8864095512aaed855e2a, type: 3}
+--- !u!114 &6605543319011086741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735595041588487612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c2a803c153afc346b81f388bd5d74c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Point: {fileID: 0}

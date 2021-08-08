@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class RespawnPoint : MonoBehaviour
 {
-    [SerializeField] Vector3 Point;//リスポーンポイント
 
+    [SerializeField] Transform Point;//リスポーンポイント
+    
 
     public Vector3 GetRespawnPoint()
     {
-        return Point;
+        return Point.position;
+    }
+
+    public void SetRespawnPoint(Vector3 position)
+    {
+        Point.position = position;
     }
 }
