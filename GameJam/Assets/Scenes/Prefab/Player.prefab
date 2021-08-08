@@ -268,7 +268,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0022439957, y: -0.004657924}
+  m_Offset: {x: -0.0022439957, y: -0.004657984}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -279,7 +279,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.2988997, y: 2.5904527}
+  m_Size: {x: 2.4241648, y: 2.5904527}
   m_EdgeRadius: 0
 --- !u!50 &7973623528100968258
 Rigidbody2D:
@@ -336,8 +336,9 @@ MonoBehaviour:
   NeedleSprite: {fileID: 7605701695760223124, guid: 62533abae837b8b45a43451bb85a9f5e, type: 3}
   LavaSprite: {fileID: -8738991188577906888, guid: 62533abae837b8b45a43451bb85a9f5e, type: 3}
   IceSprite: {fileID: 1577048955958470783, guid: 62533abae837b8b45a43451bb85a9f5e, type: 3}
-  MaxSpeed: 0.06
-  JumpPower: 1000
+  MaxSpeed: 0.03
+  dashPower: 1.28
+  JumpPower: 1250
   Inertia: 0.93
 --- !u!114 &6982812650805186677
 MonoBehaviour:

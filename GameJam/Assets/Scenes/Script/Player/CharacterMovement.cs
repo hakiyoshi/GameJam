@@ -14,6 +14,7 @@ public class CharacterMovement : MonoBehaviour
     public Sprite LavaSprite;
     public Sprite IceSprite;
 
+    
     //Rigidbody2D
     Rigidbody2D rb;
 
@@ -35,6 +36,9 @@ public class CharacterMovement : MonoBehaviour
     [Header("移動速度")]
     [SerializeField] float MaxSpeed;//最高速度
     float direction;
+
+    [Header("ダッシュ時移動速度")]
+    public float dashPower = 1.5f;
 
     [Header("ジャンプの高さ")]
     [SerializeField] float JumpPower;//ジャンプの高さ
@@ -145,6 +149,15 @@ public class CharacterMovement : MonoBehaviour
                 //回転処理開始
                 StartCoroutine("Rotation", 90);
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            MaxSpeed *= dashPower;
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            MaxSpeed /= dashPower;
         }
 
         //キー入力での移動処理
@@ -285,7 +298,8 @@ public class CharacterMovement : MonoBehaviour
                         //各角度リセット
                         now_Rotate = rotateZ = 0f;
                     }
-                        break;
+
+                    jumpCount = 2;
                 }
                 //足元に当たったら
                 else

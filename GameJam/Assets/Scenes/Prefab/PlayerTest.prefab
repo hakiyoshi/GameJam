@@ -258,6 +258,7 @@ GameObject:
   - component: {fileID: 5646426775338551224}
   - component: {fileID: 5646426775338551225}
   - component: {fileID: 5646426775338551222}
+  - component: {fileID: -2982337488014964706}
   - component: {fileID: 5646426775338551223}
   - component: {fileID: 5646426775338551220}
   - component: {fileID: 5646426775338551221}
@@ -377,12 +378,31 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 10
+  m_GravityScale: 5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &-2982337488014964706
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5646426775338551218}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 23a297e74d4d7434abf428ba33c5b4c6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &5646426775338551223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -398,8 +418,9 @@ MonoBehaviour:
   NeedleSprite: {fileID: 7605701695760223124, guid: 62533abae837b8b45a43451bb85a9f5e, type: 3}
   LavaSprite: {fileID: -8738991188577906888, guid: 62533abae837b8b45a43451bb85a9f5e, type: 3}
   IceSprite: {fileID: 1577048955958470783, guid: 62533abae837b8b45a43451bb85a9f5e, type: 3}
-  MaxSpeed: 0.06
-  JumpPower: 2000
+  MaxSpeed: 0.03
+  dashPower: 1.28
+  JumpPower: 1250
   Inertia: 0.93
 --- !u!114 &5646426775338551220
 MonoBehaviour:
@@ -425,4 +446,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c84c5000b3d0526449b382880c9b026d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveFlame: 12
+  MoveFlame: 50
