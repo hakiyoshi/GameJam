@@ -184,6 +184,8 @@ public class CharacterMovement : MonoBehaviour
         //スペースキーを押したときのジャンプ処理
         if (Input.GetKeyDown(KeyCode.Space) && jumpCount != 0)
         {
+            AudioManager.PlayAudio("Jamp",false,false);
+
             //物理演算リセット
             rb.velocity = Vector2.zero;
 
