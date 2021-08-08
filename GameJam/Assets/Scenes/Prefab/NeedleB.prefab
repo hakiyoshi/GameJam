@@ -10,8 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 717674147587898652}
   - component: {fileID: 454943632413841364}
-  - component: {fileID: 7389602433632991314}
-  - component: {fileID: 8979237958614267369}
+  - component: {fileID: 8627783578948270786}
   m_Layer: 6
   m_Name: NeedleB
   m_TagString: Needle
@@ -84,8 +83,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &7389602433632991314
-PolygonCollider2D:
+--- !u!61 &8627783578948270786
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -97,7 +96,7 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.64}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -107,24 +106,6 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.1614377, y: 0.0014127921}
-      - {x: 0.003446279, y: 1.2919981}
-      - {x: -0.15936592, y: 0.0013957354}
---- !u!58 &8979237958614267369
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7199654742656727453}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.00570786, y: 1.2802888}
   serializedVersion: 2
-  m_Radius: 0.032230377
+  m_Size: {x: 0.32, y: 1.28}
+  m_EdgeRadius: 0
