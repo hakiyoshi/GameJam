@@ -16,10 +16,12 @@ public class DropGimmick : MonoBehaviour
 
     private int FlameCount = 0;
 
+    private Transform rp;//リスポーンポイント
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        rp = this.GetComponent<RespawnPoint>().GetRespawnPoint();
     }
 
     // Update is called once per frame
@@ -33,7 +35,9 @@ public class DropGimmick : MonoBehaviour
         if (FlameCount == DropIntervalFlame)//指定のフレームで処理
         {
             GameObject CreateObj = GameObject.Instantiate(DropObject);
-            CreateObj.GetComponent<Drop>().SetSpeed(Speed);
+            Drop drop = CreateObj.GetComponent<Drop>();
+            drop.SetSpeed(Speed);
+            drop.GetComponent<RespawnPoint>().SetRespawnPoint(rp);
             CreateObj.transform.position = this.transform.position;
             FlameCount = 0;
         }

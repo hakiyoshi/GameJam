@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7480696916732717417}
   - component: {fileID: 7480696916732717422}
-  - component: {fileID: 4801054073355362371}
   - component: {fileID: 7480696916732717423}
   - component: {fileID: 7195393803839320557}
   m_Layer: 0
@@ -85,27 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &4801054073355362371
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7480696916732717418}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!61 &7480696916732717423
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -192,7 +170,7 @@ GameObject:
   m_Layer: 0
   m_Name: end
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -222,7 +200,7 @@ GameObject:
   m_Layer: 0
   m_Name: start
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -235,7 +213,7 @@ Transform:
   m_GameObject: {fileID: 7480696918402654008}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -0.48159, y: -0.48159, z: -0.48159}
   m_Children: []
   m_Father: {fileID: 7480696917680941403}
   m_RootOrder: 2

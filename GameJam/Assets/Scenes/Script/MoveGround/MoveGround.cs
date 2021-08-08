@@ -16,15 +16,14 @@ public class MoveGround : MonoBehaviour
 
     bool MoveFlag = true;
 
-    Vector2 Vec = Vector3.zero;
+    Vector2 Vec = Vector2.zero;
 
-    Rigidbody2D rb;
+    Rigidbody2D player;
 
     // Start is called before the first frame update
     void Start()
     {
-        this.transform.position = StartPosition.position;
-        rb = this.GetComponent<Rigidbody2D>();
+
     }
 
     private void Update()
@@ -35,7 +34,11 @@ public class MoveGround : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        rb.position = Move(StartPosition.position, EndPosition.position, (float)FlameCount / (float)MoveFlame);
+        Transform t = this.transform;
+
+        Vec = t.position;//事前に座標を避難
+        t.position = Move(StartPosition.position, EndPosition.position, (float)FlameCount / (float)MoveFlame);//移動先の座標を取得
+        Vec = new Vector2(t.position.x, t.position.y) - Vec;//移動ベクトルを作成
 
         if (MoveFlag)
         {
@@ -50,6 +53,11 @@ public class MoveGround : MonoBehaviour
         {
             MoveFlag = !MoveFlag;
         }
+
+        if (player != null)
+        {
+            player.position += Vec;
+        }
     }
 
 
@@ -59,16 +67,22 @@ public class MoveGround : MonoBehaviour
     //End終点　
     private Vector2 Move(Vector2 Start, Vector2 End, float Time)
     {
-        Vec = (End - Start) * Time;
-
-        return Start + Vec;
+        return Start + ((End - Start) * Time);
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            this.transform.parent = collision.transform;
+            player = collision.gameObject.GetComponent<Rigidbody2D>();
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            player = collision.gameObject.GetComponent<Rigidbody2D>();
         }
     }
 }
