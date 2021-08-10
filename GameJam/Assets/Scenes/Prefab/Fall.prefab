@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 744383442225408684}
   - component: {fileID: 744383442225408687}
   - component: {fileID: 744383442225408686}
+  - component: {fileID: -6203786205416381773}
   m_Layer: 0
   m_Name: Fall
   m_TagString: Fall
@@ -99,3 +100,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &-6203786205416381773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 744383442225408681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c2a803c153afc346b81f388bd5d74c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Point: {fileID: 0}

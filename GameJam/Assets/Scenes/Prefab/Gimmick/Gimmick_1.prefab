@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 8894835711848759426}
   - component: {fileID: 8894835711848759421}
-  - component: {fileID: 8894835711848759420}
   - component: {fileID: 5062964358579361384}
   - component: {fileID: 6185658795301797147}
-  m_Layer: 0
+  - component: {fileID: 8894835711848759420}
+  m_Layer: 6
   m_Name: Gimmick_1
-  m_TagString: Untagged
+  m_TagString: Ice
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85,23 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8894835711848759420
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8894835711848759423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 012902281ac9dbb4e9c2083df3855d85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Charcter: {fileID: 0}
-  Range: 0
-  YSpeed: 0
-  YHight: 0
-  ReSpeed: 0
 --- !u!60 &5062964358579361384
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -127,62 +110,9 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.24, y: -0.88}
-      - {x: 0.32999998, y: -0.59}
-      - {x: 0.37, y: -0.48}
-      - {x: 0.42, y: -0.35}
-      - {x: 0.47, y: -0.19}
-      - {x: 0.51, y: -0.06}
-      - {x: 0.59999996, y: 0.25}
-      - {x: 0.59999996, y: 0.48}
-      - {x: 0.59, y: 0.52}
-      - {x: 0.57, y: 0.56}
-      - {x: 0.59, y: 0.75}
-      - {x: 0.61, y: 0.9}
-      - {x: 0.71999997, y: 1.1899999}
-      - {x: 0.77, y: 1.3299999}
-      - {x: 0.85999995, y: 1.62}
-      - {x: 0.85999995, y: 1.7199999}
-      - {x: 0.84999996, y: 1.93}
-      - {x: 1.1, y: 2.4299998}
-      - {x: 1.18, y: 2.54}
-      - {x: 1.18, y: 2.55}
-      - {x: 1.17, y: 2.56}
-      - {x: -0.98999995, y: 2.56}
-      - {x: -1.04, y: 2.51}
-      - {x: -1.16, y: 2.44}
-      - {x: -1.1999999, y: 2.3899999}
-      - {x: -1.1999999, y: 2.33}
-      - {x: -1.0699999, y: 1.9599999}
-      - {x: -1.04, y: 1.87}
-      - {x: -0.98999995, y: 1.6899999}
-      - {x: -0.96999997, y: 1.63}
-      - {x: -0.96999997, y: 1.42}
-      - {x: -0.96, y: 1.3199999}
-      - {x: -0.93, y: 1.15}
-      - {x: -0.9, y: 1.03}
-      - {x: -0.83, y: 0.82}
-      - {x: -0.78, y: 0.65999997}
-      - {x: -0.72999996, y: 0.52}
-      - {x: -0.69, y: 0.42}
-      - {x: -0.59999996, y: 0.14999999}
-      - {x: -0.57, y: 0.02}
-      - {x: -0.48, y: -0.19}
-      - {x: -0.44, y: -0.32999998}
-      - {x: -0.44, y: -0.41}
-      - {x: -0.48999998, y: -0.53999996}
-      - {x: -0.48, y: -0.66999996}
-      - {x: -0.45, y: -0.76}
-      - {x: -0.38, y: -1}
-      - {x: -0.29999998, y: -1.3199999}
-      - {x: -0.24, y: -1.52}
-      - {x: -0.21, y: -1.65}
-      - {x: -0.16, y: -1.8199999}
-      - {x: -0.13, y: -1.8499999}
-      - {x: -0.099999994, y: -1.8399999}
-      - {x: -0.06, y: -1.78}
-      - {x: -0.01, y: -1.63}
-      - {x: 0.17, y: -1.1}
+    - - {x: -0.13335961, y: -1.9216357}
+      - {x: 1.2161679, y: 2.597095}
+      - {x: -1.2157743, y: 2.5827208}
 --- !u!50 &6185658795301797147
 Rigidbody2D:
   serializedVersion: 4
@@ -204,3 +134,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &8894835711848759420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8894835711848759423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 012902281ac9dbb4e9c2083df3855d85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Charcter: {fileID: 0}
+  Range: 2
+  YSpeed: 0.1
+  YHight: 5
+  ReSpeed: 0.1
