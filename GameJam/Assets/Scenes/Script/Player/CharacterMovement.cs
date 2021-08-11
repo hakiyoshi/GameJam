@@ -39,6 +39,7 @@ public class CharacterMovement : MonoBehaviour
 
     [Header("慣性 初期0.99")]
     [SerializeField] float Inertia;//慣性
+    private float UseInertia;//使う慣性
 
     //プレイヤーの角度用
     float rotateZ;
@@ -94,6 +95,9 @@ public class CharacterMovement : MonoBehaviour
 
         //ジャンプカウント初期化
         jumpCount = 2;
+
+        //慣性セット
+        UseInertia = Inertia;
     }
     /*
     private void Update()
@@ -165,7 +169,7 @@ public class CharacterMovement : MonoBehaviour
         rb.position += new Vector2(direction, 0.0f);
 
         //疑似完成
-        direction *= Inertia;
+        direction *= UseInertia;
     }
 
     void Jump()
@@ -370,29 +374,40 @@ public class CharacterMovement : MonoBehaviour
         {
             //ジャンプカウントリセット
             jumpCount = 2;
+            UseInertia = Inertia;//慣性を付ける
         }
     }
-        //当たり判定取得用(仮)
-        /*void OnCollisionEnter2D(Collision2D collision)
-        {
-            //地面との当たり判定
-            if (collision.gameObject.CompareTag("Ground"))
-            {
-                //ジャンプカウントリセット
-                jumpCount = 2;
-            }
 
-            //マグマとの当たり判定
-            if (collision.gameObject.CompareTag("Lava"))
-            {
-                bLava = true;
-            }
-            //氷との当たり判定
-            else if (collision.gameObject.CompareTag("Ice"))
-            {
-                bIce = true;
-            }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        //地面との当たり判定
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            UseInertia = 0.0f;//慣性を消す
         }
-        */
+    }
+
+    //当たり判定取得用(仮)
+    /*void OnCollisionEnter2D(Collision2D collision)
+    {
+        //地面との当たり判定
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            //ジャンプカウントリセット
+            jumpCount = 2;
+        }
+
+        //マグマとの当たり判定
+        if (collision.gameObject.CompareTag("Lava"))
+        {
+            bLava = true;
+        }
+        //氷との当たり判定
+        else if (collision.gameObject.CompareTag("Ice"))
+        {
+            bIce = true;
+        }
+    }
+    */
 
 }
