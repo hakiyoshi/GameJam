@@ -126,6 +126,7 @@ MonoBehaviour:
   DropIntervalFlame: 60
   Speed: 0.1
   DropObject: {fileID: 1066464262398419253, guid: 60f85731eaad8864095512aaed855e2a, type: 3}
+  DropStartLength: 50
 --- !u!114 &6605543319011086741
 MonoBehaviour:
   m_ObjectHideFlags: 0

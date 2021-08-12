@@ -14,14 +14,21 @@ public class DropGimmick : MonoBehaviour
     [Header("落とすオブジェクト")]
     [SerializeField] GameObject DropObject;//雫オブジェクト
 
+    [Header("ギミック作動距離")]
+    [SerializeField] float DropStartLength = 50.0f;
+
     private int FlameCount = 0;
 
     private Transform rp;//リスポーンポイント
+
+    private Transform player;
 
     // Start is called before the first frame update
     void Start()
     {
         rp = this.GetComponent<RespawnPoint>().GetRespawnPoint();
+
+        player = GameObject.Find("Player").transform;
     }
 
     // Update is called once per frame
@@ -42,6 +49,9 @@ public class DropGimmick : MonoBehaviour
             FlameCount = 0;
         }
 
-        FlameCount++;
+        if (Mathf.Abs(player.position.x - this.transform.position.x) <= DropStartLength)
+        {
+            FlameCount++;
+        }
     }
 }
