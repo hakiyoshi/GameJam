@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class Pause : MonoBehaviour
 {
+
+    public GameObject UI;
+
+    Animator anim;
+
     bool pause;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        anim = UI.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -21,8 +26,15 @@ public class Pause : MonoBehaviour
         }
 
         if (pause)
+        {
             Time.timeScale = 0f;
+        }
         else
+        {
             Time.timeScale = 1f;
+        }
+
+        anim.SetBool("isPause", pause);
     }
+
 }

@@ -82,7 +82,7 @@ public class MoveGround : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            player = collision.gameObject.GetComponent<Rigidbody2D>();
+            player = null;
         }
     }
 }

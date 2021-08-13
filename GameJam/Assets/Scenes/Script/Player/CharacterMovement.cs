@@ -99,24 +99,6 @@ public class CharacterMovement : MonoBehaviour
         //慣性セット
         UseInertia = Inertia;
     }
-    /*
-    private void Update()
-    {
-        if (!PG.GetHitMoveFlag())
-        {
-            anim.SetBool("isDeth", false);
-            Move();
-            StartCoroutine("Collision");
-        }
-        else
-        {
-            anim.SetBool("isDeth", true);
-        }
-
-        //回転処理反映 
-        this.rb.transform.eulerAngles = new Vector3(0, rotateY, rotateZ);
-    }
-    */
 
     void Update()
     {
@@ -125,8 +107,11 @@ public class CharacterMovement : MonoBehaviour
             //生き返った時の表情変更
             anim.SetBool("isDeth", false);
 
-            Jump();
-            StartCoroutine("Collision");
+            if (Time.timeScale != 0)
+            {
+                Jump();
+                StartCoroutine("Collision");
+            }
         }
         else
         {
@@ -242,7 +227,7 @@ public class CharacterMovement : MonoBehaviour
     IEnumerator Collision()
     {
         //当たり判定用Ray
-        RaycastHit2D[] hits = new RaycastHit2D[12];
+        RaycastHit2D[] hits = new RaycastHit2D[20];
         //rayの長さ
         float end_distance = 1.4f;
         //方向ベクトル
@@ -254,22 +239,32 @@ public class CharacterMovement : MonoBehaviour
         Vector3 sta_Position = new Vector3(this.rb.transform.position.x + this.GetComponent<BoxCollider2D>().offset.x
                                          , this.rb.transform.position.y + this.GetComponent<BoxCollider2D>().offset.y);
         //rayの終点配列
-        Vector3[] end_Position = new Vector3[12];
+        Vector3[] end_Position = new Vector3[20];
 
         //rayの各終点設定(上下座右)
         end_Position[0] = sta_Position + Dire_Vec[0];
-        end_Position[1] = end_Position[0] + Dire_Vec[1] / 2f;
-        end_Position[2] = end_Position[0] + Dire_Vec[3] / 2f;
-        end_Position[3] = sta_Position + Dire_Vec[1];
-        end_Position[4] = end_Position[3] + Dire_Vec[0] / 2f;
-        end_Position[5] = end_Position[3] + Dire_Vec[2] / 2f;
-        end_Position[6] = sta_Position + Dire_Vec[2];
-        end_Position[7] = end_Position[6] + Dire_Vec[1] / 2f;
-        end_Position[8] = end_Position[6] + Dire_Vec[3] / 2f;
-        end_Position[9] = sta_Position + Dire_Vec[3];
-        end_Position[10]= end_Position[9] + Dire_Vec[0] / 2f;
-        end_Position[11]= end_Position[9] + Dire_Vec[2] / 2f;
+        end_Position[1] = end_Position[0] + Dire_Vec[1] / 1.3f;
+        end_Position[2] = end_Position[0] + Dire_Vec[1] / 3f;
+        end_Position[3] = end_Position[0] + Dire_Vec[3] / 1.3f;
+        end_Position[4] = end_Position[0] + Dire_Vec[3] / 3f;
 
+        end_Position[5] = sta_Position + Dire_Vec[1];
+        end_Position[6] = end_Position[5] + Dire_Vec[0] / 1.3f;
+        end_Position[7] = end_Position[5] + Dire_Vec[0] / 3f;
+        end_Position[8] = end_Position[5] + Dire_Vec[2] / 1.3f;
+        end_Position[9] = end_Position[5] + Dire_Vec[2] / 3f;
+
+        end_Position[10]= sta_Position + Dire_Vec[2];
+        end_Position[11]= end_Position[10] + Dire_Vec[1] / 1.3f;
+        end_Position[12]= end_Position[10] + Dire_Vec[1] / 3f;
+        end_Position[13]= end_Position[10] + Dire_Vec[3] / 1.3f;
+        end_Position[14]= end_Position[10] + Dire_Vec[3] / 3f;
+
+        end_Position[15]= sta_Position + Dire_Vec[3];
+        end_Position[16]= end_Position[15] + Dire_Vec[0] / 1.3f;
+        end_Position[17]= end_Position[15] + Dire_Vec[0] / 3f;
+        end_Position[18]= end_Position[15] + Dire_Vec[2] / 1.3f;
+        end_Position[19]= end_Position[15] + Dire_Vec[2] / 3f;
 
         //rayの各設定(上下座右)
         for (int i = 0; i < hits.Length; i++)
@@ -288,10 +283,10 @@ public class CharacterMovement : MonoBehaviour
                 Debug.DrawLine(sta_Position, end_Position[i], Color.red);
 
                 //足元以外に当たったか
-                if (0 <= i && i <= 8)
+                if (0 <= i && i <= 14)
                 {
                     //当たった部分に色(耐性)を表示
-                    Cols[i / 3].GetComponent<Renderer>().material.color = new Color(1, 1, 1, 1);
+                    Cols[i / 5].GetComponent<Renderer>().material.color = new Color(1, 1, 1, 1);
 
                     //針ギミックに当たったか
                     if (hits[i].collider.gameObject.tag == "Needle")
@@ -313,10 +308,10 @@ public class CharacterMovement : MonoBehaviour
                     }
 
                     //当たった面がギミック耐性を持っていないか判定
-                    if (Cols[i / 3].GetComponent<SpriteRenderer>().sprite != change_Sprite)
+                    if (Cols[i / 5].GetComponent<SpriteRenderer>().sprite != change_Sprite)
                     {
                         //ギミックに対応した耐性を付与
-                        Cols[i / 3].GetComponent<SpriteRenderer>().sprite = change_Sprite;
+                        Cols[i / 5].GetComponent<SpriteRenderer>().sprite = change_Sprite;
 
                         //ギミックにヒットしたことを通知してチェックポイントに戻す
                         PG.HitGimmick(hits[i].collider);
@@ -328,6 +323,7 @@ public class CharacterMovement : MonoBehaviour
                     }
 
                     jumpCount = 2;
+                    break;
                 }
                 //足元に当たったら
                 else
@@ -386,28 +382,5 @@ public class CharacterMovement : MonoBehaviour
             UseInertia = 0.0f;//慣性を消す
         }
     }
-
-    //当たり判定取得用(仮)
-    /*void OnCollisionEnter2D(Collision2D collision)
-    {
-        //地面との当たり判定
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            //ジャンプカウントリセット
-            jumpCount = 2;
-        }
-
-        //マグマとの当たり判定
-        if (collision.gameObject.CompareTag("Lava"))
-        {
-            bLava = true;
-        }
-        //氷との当たり判定
-        else if (collision.gameObject.CompareTag("Ice"))
-        {
-            bIce = true;
-        }
-    }
-    */
 
 }
