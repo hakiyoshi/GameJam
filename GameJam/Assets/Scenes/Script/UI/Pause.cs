@@ -15,6 +15,8 @@ public class Pause : MonoBehaviour
     void Start()
     {
         anim = UI.GetComponent<Animator>();
+        pause = false;
+        UI.SetActive(pause);
     }
 
     // Update is called once per frame
@@ -23,6 +25,7 @@ public class Pause : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             pause = !pause;
+            anim.SetBool("isInfomation", false);
         }
 
         if (pause)
@@ -34,6 +37,7 @@ public class Pause : MonoBehaviour
             Time.timeScale = 1f;
         }
 
+        UI.SetActive(pause);
         anim.SetBool("isPause", pause);
     }
 

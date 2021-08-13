@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 744383442225408687}
   - component: {fileID: 744383442225408686}
   - component: {fileID: -6203786205416381773}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fall
   m_TagString: Fall
   m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}

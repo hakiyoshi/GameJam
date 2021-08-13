@@ -17,6 +17,8 @@ public class CharacterMovement : MonoBehaviour
     //Rigidbody2D
     Rigidbody2D rb;
 
+    BoxCollider2D bc;
+
     //Gimmick取得用レイヤー
     LayerMask Gimmick_Layer;
 
@@ -25,6 +27,8 @@ public class CharacterMovement : MonoBehaviour
 
     //移動可能か判定用のbool
     bool bMove;
+
+    bool bFall;
 
     //移動方向判別用
     [Header("移動速度")]
@@ -77,11 +81,15 @@ public class CharacterMovement : MonoBehaviour
         //物理演算コンポーネント取得
         rb = GetComponent<Rigidbody2D>();
 
+        bc = GetComponent<BoxCollider2D>();
+
         //アニメーター取得
         anim = this.GetComponent<Animator>();
 
         //移動可能判定bool初期化
         SetMove(true);
+
+        bFall = false;
 
         //移動方向用数値初期化
         direction = 0f;
@@ -110,13 +118,15 @@ public class CharacterMovement : MonoBehaviour
             if (Time.timeScale != 0)
             {
                 Jump();
-                StartCoroutine("Collision");
+                Collision();
+                bc.enabled = true;
             }
         }
         else
         {
             //死んだときの表情変更
             anim.SetBool("isDeth", true);
+            bc.enabled = false;
         }
     }
 
@@ -127,6 +137,7 @@ public class CharacterMovement : MonoBehaviour
             //移動
             Move();
         }
+
         //回転処理反映 
         this.rb.transform.eulerAngles = new Vector3(0, rotateY, rotateZ);
     }
@@ -224,7 +235,7 @@ public class CharacterMovement : MonoBehaviour
     }
 
     //Ray当たり判定取得用(開発中)&(コルーチン)
-    IEnumerator Collision()
+    void Collision()
     {
         //当たり判定用Ray
         RaycastHit2D[] hits = new RaycastHit2D[20];
@@ -236,13 +247,13 @@ public class CharacterMovement : MonoBehaviour
                                     -rb.transform.right * end_distance, //左
                                     -rb.transform.up * end_distance};   //下 
         //rayの始点
-        Vector3 sta_Position = new Vector3(this.rb.transform.position.x + this.GetComponent<BoxCollider2D>().offset.x
-                                         , this.rb.transform.position.y + this.GetComponent<BoxCollider2D>().offset.y);
+        Vector3 sta_Position = new Vector3(this.rb.transform.position.x
+                                         , this.rb.transform.position.y );
         //rayの終点配列
         Vector3[] end_Position = new Vector3[20];
 
         //rayの各終点設定(上下座右)
-        end_Position[0] = sta_Position + Dire_Vec[0];
+        end_Position[0] = sta_Position + Dire_Vec[0] * 0.9f;
         end_Position[1] = end_Position[0] + Dire_Vec[1] / 1.3f;
         end_Position[2] = end_Position[0] + Dire_Vec[1] / 3f;
         end_Position[3] = end_Position[0] + Dire_Vec[3] / 1.3f;
@@ -254,7 +265,7 @@ public class CharacterMovement : MonoBehaviour
         end_Position[8] = end_Position[5] + Dire_Vec[2] / 1.3f;
         end_Position[9] = end_Position[5] + Dire_Vec[2] / 3f;
 
-        end_Position[10]= sta_Position + Dire_Vec[2];
+        end_Position[10]= sta_Position + Dire_Vec[2] * 0.9f;
         end_Position[11]= end_Position[10] + Dire_Vec[1] / 1.3f;
         end_Position[12]= end_Position[10] + Dire_Vec[1] / 3f;
         end_Position[13]= end_Position[10] + Dire_Vec[3] / 1.3f;
@@ -306,17 +317,20 @@ public class CharacterMovement : MonoBehaviour
                         //変更スプライトを氷に設定
                         change_Sprite = IceSprite;
                     }
+                    else if(hits[i].collider.gameObject.tag == "Fall")
+                    {
+                        Deth();
+                        PG.HitGimmick(hits[i].collider);
+                    }
 
-                    //当たった面がギミック耐性を持っていないか判定
-                    if (Cols[i / 5].GetComponent<SpriteRenderer>().sprite != change_Sprite)
+                        //当たった面がギミック耐性を持っていないか判定
+                        if (Cols[i / 5].GetComponent<SpriteRenderer>().sprite != change_Sprite)
                     {
                         //ギミックに対応した耐性を付与
                         Cols[i / 5].GetComponent<SpriteRenderer>().sprite = change_Sprite;
 
                         //ギミックにヒットしたことを通知してチェックポイントに戻す
                         PG.HitGimmick(hits[i].collider);
-
-                        yield return new WaitForSeconds(0.2f);
 
                         //各角度リセット
                         now_Rotate = rotateZ = 0f;
@@ -328,19 +342,8 @@ public class CharacterMovement : MonoBehaviour
                 //足元に当たったら
                 else
                 {
-                    //全免疫削除処理
-                    for (int j = 0; j < Cols.Length; j++)
-                    {
-                        //全ての免疫を透明化
-                        Cols[j].GetComponent<Renderer>().material.color = new Color(1, 1, 1, 0);
-                        //ギミックに対応した耐性を付与
-                        Cols[j].GetComponent<SpriteRenderer>().sprite = null;
-                    }
-
+                    Deth();
                     PG.HitGimmick(hits[i].collider);
-                    yield return new WaitForSeconds(0.2f);
-                    //各角度リセット
-                    now_Rotate = rotateZ = 0f;
                 }
 
             }
@@ -350,6 +353,20 @@ public class CharacterMovement : MonoBehaviour
                 Debug.DrawLine(sta_Position, end_Position[i], Color.blue);
             }
         }
+    }
+
+    void Deth()
+    {
+        //全免疫削除処理
+        for (int j = 0; j < Cols.Length; j++)
+        {
+            //全ての免疫を透明化
+            Cols[j].GetComponent<Renderer>().material.color = new Color(1, 1, 1, 0);
+            //ギミックに対応した耐性を付与
+            Cols[j].GetComponent<SpriteRenderer>().sprite = null;
+        }
+        //各角度リセット
+        now_Rotate = rotateZ = 0f;
     }
 
     //生死判断用bool取得用
@@ -374,12 +391,28 @@ public class CharacterMovement : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    void OnCollisionExit2D(Collision2D collision)
     {
         //地面との当たり判定
         if (collision.gameObject.CompareTag("Ground"))
         {
             UseInertia = 0.0f;//慣性を消す
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Fall"))
+        {
+            bFall = true;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Fall"))
+        {
+            bFall = false;
         }
     }
 
