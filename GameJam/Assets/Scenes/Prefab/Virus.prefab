@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3659733678646516058}
   - component: {fileID: 3659733678646516061}
+  - component: {fileID: 523444153534664309}
   m_Layer: 0
   m_Name: Virus_S
   m_TagString: Untagged
@@ -52,6 +53,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RotationSpeed: 44.5
+--- !u!114 &523444153534664309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3659733678646516059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55a75f2f18057464496c5d13c505588c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BulletPrefab: {fileID: 3957707082638524945, guid: 0567663e6fd146342a3162bbf3481004, type: 3}
+  CreateFlame: 20
 --- !u!1 &3659733678698160341
 GameObject:
   m_ObjectHideFlags: 0
@@ -62,8 +77,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3659733678698160340}
   - component: {fileID: 3659733678698160343}
+  - component: {fileID: 677965172990386397}
   m_Layer: 0
-  m_Name: Virus_1
+  m_Name: Virus_8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -134,6 +150,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &677965172990386397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3659733678698160341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c47ba31a52afa346a699494c6739d15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3659733678938094257
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,8 +172,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3659733678938094256}
   - component: {fileID: 3659733678938094259}
+  - component: {fileID: 1361684359270275435}
   m_Layer: 0
-  m_Name: Virus_1
+  m_Name: Virus_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -216,6 +245,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1361684359270275435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3659733678938094257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c47ba31a52afa346a699494c6739d15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3659733679093401354
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,8 +267,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3659733679093401357}
   - component: {fileID: 3659733679093401356}
+  - component: {fileID: 6057140466183315225}
   m_Layer: 0
-  m_Name: Virus_1
+  m_Name: Virus_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -298,6 +340,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6057140466183315225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3659733679093401354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c47ba31a52afa346a699494c6739d15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3659733679213159088
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,8 +362,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3659733679213159091}
   - component: {fileID: 3659733679213159090}
+  - component: {fileID: 7811069935320057932}
   m_Layer: 0
-  m_Name: Virus_1
+  m_Name: Virus_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -380,6 +435,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7811069935320057932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3659733679213159088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c47ba31a52afa346a699494c6739d15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3659733679481089520
 GameObject:
   m_ObjectHideFlags: 0
@@ -390,8 +457,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3659733679481089523}
   - component: {fileID: 3659733679481089522}
+  - component: {fileID: 9058685948878753015}
   m_Layer: 0
-  m_Name: Virus_1
+  m_Name: Virus_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -462,6 +530,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &9058685948878753015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3659733679481089520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c47ba31a52afa346a699494c6739d15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3659733679642864889
 GameObject:
   m_ObjectHideFlags: 0
@@ -472,8 +552,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3659733679642864888}
   - component: {fileID: 3659733679642864891}
+  - component: {fileID: 5802656045620380053}
   m_Layer: 0
-  m_Name: Virus_1
+  m_Name: Virus_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -544,6 +625,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5802656045620380053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3659733679642864889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c47ba31a52afa346a699494c6739d15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3659733680139451502
 GameObject:
   m_ObjectHideFlags: 0
@@ -554,6 +647,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3659733680139451475}
   - component: {fileID: 3659733680139451472}
+  - component: {fileID: 5637804834861839780}
   m_Layer: 0
   m_Name: Virus
   m_TagString: Untagged
@@ -569,7 +663,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3659733680139451502}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -43.48, y: -8.52, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.6, y: 2.6, z: 1}
   m_Children:
   - {fileID: 3659733678646516058}
@@ -627,6 +721,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5637804834861839780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3659733680139451502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eafcabc102fdc61458bd4441b129444d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveSpeed: 0.1
 --- !u!1 &3659733680672513147
 GameObject:
   m_ObjectHideFlags: 0
@@ -637,6 +744,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3659733680672513146}
   - component: {fileID: 3659733680672513149}
+  - component: {fileID: 764195972028576919}
   m_Layer: 0
   m_Name: Virus_1
   m_TagString: Untagged
@@ -709,6 +817,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &764195972028576919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3659733680672513147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c47ba31a52afa346a699494c6739d15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3659733680692104155
 GameObject:
   m_ObjectHideFlags: 0
@@ -719,8 +839,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3659733680692104154}
   - component: {fileID: 3659733680692104157}
+  - component: {fileID: 2499650755452941983}
   m_Layer: 0
-  m_Name: Virus_1
+  m_Name: Virus_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -791,3 +912,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2499650755452941983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3659733680692104155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c47ba31a52afa346a699494c6739d15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
