@@ -14,11 +14,11 @@ public class Icicle : MonoBehaviour
     float IcePos;
     [Header("つららが反応する範囲")]
     public float Range;
-    [Header("つららが落ちる速度")]
+    [Header("つららが落ちる速度0.0f～1.0f")]
     public float YSpeed;
     [Header("つららの復活する高さ")]
     public float YHight;
-    [Header("つららが復活する速度")]
+    [Header("つららが復活する速度0.0f～1.0f")]
     public float ReSpeed;
     //つららが落下できる状態かフラグを立てる
     //-2:移動なし -1:つらら生成 0:落下範囲の設定 1:つららの落下

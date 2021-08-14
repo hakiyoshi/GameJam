@@ -6,7 +6,7 @@ public class MoveNeedle : MonoBehaviour
 {
     [Header("棘が向いている角度")]
     public float AngleZ;
-    [Header("移動距離")]
+    [Header("針が下がる長さ")]
     public float Dis;
     [Header("移動するスピード0.0f ~ 1.0f")]
     public float Speed;
@@ -36,7 +36,7 @@ public class MoveNeedle : MonoBehaviour
         //カウントをスピード分増加させる
         Count += Speed;
         //現在の座標から移動量を足す
-        this.transform.position += MoveSpeed;
+        this.transform.position -= MoveSpeed;
         //もしも、カウントが1になったら
         if(Count >= 1.0f)
         {
