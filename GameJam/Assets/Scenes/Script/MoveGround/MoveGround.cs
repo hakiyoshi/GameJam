@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 public class MoveGround : MonoBehaviour
 {
     [Header("開始位置の座標")]
@@ -20,16 +24,36 @@ public class MoveGround : MonoBehaviour
 
     Rigidbody2D player;
 
-    // Start is called before the first frame update
-    void Start()
+#if UNITY_EDITOR
+    private void OnDrawGizmos()
     {
+        Gizmos.color = Color.gray;
+        Gizmos.DrawLine(StartPosition.position, EndPosition.position);
 
+        DrawGizmosBox(StartPosition.position, 0.1f);
+        DrawGizmosBox(EndPosition.position, 0.1f);
+
+        if(!EditorApplication.isPlaying)
+            this.transform.position = StartPosition.position;
     }
 
-    private void Update()
+    private void OnDrawGizmosSelected()
     {
-        
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawLine(StartPosition.position, EndPosition.position);
+
+        DrawGizmosBox(StartPosition.position, 0.1f);
+        DrawGizmosBox(EndPosition.position, 0.1f);
     }
+
+    void DrawGizmosBox(Vector3 posi, float radius)
+    {
+        Gizmos.DrawLine(new Vector3(posi.x - radius, posi.y + radius, 0.0f), new Vector3(posi.x + radius, posi.y + radius, 0.0f));//上
+        Gizmos.DrawLine(new Vector3(posi.x - radius, posi.y - radius, 0.0f), new Vector3(posi.x + radius, posi.y - radius, 0.0f));//下
+        Gizmos.DrawLine(new Vector3(posi.x - radius, posi.y + radius, 0.0f), new Vector3(posi.x - radius, posi.y - radius, 0.0f));//左
+        Gizmos.DrawLine(new Vector3(posi.x + radius, posi.y + radius, 0.0f), new Vector3(posi.x + radius, posi.y - radius, 0.0f));//右
+    }
+#endif
 
     // Update is called once per frame
     void FixedUpdate()
