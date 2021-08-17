@@ -17,7 +17,7 @@ public class CharacterMovement : MonoBehaviour
     //Rigidbody2D
     Rigidbody2D rb;
 
-    CapsuleCollider2D bc;
+    BoxCollider2D bc;
 
     //Gimmick取得用レイヤー
     LayerMask Gimmick_Layer;
@@ -81,7 +81,7 @@ public class CharacterMovement : MonoBehaviour
         //物理演算コンポーネント取得
         rb = GetComponent<Rigidbody2D>();
 
-        bc = GetComponent<CapsuleCollider2D>();
+        bc = GetComponent<BoxCollider2D>();
 
         //アニメーター取得
         anim = this.GetComponent<Animator>();

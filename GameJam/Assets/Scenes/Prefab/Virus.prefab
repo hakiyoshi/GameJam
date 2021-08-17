@@ -66,7 +66,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BulletPrefab: {fileID: 3957707082638524945, guid: 0567663e6fd146342a3162bbf3481004, type: 3}
-  ReloadFlame: 120
+  CreateFlame: 20
 --- !u!1 &3659733678698160341
 GameObject:
   m_ObjectHideFlags: 0
@@ -663,7 +663,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3659733680139451502}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.8, y: 8.2, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.6, y: 2.6, z: 1}
   m_Children:
   - {fileID: 3659733678646516058}
@@ -733,8 +733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eafcabc102fdc61458bd4441b129444d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CameraShift: {x: -21.5, y: 4, z: 0}
-  MoveFlag: 0
+  MoveSpeed: 0.1
 --- !u!1 &3659733680672513147
 GameObject:
   m_ObjectHideFlags: 0
