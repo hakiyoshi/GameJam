@@ -19,14 +19,14 @@ public class PlayerGimmick : MonoBehaviour
     private Rigidbody2D rb;//物理
     private PlayerLastField last;//最後の着地点
 
-    private BoxCollider2D box;
+    private Collider2D coll;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
         last = this.GetComponent<PlayerLastField>();
-        box = this.GetComponent<BoxCollider2D>();
+        coll = this.GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
@@ -55,6 +55,7 @@ public class PlayerGimmick : MonoBehaviour
                 HitFlag = false;
                 FlameCount = 0;
                 rb.position = EndPosi;
+                coll.enabled = true;
             }
         }
     }
@@ -115,6 +116,7 @@ public class PlayerGimmick : MonoBehaviour
         StartPosi = rb.position;
         last.LastPosiFlag = false;
         HitFlag = true;
+        coll.enabled = false;
     }
     
     //ヒットした際指定した場所に移動中かを確認する関数

@@ -17,6 +17,7 @@ public class ChangeCamera : MonoBehaviour
     private CinemachineDollyCart cart;
     private float speed;
 
+
     private bool moveflag = true;//ˆÚ“®ƒtƒ‰ƒO
 
     // Start is called before the first frame update
@@ -72,5 +73,10 @@ public class ChangeCamera : MonoBehaviour
         maincamera.Priority = 0;
         dollycart.Priority = 10;
         cart.m_Speed = speed;
+    }
+
+    bool GetModeFlag()
+    {
+        return cart.m_Speed == 0.0f ? false : true;
     }
 }
