@@ -350,8 +350,8 @@ public class CharacterMovement : MonoBehaviour
                         PG.HitGimmick(hits[i].collider);
                     }
 
-                        //当たった面がギミック耐性を持っていないか判定
-                        if (Cols[i / 5].GetComponent<SpriteRenderer>().sprite != change_Sprite)
+                    //当たった面がギミック耐性を持っていないか判定
+                    if (Cols[i / 5].GetComponent<SpriteRenderer>().sprite != change_Sprite)
                     {
                         //ギミックに対応した耐性を付与
                         Cols[i / 5].GetComponent<SpriteRenderer>().sprite = change_Sprite;
@@ -416,12 +416,19 @@ public class CharacterMovement : MonoBehaviour
             jumpCount = 2;
             UseInertia = Inertia;//慣性を付ける
         }
+
+        //氷の地面との当たり判定
+        if (collision.gameObject.CompareTag("IceGround"))
+        {
+            //慣性を多めに付ける
+            UseInertia = 0.995f;
+        }
     }
 
     void OnCollisionExit2D(Collision2D collision)
     {
         //地面との当たり判定
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground") && !collision.gameObject.CompareTag("IceGround"))
         {
             UseInertia = 0.0f;//慣性を消す
         }

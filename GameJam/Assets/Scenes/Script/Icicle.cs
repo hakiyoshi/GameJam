@@ -92,11 +92,21 @@ public class Icicle : MonoBehaviour
         //オブジェクトの座標を変更する
         transform.position = new Vector2(Ice.x, IcePos);
     }
+
     //コリジョンの判定する
     void OnTriggerEnter2D(Collider2D collider)
     {
         //つららを初期よりも少し大きめに設定する
         if (Fall_Flag == 1)
+        {
+            Fall_Flag = -2;
+            IcePos = Ice.y + YHight;
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
         {
             Fall_Flag = -2;
             IcePos = Ice.y + YHight;
