@@ -17,7 +17,7 @@ public class CharacterMovement : MonoBehaviour
     //Rigidbody2D
     Rigidbody2D rb;
 
-    BoxCollider2D bc;
+    CapsuleCollider2D bc;
 
     //Gimmick取得用レイヤー
     LayerMask Gimmick_Layer;
@@ -81,7 +81,7 @@ public class CharacterMovement : MonoBehaviour
         //物理演算コンポーネント取得
         rb = GetComponent<Rigidbody2D>();
 
-        bc = GetComponent<BoxCollider2D>();
+        bc = GetComponent<CapsuleCollider2D>();
 
         //アニメーター取得
         anim = this.GetComponent<Animator>();
@@ -140,7 +140,6 @@ public class CharacterMovement : MonoBehaviour
 
         //回転処理反映 
         this.rb.transform.eulerAngles = new Vector3(0, rotateY, rotateZ);
-
     }
 
     //キーボード入力等の処理
@@ -363,7 +362,7 @@ public class CharacterMovement : MonoBehaviour
                         now_Rotate = rotateZ = 0f;
                     }
 
-                    jumpCount = 2;
+                    jumpCount = 1;
                     break;
                 }
                 //足元に当たったら
