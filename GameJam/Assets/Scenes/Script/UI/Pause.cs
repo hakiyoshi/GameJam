@@ -67,8 +67,6 @@ public class Pause : MonoBehaviour
         }
 
         anim.SetBool("isPause", bPause);
-
-        Debug.Log(bRetry);
     }
 
     public void OnClickInfomationEnter()
