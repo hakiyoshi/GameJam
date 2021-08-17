@@ -18,6 +18,12 @@ public class AudioController : MonoBehaviour
     private float loopstart;
     private float loopend;
 
+
+#if UNITY_EDITOR
+    public float Time;
+    public float SetTime = 0.0f;
+#endif
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +33,16 @@ public class AudioController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+#if UNITY_EDITOR
+        Time = setaudio.time;
+
+        if (SetTime != 0.0f)
+        {
+            setaudio.time = SetTime;
+            SetTime = 0.0f;
+        }
+#endif
+
         if (setaudio.loop && loopend != 0.0f)//ループ状態で終わりが設定されている場合
         {
             if (setaudio.time >= loopend)//再生位置が指定した場所にたどり着いたら
@@ -122,5 +138,11 @@ public class AudioController : MonoBehaviour
     {
         setaudio.Stop();
         this.gameObject.SetActive(false);
+    }
+
+    //曲の最後まで再生
+    public void EndStop()
+    {
+        setaudio.loop = false;
     }
 }

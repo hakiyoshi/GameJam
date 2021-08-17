@@ -55,3 +55,8 @@ MonoBehaviour:
     audiotype: 0
     loopstart: 0
     loopend: 0
+  - name: Continue
+    audioclip: {fileID: 8300000, guid: 4c66dfadfa6f37543a3cfde60129499e, type: 3}
+    audiotype: 0
+    loopstart: 20.949
+    loopend: 72.815

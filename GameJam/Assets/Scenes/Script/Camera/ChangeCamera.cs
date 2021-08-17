@@ -77,6 +77,7 @@ public class ChangeCamera : MonoBehaviour
 
     bool GetModeFlag()
     {
+        //false 
         return cart.m_Speed == 0.0f ? false : true;
     }
 }
