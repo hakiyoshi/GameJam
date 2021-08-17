@@ -140,6 +140,7 @@ public class CharacterMovement : MonoBehaviour
 
         //回転処理反映 
         this.rb.transform.eulerAngles = new Vector3(0, rotateY, rotateZ);
+
     }
 
     //キーボード入力等の処理
@@ -149,16 +150,39 @@ public class CharacterMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             direction = MaxSpeed;
-            
-            if(jumpCount == 2)
+
+            if (jumpCount == 2)
+            {
+                //プレイヤーの左右反転
                 rotateY = 0;
+
+                //耐性が壁に埋もれないように修正
+                for (int i = 0; i < Cols.Length; i++)
+                {
+                    Cols[i].transform.localPosition = new Vector3(Cols[i].transform.localPosition.x,
+                                                                  Cols[i].transform.localPosition.y,
+                                                                  -1f);
+                }
+            }
         }
         else if (Input.GetKey(KeyCode.A))
         {
             direction = -MaxSpeed;
 
             if (jumpCount == 2)
+            {
+                //プレイヤーの左右反転
                 rotateY = 180;
+
+                //耐性が壁に埋もれないように修正
+                for (int i = 0; i < Cols.Length; i++)
+                {
+                    Cols[i].transform.localPosition = new Vector3(Cols[i].transform.localPosition.x,
+                                                                  Cols[i].transform.localPosition.y,
+                                                                  3f);
+                }
+            }
+
         }
 
         //左右移動
@@ -252,25 +276,28 @@ public class CharacterMovement : MonoBehaviour
         //rayの終点配列
         Vector3[] end_Position = new Vector3[20];
 
-        //rayの各終点設定(上下座右)
+        //rayの各終点設定(右)
         end_Position[0] = sta_Position + Dire_Vec[0] * 0.9f;
         end_Position[1] = end_Position[0] + Dire_Vec[1] / 1.3f;
         end_Position[2] = end_Position[0] + Dire_Vec[1] / 3f;
         end_Position[3] = end_Position[0] + Dire_Vec[3] / 1.3f;
         end_Position[4] = end_Position[0] + Dire_Vec[3] / 3f;
 
+        //rayの各終点設定(上)
         end_Position[5] = sta_Position + Dire_Vec[1];
         end_Position[6] = end_Position[5] + Dire_Vec[0] / 1.3f;
         end_Position[7] = end_Position[5] + Dire_Vec[0] / 3f;
         end_Position[8] = end_Position[5] + Dire_Vec[2] / 1.3f;
         end_Position[9] = end_Position[5] + Dire_Vec[2] / 3f;
 
+        //rayの各終点設定(左)
         end_Position[10]= sta_Position + Dire_Vec[2] * 0.9f;
         end_Position[11]= end_Position[10] + Dire_Vec[1] / 1.3f;
         end_Position[12]= end_Position[10] + Dire_Vec[1] / 3f;
         end_Position[13]= end_Position[10] + Dire_Vec[3] / 1.3f;
         end_Position[14]= end_Position[10] + Dire_Vec[3] / 3f;
 
+        //rayの各終点設定(下)
         end_Position[15]= sta_Position + Dire_Vec[3];
         end_Position[16]= end_Position[15] + Dire_Vec[0] / 1.3f;
         end_Position[17]= end_Position[15] + Dire_Vec[0] / 3f;
@@ -402,6 +429,7 @@ public class CharacterMovement : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        //落とし穴との当たり判定
         if (collision.gameObject.CompareTag("Fall"))
         {
             bFall = true;
@@ -410,6 +438,7 @@ public class CharacterMovement : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D collision)
     {
+        //落とし穴との当たり判定リセット
         if (collision.gameObject.CompareTag("Fall"))
         {
             bFall = false;
