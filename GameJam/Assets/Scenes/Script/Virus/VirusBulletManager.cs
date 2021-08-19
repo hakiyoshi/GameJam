@@ -47,7 +47,7 @@ public class VirusBulletManager : MonoBehaviour
     //プレイヤーへの方向ベクトル　正規化済
     public Vector3 CalPlayerVec(Vector3 Position)
     {
-        return Vector3.Normalize(player.position - Position);
+        return Vector3.Normalize(Quaternion.AngleAxis(30.0f, new Vector3(0.0f, 0.0f, 1.0f)) * new Vector3(1.0f, 0.0f, 0.0f));
     }
 
     //生成時間総フレーム数取得

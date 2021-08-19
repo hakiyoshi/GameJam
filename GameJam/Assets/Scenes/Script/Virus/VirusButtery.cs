@@ -40,6 +40,8 @@ public class VirusButtery : MonoBehaviour
         {
             ShotBullet();
         }
+
+        Debug.Log(this.transform.localRotation.eulerAngles);
     }
 
     private void FixedUpdate()
@@ -63,7 +65,13 @@ public class VirusButtery : MonoBehaviour
     //弾発射
     void ShotBullet()
     {
-        bulletmana.CreateBullet(this.gameObject);
+        float random = 0.0f;
+        Random.InitState(System.DateTime.Now.Millisecond);//シード値設定
+        random = Random.Range(0.0f, 30.0f);//乱数生成
+
+        GameObject shot = bulletmana.CreateBullet(this.gameObject);
+        shot.GetComponent<VirusBullet>().CreateSet(bulletmana.transform.parent, random);
+
         beginbullet = false;
         this.transform.localPosition = Vector3.zero;
     }

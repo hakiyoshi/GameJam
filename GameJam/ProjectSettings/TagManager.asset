@@ -12,6 +12,7 @@ TagManager:
   - LavaDrop
   - Fall
   - IceGround
+  - VirusBullet
   layers:
   - Default
   - TransparentFX
