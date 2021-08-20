@@ -79,4 +79,14 @@ public class VirusBullet : MonoBehaviour
         this.fallposi = fallposi;
     }
 
+#if UNITY_EDITOR
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(CalFallPosition(), CalFallPosition() + new Vector3(0.0f, -100.0f, 0.0f));
+    }
+
+#endif
+
 }

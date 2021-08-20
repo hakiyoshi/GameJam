@@ -16,6 +16,10 @@ public class VirusBulletManager : MonoBehaviour
     //プレイヤー座標
     private Transform player;
 
+    //弾発射クールタイム
+    public const int COOLTIME = 1;//一回撃ったらCOOLTIME回数分撃たない
+    private int CountCoolTime = 0;//クールタイムカウント用
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,12 +32,6 @@ public class VirusBulletManager : MonoBehaviour
 
         //プレイヤー座標受け取る
         player = GameObject.Find("Player").transform;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public GameObject CreateBullet(GameObject obje)
@@ -56,4 +54,27 @@ public class VirusBulletManager : MonoBehaviour
         return ReloadFlame;
     }
 
+    //指定したタイムを加算
+    public void AddCoolTime(int addtime)
+    {
+        CountCoolTime += addtime;
+    }
+
+    //ゲッター
+    public int GetCoolTime()
+    {
+        return CountCoolTime;
+    }
+
+    //セッター
+    public void SetCoolTime(int settime)
+    {
+        CountCoolTime = settime;
+    }
+
+    //指定したCoolTime以上になっていたらtrue
+    public bool GetIfCoolTime(int CoolTime = COOLTIME)
+    {
+        return CountCoolTime >= CoolTime ? true : false;
+    }
 }
