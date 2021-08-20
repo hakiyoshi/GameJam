@@ -14,8 +14,12 @@ public class CharacterMovement : MonoBehaviour
     public Sprite LavaSprite;
     public Sprite IceSprite;
 
+
+    [SerializeField]float end_distance = 1.1f;
+
     //Rigidbody2D
     Rigidbody2D rb;
+
 
     CapsuleCollider2D bc;
 
@@ -29,6 +33,9 @@ public class CharacterMovement : MonoBehaviour
     bool bMove;
 
     bool bFall;
+
+    bool bRight;
+    bool bLeft;
 
     //移動方向判別用
     [Header("移動速度")]
@@ -91,6 +98,10 @@ public class CharacterMovement : MonoBehaviour
 
         bFall = false;
 
+        bRight = false;
+
+        bLeft = false;
+
         //移動方向用数値初期化
         direction = 0f;
 
@@ -128,6 +139,8 @@ public class CharacterMovement : MonoBehaviour
             anim.SetBool("isDeth", true);
             bc.enabled = false;
         }
+
+
     }
 
     void FixedUpdate()
@@ -137,9 +150,14 @@ public class CharacterMovement : MonoBehaviour
             //移動
             Move();
         }
+        else
+        {
+            MaxSpeed = 0.15f;
+        }
 
         //回転処理反映 
         this.rb.transform.eulerAngles = new Vector3(0, rotateY, rotateZ);
+            
     }
 
     //キーボード入力等の処理
@@ -149,6 +167,8 @@ public class CharacterMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             direction = MaxSpeed;
+            bRight = true; 
+            bLeft = false;
 
             if (jumpCount == 2)
             {
@@ -167,7 +187,8 @@ public class CharacterMovement : MonoBehaviour
         else if (Input.GetKey(KeyCode.A))
         {
             direction = -MaxSpeed;
-
+            bRight = false;
+            bLeft = true;
             if (jumpCount == 2)
             {
                 //プレイヤーの左右反転
@@ -181,7 +202,11 @@ public class CharacterMovement : MonoBehaviour
                                                                   3f);
                 }
             }
-
+        }
+        else
+        {
+            bRight = false;
+            bLeft = false;
         }
 
         //左右移動
@@ -247,8 +272,8 @@ public class CharacterMovement : MonoBehaviour
         //回転処理実行
         while (time <= 0.2f)
         {
-                //今の角度から90度回転
-                rotateZ = Mathf.Lerp(now_Rotate - angle, now_Rotate, time / 0.1f);
+            //今の角度から90度回転
+            rotateZ = Mathf.Lerp(now_Rotate - angle, now_Rotate, time / 0.1f);
 
             //インターバル加算
             time += Time.deltaTime;
@@ -262,13 +287,12 @@ public class CharacterMovement : MonoBehaviour
     {
         //当たり判定用Ray
         RaycastHit2D[] hits = new RaycastHit2D[20];
-        //rayの長さ
-        float end_distance = 1.4f;
+
         //方向ベクトル
-        Vector3[] Dire_Vec = { rb.transform.right * end_distance,       //右
-                                    rb.transform.up * end_distance,     //上
-                                    -rb.transform.right * end_distance, //左
-                                    -rb.transform.up * end_distance};   //下 
+        Vector3[] Dire_Vec = {      rb.transform.right,       //右
+                                    rb.transform.up,     //上
+                                    -rb.transform.right, //左
+                                    -rb.transform.up};   //下 
         //rayの始点
         Vector3 sta_Position = new Vector3(this.rb.transform.position.x
                                          , this.rb.transform.position.y );
@@ -276,32 +300,32 @@ public class CharacterMovement : MonoBehaviour
         Vector3[] end_Position = new Vector3[20];
 
         //rayの各終点設定(右)
-        end_Position[0] = sta_Position + Dire_Vec[0] * 0.9f;
-        end_Position[1] = end_Position[0] + Dire_Vec[1] / 1.3f;
-        end_Position[2] = end_Position[0] + Dire_Vec[1] / 3f;
-        end_Position[3] = end_Position[0] + Dire_Vec[3] / 1.3f;
-        end_Position[4] = end_Position[0] + Dire_Vec[3] / 3f;
+        end_Position[0] = sta_Position + Dire_Vec[0] * end_distance;
+        end_Position[1] = sta_Position + Dire_Vec[0] + Dire_Vec[1] / 1.3f;
+        end_Position[2] = sta_Position + Dire_Vec[0] + Dire_Vec[1] / 3f;
+        end_Position[3] = sta_Position + Dire_Vec[0] + Dire_Vec[3] / 1.3f;
+        end_Position[4] = sta_Position + Dire_Vec[0] + Dire_Vec[3] / 3f;
 
         //rayの各終点設定(上)
-        end_Position[5] = sta_Position + Dire_Vec[1];
-        end_Position[6] = end_Position[5] + Dire_Vec[0] / 1.3f;
-        end_Position[7] = end_Position[5] + Dire_Vec[0] / 3f;
-        end_Position[8] = end_Position[5] + Dire_Vec[2] / 1.3f;
-        end_Position[9] = end_Position[5] + Dire_Vec[2] / 3f;
+        end_Position[5] = sta_Position + Dire_Vec[1] * end_distance;
+        end_Position[6] = sta_Position + Dire_Vec[1] + Dire_Vec[0] / 1.3f;
+        end_Position[7] = sta_Position + Dire_Vec[1] + Dire_Vec[0] / 3f;
+        end_Position[8] = sta_Position + Dire_Vec[1] + Dire_Vec[2] / 1.3f;
+        end_Position[9] = sta_Position + Dire_Vec[1] + Dire_Vec[2] / 3f;
 
         //rayの各終点設定(左)
-        end_Position[10]= sta_Position + Dire_Vec[2] * 0.9f;
-        end_Position[11]= end_Position[10] + Dire_Vec[1] / 1.3f;
-        end_Position[12]= end_Position[10] + Dire_Vec[1] / 3f;
-        end_Position[13]= end_Position[10] + Dire_Vec[3] / 1.3f;
-        end_Position[14]= end_Position[10] + Dire_Vec[3] / 3f;
+        end_Position[10]= sta_Position + Dire_Vec[2] * end_distance;
+        end_Position[11]= sta_Position + Dire_Vec[2] + Dire_Vec[1] / 1.3f;
+        end_Position[12]= sta_Position + Dire_Vec[2] + Dire_Vec[1] / 3f;
+        end_Position[13]= sta_Position + Dire_Vec[2] + Dire_Vec[3] / 1.3f;
+        end_Position[14]= sta_Position + Dire_Vec[2] + Dire_Vec[3] / 3f;
 
         //rayの各終点設定(下)
-        end_Position[15]= sta_Position + Dire_Vec[3];
-        end_Position[16]= end_Position[15] + Dire_Vec[0] / 1.3f;
-        end_Position[17]= end_Position[15] + Dire_Vec[0] / 3f;
-        end_Position[18]= end_Position[15] + Dire_Vec[2] / 1.3f;
-        end_Position[19]= end_Position[15] + Dire_Vec[2] / 3f;
+        end_Position[15]= sta_Position + Dire_Vec[3] * end_distance;
+        end_Position[16]= sta_Position + Dire_Vec[3] + Dire_Vec[0] / 1.3f;
+        end_Position[17]= sta_Position + Dire_Vec[3] + Dire_Vec[0] / 3f;
+        end_Position[18]= sta_Position + Dire_Vec[3] + Dire_Vec[2] / 1.3f;
+        end_Position[19]= sta_Position + Dire_Vec[3] + Dire_Vec[2] / 3f;
 
         //rayの各設定(上下座右)
         for (int i = 0; i < hits.Length; i++)
@@ -363,7 +387,7 @@ public class CharacterMovement : MonoBehaviour
                     }
 
                     jumpCount = 1;
-                    break;
+                    //break;
                 }
                 //足元に当たったら
                 else
@@ -376,7 +400,7 @@ public class CharacterMovement : MonoBehaviour
             else
             {
                 //デバッグでLineを見る用
-                Debug.DrawLine(sta_Position, end_Position[i], Color.blue);
+                Debug.DrawLine(sta_Position, end_Position[i], Color.yellow);
             }
         }
     }
@@ -406,6 +430,16 @@ public class CharacterMovement : MonoBehaviour
         bMove = set;
     }
 
+    public bool GetbRight()
+    {
+        return bRight;
+    }
+
+    public bool GetbLeft()
+    {
+        return bLeft;
+    }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         //地面との当たり判定
@@ -429,7 +463,7 @@ public class CharacterMovement : MonoBehaviour
         //地面との当たり判定
         if (collision.gameObject.CompareTag("Ground") && !collision.gameObject.CompareTag("IceGround"))
         {
-            UseInertia = 0.0f;//慣性を消す
+           UseInertia = 0.0f;//慣性を消す
         }
     }
 
