@@ -1,45 +1,77 @@
-Shader "Custom/uv"
+Shader "Custom/uv2"
 {
-	Properties{
-		 _Color("Color", Color) = (1,1,1,1)
-		 _MainTex("Albedo (RGBA)", 2D) = "white" {}
-		 _Metallic("Metallic", Range(0,1)) = 0.0
-		 _Pos("Pos",Range(0,100)) = 0.0
-	}
-		SubShader{
-			Tags { "RenderType" = "Transparent"}
-			LOD 200
+    Properties
+    {
+        _MainTex("Texture", 2D) = "white" {}
 
-			CGPROGRAM
-			 // Physically based Standard lighting model, and enable shadows on all light types
-			 #pragma surface surf Standard alpha:fade
-			 #pragma alpha:fade
+        //X方向のシフトとスピードに関するパラメータを追加
+        _XShift("Xuv Shift", Range(-1.0, 1.0)) = 0.1
+        _XSpeed("X Scroll Speed", Range(0.0, 1.0)) = 0.0
+    }
+        SubShader
+    {
+        Tags
+        {
+            //レンダリング順に関する指示
+            "Queue" = "Transparent"
+            "RenderType" = "Transparent"
+        }
+        //透明なテクスチャを使用する場合に必要なプロパティ
+        Blend SrcAlpha OneMinusSrcAlpha
+        LOD 100
 
-			 // Use shader model 3.0 target, to get nicer looking lighting
-			 #pragma target 3.0
+        Pass
+        {
+            CGPROGRAM
+            #pragma vertex vert
+            #pragma fragment frag
+            #pragma multi_compile_fog
+            #include "UnityCG.cginc"
 
-			 sampler2D _MainTex;
+            struct appdata
+            {
+                float4 vertex : POSITION;
+                float2 uv : TEXCOORD0;
+            };
 
-			 struct Input {
-				 float2 uv_MainTex;
-			 };
+            struct v2f
+            {
+                float2 uv : TEXCOORD0;
+                UNITY_FOG_COORDS(1)
+                float4 vertex : SV_POSITION;
+            };
 
-			 half _Metallic;
-			 fixed4 _Color;
-			 float _Pos;
+            sampler2D _MainTex;
+            float4 _MainTex_ST;
+            //追加したパラメータを宣言する
+            float _XShift;
+            float _XSpeed;
 
-			 void surf(Input IN, inout SurfaceOutputStandard o) {
-				 // Albedo comes from a texture tinted by color
-				 fixed2 scrolledUV = IN.uv_MainTex;
-				 scrolledUV.x += _Pos / 100;
-				 fixed4 c = tex2D(_MainTex, scrolledUV) * _Color;
-				 o.Albedo = c.rgb;
+            //バーテクスシェーダー（変更なし）
+            v2f vert(appdata v)
+            {
+                v2f o;
+                o.vertex = UnityObjectToClipPos(v.vertex);
+                o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+                UNITY_TRANSFER_FOG(o,o.vertex);
+                return o;
+            }
 
-				 // Metallic and smoothness come from slider variables
-				 o.Metallic = _Metallic;
-				 o.Alpha = c.a;
-			 }
-			 ENDCG
-		 }
-			 FallBack "Diffuse"
+            //フラグメントシェーダー（変更箇所）
+            fixed4 frag(v2f i) : SV_Target
+            {
+                //Speed
+                _XShift = _XShift * _XSpeed;
+
+                //add Shift
+                i.uv.x += _XShift / 10000;
+
+                //i.uvの適用
+                fixed4 col = tex2D(_MainTex, i.uv);
+                UNITY_APPLY_FOG(i.fogCoord, col);
+                return col;
+            }
+            ENDCG
+        }
+    }
 }

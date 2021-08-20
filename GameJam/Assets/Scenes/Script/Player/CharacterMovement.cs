@@ -14,14 +14,11 @@ public class CharacterMovement : MonoBehaviour
     public Sprite LavaSprite;
     public Sprite IceSprite;
 
-
-    [SerializeField]float end_distance = 1.1f;
-
     //Rigidbody2D
     Rigidbody2D rb;
 
 
-    CapsuleCollider2D bc;
+    CapsuleCollider2D cc;
 
     //Gimmick取得用レイヤー
     LayerMask Gimmick_Layer;
@@ -88,7 +85,7 @@ public class CharacterMovement : MonoBehaviour
         //物理演算コンポーネント取得
         rb = GetComponent<Rigidbody2D>();
 
-        bc = GetComponent<CapsuleCollider2D>();
+        cc = GetComponent<CapsuleCollider2D>();
 
         //アニメーター取得
         anim = this.GetComponent<Animator>();
@@ -130,14 +127,16 @@ public class CharacterMovement : MonoBehaviour
             {
                 Jump();
                 Collision();
-                bc.enabled = true;
+                cc.enabled = true;
             }
         }
         else
         {
             //死んだときの表情変更
             anim.SetBool("isDeth", true);
-            bc.enabled = false;
+            cc.enabled = false;
+            bRight = false;
+            bLeft = false;
         }
 
 
@@ -289,43 +288,46 @@ public class CharacterMovement : MonoBehaviour
         RaycastHit2D[] hits = new RaycastHit2D[20];
 
         //方向ベクトル
-        Vector3[] Dire_Vec = {      rb.transform.right,       //右
-                                    rb.transform.up,     //上
-                                    -rb.transform.right, //左
-                                    -rb.transform.up};   //下 
+        Vector3[] Dire_Vec = { rb.transform.right, //右
+                               rb.transform.up,    //上
+                              -rb.transform.right, //左
+                              -rb.transform.up};   //下 
+
         //rayの始点
         Vector3 sta_Position = new Vector3(this.rb.transform.position.x
-                                         , this.rb.transform.position.y );
+                                         , this.rb.transform.position.y + 0.1f );
         //rayの終点配列
         Vector3[] end_Position = new Vector3[20];
 
+        float end_distance = 1.35f;
+
         //rayの各終点設定(右)
         end_Position[0] = sta_Position + Dire_Vec[0] * end_distance;
-        end_Position[1] = sta_Position + Dire_Vec[0] + Dire_Vec[1] / 1.3f;
-        end_Position[2] = sta_Position + Dire_Vec[0] + Dire_Vec[1] / 3f;
-        end_Position[3] = sta_Position + Dire_Vec[0] + Dire_Vec[3] / 1.3f;
-        end_Position[4] = sta_Position + Dire_Vec[0] + Dire_Vec[3] / 3f;
+        end_Position[1] = end_Position[0] + Dire_Vec[1] / 2f;
+        end_Position[2] = sta_Position + Dire_Vec[0] + Dire_Vec[1] * 0.8f;
+        end_Position[3] = end_Position[0] + Dire_Vec[3] / 2f;
+        end_Position[4] = sta_Position + Dire_Vec[0] + Dire_Vec[3] * 0.8f;
 
         //rayの各終点設定(上)
         end_Position[5] = sta_Position + Dire_Vec[1] * end_distance;
-        end_Position[6] = sta_Position + Dire_Vec[1] + Dire_Vec[0] / 1.3f;
-        end_Position[7] = sta_Position + Dire_Vec[1] + Dire_Vec[0] / 3f;
-        end_Position[8] = sta_Position + Dire_Vec[1] + Dire_Vec[2] / 1.3f;
-        end_Position[9] = sta_Position + Dire_Vec[1] + Dire_Vec[2] / 3f;
+        end_Position[6] = end_Position[5] + Dire_Vec[0] / 2f;
+        end_Position[7] = sta_Position + Dire_Vec[1] + Dire_Vec[0] * 0.8f;
+        end_Position[8] = end_Position[5] + Dire_Vec[2] / 2f;
+        end_Position[9] = sta_Position + Dire_Vec[1] + Dire_Vec[2] * 0.8f;
 
         //rayの各終点設定(左)
         end_Position[10]= sta_Position + Dire_Vec[2] * end_distance;
-        end_Position[11]= sta_Position + Dire_Vec[2] + Dire_Vec[1] / 1.3f;
-        end_Position[12]= sta_Position + Dire_Vec[2] + Dire_Vec[1] / 3f;
-        end_Position[13]= sta_Position + Dire_Vec[2] + Dire_Vec[3] / 1.3f;
-        end_Position[14]= sta_Position + Dire_Vec[2] + Dire_Vec[3] / 3f;
+        end_Position[11]= end_Position[10] + Dire_Vec[1] / 2f;
+        end_Position[12]= sta_Position + Dire_Vec[2] + Dire_Vec[1] * 0.8f;
+        end_Position[13]= end_Position[10] + Dire_Vec[3] / 2f;
+        end_Position[14]= sta_Position + Dire_Vec[2] + Dire_Vec[3] * 0.8f;
 
         //rayの各終点設定(下)
         end_Position[15]= sta_Position + Dire_Vec[3] * end_distance;
-        end_Position[16]= sta_Position + Dire_Vec[3] + Dire_Vec[0] / 1.3f;
-        end_Position[17]= sta_Position + Dire_Vec[3] + Dire_Vec[0] / 3f;
-        end_Position[18]= sta_Position + Dire_Vec[3] + Dire_Vec[2] / 1.3f;
-        end_Position[19]= sta_Position + Dire_Vec[3] + Dire_Vec[2] / 3f;
+        end_Position[16]= end_Position[15] + Dire_Vec[0] / 2f;
+        end_Position[17]= sta_Position + Dire_Vec[3] + Dire_Vec[0] * 0.8f;
+        end_Position[18]= end_Position[15] + Dire_Vec[2] / 2f;
+        end_Position[19]= sta_Position + Dire_Vec[3] + Dire_Vec[2] * 0.8f;
 
         //rayの各設定(上下座右)
         for (int i = 0; i < hits.Length; i++)
@@ -384,10 +386,11 @@ public class CharacterMovement : MonoBehaviour
 
                         //各角度リセット
                         now_Rotate = rotateZ = 0f;
+                        jumpCount = 1;
+                        break;
                     }
 
                     jumpCount = 1;
-                    //break;
                 }
                 //足元に当たったら
                 else
@@ -400,7 +403,10 @@ public class CharacterMovement : MonoBehaviour
             else
             {
                 //デバッグでLineを見る用
-                Debug.DrawLine(sta_Position, end_Position[i], Color.yellow);
+                if(i != 4)
+                    Debug.DrawLine(sta_Position, end_Position[i], Color.yellow);
+                else
+                    Debug.DrawLine(sta_Position, end_Position[i], Color.green);
             }
         }
     }

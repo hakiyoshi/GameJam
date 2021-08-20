@@ -26,7 +26,7 @@ public class ScrollBackGround : MonoBehaviour
         for(int i = 0; i< BackGroundCount; i++)
         {
             BackGround[i] = this.transform.GetChild(i).gameObject.GetComponent<Renderer>();
-            BackGround[i].material.SetFloat("_Pos", ScrollSpeed);
+            BackGround[i].material.SetFloat("_XSpeed", ScrollSpeed);
         }
 
         Time = 0f;
@@ -42,6 +42,6 @@ public class ScrollBackGround : MonoBehaviour
             Time--;
 
             for (int i = 0; i < BackGroundCount; i++)
-                BackGround[i].material.SetFloat("_Pos", ScrollSpeed * Time);
+                BackGround[i].material.SetFloat("_XSpeed", ScrollSpeed * Time);
     }
 }
