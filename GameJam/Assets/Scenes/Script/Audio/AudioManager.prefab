@@ -60,3 +60,13 @@ MonoBehaviour:
     audiotype: 0
     loopstart: 20.949
     loopend: 72.815
+  - name: Stage2
+    audioclip: {fileID: 8300000, guid: 852f3e2257c26ec47bbe15b62a062d5e, type: 3}
+    audiotype: 0
+    loopstart: 0
+    loopend: 0
+  - name: Force
+    audioclip: {fileID: 8300000, guid: ed61d125bd7864049a54673e945e423e, type: 3}
+    audiotype: 0
+    loopstart: 0
+    loopend: 0

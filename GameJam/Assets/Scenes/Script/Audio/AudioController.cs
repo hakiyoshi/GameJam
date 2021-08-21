@@ -18,10 +18,24 @@ public class AudioController : MonoBehaviour
     private float loopstart;
     private float loopend;
 
+    public enum AudioState
+    {
+        PLAY,//再生中
+        STOP,//ストップ中
+        PAUSE,//ポーズ中
+    }
+
+    private AudioState audiostate;
+    public bool GetIfAudioState(AudioState ifstate) { return audiostate == ifstate ? true : false; }//現在の状態比較
+
 
 #if UNITY_EDITOR
-    public float Time;
-    public float SetTime = 0.0f;
+    //再生位置を確認するよう変数
+    [Header("再生位置")]
+    public float Time;//書き換えちゃだめよ
+
+    [Header("再生位置変更　秒単位")]
+    public float SetTime = 0.0f;//時間を強制的に書き換えるやつ
 #endif
 
     // Start is called before the first frame update
@@ -34,8 +48,10 @@ public class AudioController : MonoBehaviour
     void Update()
     {
 #if UNITY_EDITOR
+        //再生位置確認
         Time = setaudio.time;
 
+        //再生位置変更
         if (SetTime != 0.0f)
         {
             setaudio.time = SetTime;
@@ -60,6 +76,11 @@ public class AudioController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        FadeProcess();
+    }
+
+    private void FadeProcess()
+    {
         if (fadein)
         {
             setaudio.volume += fadespeed;
@@ -76,7 +97,17 @@ public class AudioController : MonoBehaviour
 
             if (setaudio.volume <= 0.0f)//音量が０になったら
             {
-                Stop();
+                switch (audiostate)//フェードアウト後の処理
+                {
+                    case AudioState.STOP:
+                        Stop();
+                        break;
+                    case AudioState.PAUSE:
+                        Pause();
+                        break;
+                    default:
+                        break;
+                }
             }
         }
     }
@@ -89,15 +120,12 @@ public class AudioController : MonoBehaviour
         setaudio.loop = loop;//ループ処理
         loopstart = audioloopstart;
         loopend = audioloopend;
+        audiostate = AudioState.PLAY;//状態セット
 
-        
 
         if (fadein)//フェード分岐
         {
-            this.fadein = true;
-            fadeout = false;
-            setaudio.volume = 0.0f;//音量
-            fadespeed = 1.0f / (float)fadeflame;
+            SetFadeIn(fadeflame);
         }
         else
         {
@@ -106,13 +134,21 @@ public class AudioController : MonoBehaviour
             setaudio.volume = 1.0f;//音量
             fadespeed = 0.0f;
         }
-        
         //再生
         setaudio.Play();
     }
 
-    //音のフェードアウト
-    public void FadeOutStart(int fadeflame = 60)
+    //フェードインセット
+    private void SetFadeIn(int fadeflame)
+    {
+        fadein = true;
+        fadeout = false;
+        setaudio.volume = 0.0f;//音量
+        fadespeed = 1.0f / (float)fadeflame;
+    }
+
+    //フェードアウトセット
+    private void SetFadeOut(int fadeflame)
     {
         fadeout = true;
         fadein = false;
@@ -120,20 +156,44 @@ public class AudioController : MonoBehaviour
         fadespeed = 1.0f / (float)fadeflame;
     }
 
+    //音のフェードアウト
+    public void FadeOutStart(int fadeflame = 60)
+    {
+        SetFadeOut(fadeflame);
+    }
+
     //一時停止
     public void Pause()
     {
         setaudio.Pause();
+        audiostate = AudioState.PAUSE;
     }
 
     //一時停止解除
     public void UnPause()
     {
         setaudio.UnPause();
+        audiostate = AudioState.PLAY;
+    }
+
+    //フェードしながらポーズする
+    public void FadeInPause(int fadeflame = 60)
+    {
+        SetFadeIn(fadeflame);
+        audiostate = AudioState.STOP;
+    }
+
+    //フェードしながら一時停止解除する
+    public void FadeInUnPause(int fadeflame = 60)
+    {
+        setaudio.UnPause();
+        SetFadeOut(fadeflame);
+        audiostate = AudioState.PLAY;
     }
 
     //ストップ
     //注意　オブジェクト事消すのでまた最初から再生する際はAudioManagerから
+    //　　　この関数を読んだらオブジェクトを保持してる変数は削除すること
     public void Stop()
     {
         setaudio.Stop();

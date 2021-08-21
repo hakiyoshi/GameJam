@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6161847844012686487}
   - component: {fileID: 5517945994332408364}
   - component: {fileID: 7901969220650157547}
+  - component: {fileID: 5101524378051606944}
   m_Layer: 0
   m_Name: VirusBullet
   m_TagString: VirusBullet
@@ -95,4 +96,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f52323a8168ed74bab3b9dada87faca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 0.5
+  MoveSpeed: 0.25
+--- !u!58 &5101524378051606944
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3957707082638524945}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.5784545, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.98154545
