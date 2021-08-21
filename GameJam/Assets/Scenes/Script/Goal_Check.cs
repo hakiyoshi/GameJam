@@ -47,7 +47,7 @@ public class Goal_Check : MonoBehaviour
         //ステージ３の場合
         case Game_Stage.Stage3:
             //移動(移動先の名前追加予定
-            
+            Next_Stage = "Ending";
             break;
         }
         //フェードして次のステージへ
