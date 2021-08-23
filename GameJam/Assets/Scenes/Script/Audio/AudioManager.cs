@@ -64,6 +64,8 @@ public class AudioManager : MonoBehaviour
         GameObject obj = Instantiate(audioset);//âπçÏê¨
         AudioController audiocon = obj.GetComponent<AudioController>();
 
+        obj.name = "";//ãÛÇ…Ç∑ÇÈ
+
         //âπíTÇµ
         foreach (var clip in AudioDataSet)
         {
@@ -74,6 +76,14 @@ public class AudioManager : MonoBehaviour
                 break;
             }
         }
+
+        //ë∂ç›ÇµÇ»Ç¢èÍçá
+        if (obj.name == "")
+        {
+            Destroy(obj);
+            Debug.LogError("ÉTÉEÉìÉhÇ™ë∂ç›ÇµÇ‹ÇπÇÒ");
+        }
+
         audiolist.Add(audiocon);
         return audiocon;
     }

@@ -17,7 +17,7 @@ public class VirusButtery : MonoBehaviour
     private int FlameCount = 0;
 
     //角度の範囲誤差
-    private const float ERRORRANGE = 0.3f;
+    private const float ERRORRANGE = 1.0f;
 
     //弾の初期位置距離
     private const float STARTRANGE = 4.0f;
@@ -48,8 +48,6 @@ public class VirusButtery : MonoBehaviour
         {
             cooltimeflag = false;
         }
-
-        Debug.Log(this.transform.localRotation.eulerAngles);
     }
 
     private void FixedUpdate()
@@ -73,17 +71,17 @@ public class VirusButtery : MonoBehaviour
     //弾発射
     void ShotBullet()
     {
-        if (!bulletmana.GetIfCoolTime())//クールタイム中の場合
+        if (bulletmana.GetIfCoolTime())//クールタイム中の場合
         {
-            bulletmana.AddCoolTime(1);//クールタイム加算
+            bulletmana.SetCoolTime(0);//クールタイムリセット
             cooltimeflag = true;
             return;
         }
 
 
-        bulletmana.SetCoolTime(0);//クールタイムリセット
+        bulletmana.AddCoolTime(1);//クールタイム加算
         float random = 0.0f;
-        Random.InitState(System.DateTime.Now.Millisecond);//シード値設定
+        Random.InitState(System.DateTime.Now.Millisecond + bulletmana.GetCoolTime());//シード値設定
         random = Random.Range(0.0f, 30.0f);//乱数生成
 
         GameObject shot = bulletmana.CreateBullet(this.gameObject);

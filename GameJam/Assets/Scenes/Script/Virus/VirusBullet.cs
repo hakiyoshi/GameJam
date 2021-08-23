@@ -83,8 +83,8 @@ public class VirusBullet : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawLine(CalFallPosition(), CalFallPosition() + new Vector3(0.0f, -100.0f, 0.0f));
+        //Gizmos.color = Color.red;
+        //Gizmos.DrawLine(CalFallPosition(), CalFallPosition() + new Vector3(0.0f, -100.0f, 0.0f));
     }
 
 #endif
