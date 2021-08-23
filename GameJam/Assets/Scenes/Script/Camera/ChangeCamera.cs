@@ -14,7 +14,7 @@ public class ChangeCamera : MonoBehaviour
     [Header("TargetGroupVirtualCamera")]
     [SerializeField] CinemachineVirtualCamera targetcamera = null;//ターゲットカメラ
 
-    private CinemachineDollyCart cart = null;
+    private OriginalDollyCart cart = null;
     private CinemachinePathBase path = null;
     private float speed;
 
@@ -36,7 +36,7 @@ public class ChangeCamera : MonoBehaviour
         //強制移動が設定されてない場合
         if (dollycart != null && dollycart.Follow != null)
         {
-            cart = dollycart.Follow.GetComponent<CinemachineDollyCart>();//強制移動カート取得
+            cart = dollycart.Follow.GetComponent<OriginalDollyCart>();//強制移動カート取得
             path = cart.m_Path;//パス取得
             speed = cart.m_Speed;//スピードを避難
             cart.m_Speed = 0.0f;//スピードを0に設定
@@ -49,6 +49,7 @@ public class ChangeCamera : MonoBehaviour
             
     }
 
+    //強制移動開始するかチャック
     private IEnumerator CheckDollyCart()
     {
         while (true)
@@ -57,43 +58,59 @@ public class ChangeCamera : MonoBehaviour
             {
                 moveflag = CAMERAFLAG.TARGET;
                 ChangeTargetGroup();
+
+                StartCoroutine("CheckEndDollyCart");//チェック
+                yield break;
             }
-            else if (IfCameraFlag(CAMERAFLAG.DOLLY) && cart.m_Position >= path.PathLength && cart.gameObject.transform.position.x - player.position.x < 0)//最終地点にたどり着いてプレイヤーの位置がカメラより右に
+            
+            yield return new WaitForFixedUpdate();
+        }
+    }
+
+    //強制移動が終了するかチェック
+    private IEnumerator CheckEndDollyCart()
+    {
+        while (true)
+        {
+            //最終地点にたどり着いてプレイヤーの位置がカメラより右に行ったらメインカメラに移動
+            if (IfCameraFlag(CAMERAFLAG.DOLLY) && cart.m_Position >= path.PathLength - 1.0f)
             {
                 ChangeMain();
                 cart.m_Speed = 0.0f;
                 yield break;//コルーチンを閉じる
             }
-            
-            yield return new WaitForSeconds(1.0f / 30.0f);
+
+            yield return new WaitForFixedUpdate();
         }
     }
 
     //メインカメラに変更
     void ChangeMain()
     {
+        cart.m_Speed = 0.0f;
         maincamera.Priority = 10;
         dollycart.Priority = 0;
         targetcamera.Priority = 0;
-        cart.m_Speed = 0.0f;
+        moveflag = CAMERAFLAG.MAIN;
     }
-
 
     //強制移動カメラに変更
     void ChangeDollyCart()
     {
+        cart.m_Speed = speed;
         maincamera.Priority = 0;
         dollycart.Priority = 10;
         targetcamera.Priority = 0;
-        cart.m_Speed = speed;
+        moveflag = CAMERAFLAG.DOLLY;
     }
 
     void ChangeTargetGroup()
     {
+        cart.m_Speed = 0.0f;
         maincamera.Priority = 0;
         dollycart.Priority = 0;
         targetcamera.Priority = 10;
-        cart.m_Speed = 0.0f;
+        moveflag = CAMERAFLAG.TARGET;
     }
 
     //比較カメラフラグ
@@ -102,10 +119,23 @@ public class ChangeCamera : MonoBehaviour
         return moveflag == flag ? true : false;
     }
 
-    //強制移動開始
     public void StartDollyCart()
     {
-        moveflag = CAMERAFLAG.DOLLY;
         ChangeDollyCart();
+    }
+
+    public void StartMain()
+    {
+        ChangeMain();
+    }
+
+    public void ResetDollyCart()
+    {
+        cart.m_Position = 0.0f;
+    }
+
+    public void StopDollyCart()
+    {
+        cart.m_Speed = 0.0f;
     }
 }

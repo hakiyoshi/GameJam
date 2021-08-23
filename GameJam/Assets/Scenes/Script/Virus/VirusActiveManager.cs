@@ -26,20 +26,33 @@ public class VirusActiveManager : MonoBehaviour
         change = Camera.main.GetComponent<ChangeCamera>();
 
         VirusMove = VirusObject.GetComponent<VirusMove>();
+
+        StartCoroutine("CheckChange");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (IfActive(ACTIVE.NONE) && change.IfCameraFlag(ChangeCamera.CAMERAFLAG.TARGET))//敵出現
+        
+    }
+
+    IEnumerator CheckChange()
+    {
+        while (true)
         {
-            activeflag = ACTIVE.ACTIVE;
-            VirusObject.SetActive(true);
-            VirusMove.StartActive();
-        }
-        else if (IfActive(ACTIVE.FORCED))//強制移動開始
-        {
-            change.StartDollyCart();
+            if (IfActive(ACTIVE.NONE) && change.IfCameraFlag(ChangeCamera.CAMERAFLAG.TARGET))//敵出現
+            {
+                activeflag = ACTIVE.ACTIVE;
+                VirusObject.SetActive(true);
+                VirusMove.StartActive();
+            }
+            else if (IfActive(ACTIVE.FORCED))//強制移動開始
+            {
+                change.StartDollyCart();//強制移動開始
+                yield break;
+            }
+
+            yield return new WaitForFixedUpdate();
         }
     }
 

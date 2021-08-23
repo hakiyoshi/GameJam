@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6368127404984977461}
-  - component: {fileID: 6368127404984977450}
+  - component: {fileID: 646093387839142582}
   m_Layer: 0
   m_Name: DollyCart
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 6368127405088256225}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6368127404984977450
+--- !u!114 &646093387839142582
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,11 +40,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6368127404984977451}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99a9c787e5d1bbf48a389834c4a9641c, type: 3}
+  m_Script: {fileID: 11500000, guid: 8624fe459a88bbb439796baf153e70b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Path: {fileID: 6368127406621239641}
-  m_UpdateMethod: 0
+  m_UpdateMethod: 1
   m_PositionUnits: 1
   m_Speed: 5
   m_Position: 0
