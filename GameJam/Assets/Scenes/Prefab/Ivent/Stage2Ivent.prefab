@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &439673578089863156
+--- !u!1 &6897334498254269087
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,47 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3036539787146017150}
-  - component: {fileID: 5307419634834752702}
+  - component: {fileID: 5164935558600941281}
+  - component: {fileID: 1701744627154887942}
   m_Layer: 0
-  m_Name: TargetGroup
+  m_Name: Stage2Ivent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3036539787146017150
+--- !u!4 &5164935558600941281
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 439673578089863156}
+  m_GameObject: {fileID: 6897334498254269087}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -68.425, y: 11.8, z: 0}
+  m_LocalPosition: {x: 684.03217, y: 21.914572, z: -28.93574}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5307419634834752702
+--- !u!114 &1701744627154887942
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 439673578089863156}
+  m_GameObject: {fileID: 6897334498254269087}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5eb80d8e62d9d145bb50fb783c0f731, type: 3}
+  m_Script: {fileID: 11500000, guid: 160bc435f91359745be1f2e28c56ef96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PositionMode: 0
-  m_RotationMode: 0
-  m_UpdateMethod: 1
-  m_Targets:
-  - target: {fileID: 0}
-    weight: 2
-    radius: 0
-  - target: {fileID: 0}
-    weight: 2
-    radius: 0
+  StartSound:
+    name: Stage2
+    loop: 1
+    fade: 1
+  ForcedSound:
+    name: Force
+    loop: 1
+    fade: 1
+  ChangeCamera: {fileID: 0}

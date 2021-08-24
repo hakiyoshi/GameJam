@@ -57,7 +57,6 @@ GameObject:
   - component: {fileID: 4378409594274040497}
   - component: {fileID: 2757498933925356488}
   - component: {fileID: 4378409594274040496}
-  - component: {fileID: 4378409594274040499}
   m_Layer: 0
   m_Name: Virus_2
   m_TagString: Untagged
@@ -160,18 +159,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Length: 4
   rotation: 45
---- !u!114 &4378409594274040499
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4378409594274040493}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c47ba31a52afa346a699494c6739d15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4378409594296600698
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,7 +171,6 @@ GameObject:
   - component: {fileID: 4378409594296600702}
   - component: {fileID: 4593474893315111154}
   - component: {fileID: 4378409594296600697}
-  - component: {fileID: 4378409594296600696}
   m_Layer: 0
   m_Name: Virus_5
   m_TagString: Untagged
@@ -287,18 +273,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Length: 4
   rotation: 180
---- !u!114 &4378409594296600696
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4378409594296600698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c47ba31a52afa346a699494c6739d15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4378409594498795292
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,7 +284,6 @@ GameObject:
   - component: {fileID: 4378409594498795293}
   - component: {fileID: 4378409594498795360}
   - component: {fileID: 2927090012685580269}
-  - component: {fileID: 4378409594498795363}
   - component: {fileID: 4378409594498795362}
   m_Layer: 0
   m_Name: Virus_1
@@ -400,18 +373,6 @@ CircleCollider2D:
   m_Offset: {x: 1.5796701, y: 0}
   serializedVersion: 2
   m_Radius: 0.9803294
---- !u!114 &4378409594498795363
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4378409594498795292}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c47ba31a52afa346a699494c6739d15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4378409594498795362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -438,7 +399,6 @@ GameObject:
   - component: {fileID: 4378409594596389231}
   - component: {fileID: 4129826615559038609}
   - component: {fileID: 4378409594596389230}
-  - component: {fileID: 4378409594596389225}
   m_Layer: 0
   m_Name: Virus_6
   m_TagString: Untagged
@@ -541,18 +501,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Length: 4
   rotation: -90
---- !u!114 &4378409594596389225
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4378409594596389227}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c47ba31a52afa346a699494c6739d15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4378409594629533078
 GameObject:
   m_ObjectHideFlags: 0
@@ -565,7 +513,6 @@ GameObject:
   - component: {fileID: 4378409594629533082}
   - component: {fileID: 8674219645770964191}
   - component: {fileID: 4378409594629533077}
-  - component: {fileID: 4378409594629533076}
   m_Layer: 0
   m_Name: Virus_7
   m_TagString: Untagged
@@ -668,18 +615,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Length: 4
   rotation: -45
---- !u!114 &4378409594629533076
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4378409594629533078}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c47ba31a52afa346a699494c6739d15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4378409594691349351
 GameObject:
   m_ObjectHideFlags: 0
@@ -690,7 +625,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4378409594691349348}
   - component: {fileID: 4378409594691349354}
-  - component: {fileID: 4378409594691349349}
   m_Layer: 0
   m_Name: Virus_S
   m_TagString: Untagged
@@ -733,20 +667,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RotationSpeed: 44.5
---- !u!114 &4378409594691349349
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4378409594691349351}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55a75f2f18057464496c5d13c505588c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BulletPrefab: {fileID: 3957707082638524945, guid: 0567663e6fd146342a3162bbf3481004, type: 3}
-  ReloadFlame: 120
 --- !u!1 &4378409595034271711
 GameObject:
   m_ObjectHideFlags: 0
@@ -873,7 +793,6 @@ GameObject:
   - component: {fileID: 4378409595331689638}
   - component: {fileID: 4378409595331689637}
   - component: {fileID: 2000894702600983808}
-  - component: {fileID: 4378409595331689636}
   - component: {fileID: 4378409595331689639}
   m_Layer: 0
   m_Name: Virus_8
@@ -963,18 +882,6 @@ CircleCollider2D:
   m_Offset: {x: 1.5796701, y: 0}
   serializedVersion: 2
   m_Radius: 0.9803294
---- !u!114 &4378409595331689636
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4378409595331689633}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c47ba31a52afa346a699494c6739d15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4378409595331689639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1000,7 +907,6 @@ GameObject:
   - component: {fileID: 4378409595420430661}
   - component: {fileID: 4378409595420430664}
   - component: {fileID: 1267046059481583519}
-  - component: {fileID: 4378409595420430667}
   - component: {fileID: 4378409595420430666}
   m_Layer: 0
   m_Name: Virus_3
@@ -1090,18 +996,6 @@ CircleCollider2D:
   m_Offset: {x: 1.5796701, y: 0}
   serializedVersion: 2
   m_Radius: 0.9803294
---- !u!114 &4378409595420430667
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4378409595420430660}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c47ba31a52afa346a699494c6739d15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4378409595420430666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1127,7 +1021,6 @@ GameObject:
   - component: {fileID: 4378409595650756510}
   - component: {fileID: 4378409595650756509}
   - component: {fileID: 868781793361488172}
-  - component: {fileID: 4378409595650756508}
   - component: {fileID: 4378409595650756511}
   m_Layer: 0
   m_Name: Virus_4
@@ -1217,18 +1110,6 @@ CircleCollider2D:
   m_Offset: {x: 1.5796701, y: 0}
   serializedVersion: 2
   m_Radius: 0.9803294
---- !u!114 &4378409595650756508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4378409595650756505}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c47ba31a52afa346a699494c6739d15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4378409595650756511
 MonoBehaviour:
   m_ObjectHideFlags: 0

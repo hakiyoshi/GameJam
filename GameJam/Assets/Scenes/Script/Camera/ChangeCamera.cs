@@ -87,30 +87,39 @@ public class ChangeCamera : MonoBehaviour
     //メインカメラに変更
     void ChangeMain()
     {
-        cart.m_Speed = 0.0f;
+        if (dollycart != null && dollycart.Follow != null)
+        {
+            cart.m_Speed = 0.0f;
+            dollycart.Priority = 0;
+            targetcamera.Priority = 0;
+        }
         maincamera.Priority = 10;
-        dollycart.Priority = 0;
-        targetcamera.Priority = 0;
         moveflag = CAMERAFLAG.MAIN;
     }
 
     //強制移動カメラに変更
     void ChangeDollyCart()
     {
-        cart.m_Speed = speed;
-        maincamera.Priority = 0;
-        dollycart.Priority = 10;
-        targetcamera.Priority = 0;
-        moveflag = CAMERAFLAG.DOLLY;
+        if (dollycart != null && dollycart.Follow != null)
+        {
+            cart.m_Speed = speed;
+            maincamera.Priority = 0;
+            dollycart.Priority = 10;
+            targetcamera.Priority = 0;
+            moveflag = CAMERAFLAG.DOLLY;
+        }
     }
 
     void ChangeTargetGroup()
     {
-        cart.m_Speed = 0.0f;
-        maincamera.Priority = 0;
-        dollycart.Priority = 0;
-        targetcamera.Priority = 10;
-        moveflag = CAMERAFLAG.TARGET;
+        if (dollycart != null && dollycart.Follow != null)
+        {
+            cart.m_Speed = 0.0f;
+            maincamera.Priority = 0;
+            dollycart.Priority = 0;
+            targetcamera.Priority = 10;
+            moveflag = CAMERAFLAG.TARGET;
+        }
     }
 
     //比較カメラフラグ
@@ -131,11 +140,17 @@ public class ChangeCamera : MonoBehaviour
 
     public void ResetDollyCart()
     {
-        cart.m_Position = 0.0f;
+        if (dollycart != null && dollycart.Follow != null)
+        {
+            cart.m_Position = 0.0f;
+        }
     }
 
     public void StopDollyCart()
     {
-        cart.m_Speed = 0.0f;
+        if (dollycart != null && dollycart.Follow != null)
+        {
+            cart.m_Speed = 0.0f;
+        }
     }
 }
