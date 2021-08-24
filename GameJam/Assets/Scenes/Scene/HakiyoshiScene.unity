@@ -233,7 +233,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 758968899756698955, guid: 57c5ee16ec29165408f2c282bbf6abe7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.099998
+      value: -10.4
       objectReference: {fileID: 0}
     - target: {fileID: 758968899756698955, guid: 57c5ee16ec29165408f2c282bbf6abe7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -361,6 +361,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &962816045 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8174730622727710984, guid: ae97fd589bdacba45b67b568517964c9, type: 3}
+  m_PrefabInstance: {fileID: 8824462101644092368}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 921175c8d04fb974d85c5bc2b1b27957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1099032936
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -466,6 +477,79 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6873528357200549519, guid: 70f7ec3b6e1cb7d4ba6eb16ed114127c, type: 3}
   m_PrefabInstance: {fileID: 694525535}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1397656003
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1397656005}
+  - component: {fileID: 1397656004}
+  - component: {fileID: 1397656006}
+  m_Layer: 0
+  m_Name: IventManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1397656004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397656003}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 160bc435f91359745be1f2e28c56ef96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartSound:
+    name: Stage2
+    loop: 1
+    fade: 1
+  ForcedSound:
+    name: Force
+    loop: 1
+    fade: 1
+  ChangeCamera: {fileID: 962816045}
+--- !u!4 &1397656005
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397656003}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -16.346985, y: 10.190163, z: -4.153395}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1397656006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397656003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3e2764f8cc5daa48861f5004aa9226b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ForceSound:
+    name: Force
+    loop: 1
+    fade: 1
+  EndForceSound:
+    name: Stage1
+    loop: 1
+    fade: 1
 --- !u!1 &1449389322
 GameObject:
   m_ObjectHideFlags: 0
@@ -490,7 +574,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1449389322}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.09, y: 2.93, z: 0}
+  m_LocalPosition: {x: -44.34, y: 2.93, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1222860658}
@@ -522,7 +606,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6368127404984977461, guid: cb0909429e999c548889de5cc396de92, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.00006398905
+      value: -0.00008195368
       objectReference: {fileID: 0}
     - target: {fileID: 6368127404984977461, guid: cb0909429e999c548889de5cc396de92, type: 3}
       propertyPath: m_LocalRotation.y
@@ -530,7 +614,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6368127404984977461, guid: cb0909429e999c548889de5cc396de92, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.00006398905
+      value: 0.00008195368
       objectReference: {fileID: 0}
     - target: {fileID: 6368127405088256225, guid: cb0909429e999c548889de5cc396de92, type: 3}
       propertyPath: m_RootOrder
@@ -590,7 +674,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6368127406621239641, guid: cb0909429e999c548889de5cc396de92, type: 3}
       propertyPath: m_Waypoints.Array.data[1].position.x
-      value: 77.22915
+      value: 50.533463
       objectReference: {fileID: 0}
     - target: {fileID: 6368127406621239641, guid: cb0909429e999c548889de5cc396de92, type: 3}
       propertyPath: m_Waypoints.Array.data[1].position.y
@@ -630,7 +714,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 758968899756698955, guid: 57c5ee16ec29165408f2c282bbf6abe7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.6
+      value: -7.8999977
       objectReference: {fileID: 0}
     - target: {fileID: 758968899756698955, guid: 57c5ee16ec29165408f2c282bbf6abe7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -684,7 +768,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 758968899756698955, guid: 57c5ee16ec29165408f2c282bbf6abe7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.5999985
+      value: -12.9
       objectReference: {fileID: 0}
     - target: {fileID: 758968899756698955, guid: 57c5ee16ec29165408f2c282bbf6abe7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -947,10 +1031,6 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 5453113696839940632}
-    - target: {fileID: 4981843809593415245, guid: ae97fd589bdacba45b67b568517964c9, type: 3}
-      propertyPath: m_Lens.OrthographicSize
-      value: 12.3
-      objectReference: {fileID: 0}
     - target: {fileID: 8824462102188981031, guid: ae97fd589bdacba45b67b568517964c9, type: 3}
       propertyPath: m_Name
       value: Main Camera

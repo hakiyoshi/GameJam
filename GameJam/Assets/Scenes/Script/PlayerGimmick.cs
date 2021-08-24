@@ -21,12 +21,15 @@ public class PlayerGimmick : MonoBehaviour
 
     private BoxCollider2D box;
 
+    private ChangeCamera change;//強制移動制御
+
     // Start is called before the first frame update
     void Start()
     {
-        rb = this.GetComponent<Rigidbody2D>();
-        last = this.GetComponent<PlayerLastField>();
-        box = this.GetComponent<BoxCollider2D>();
+        rb = this.GetComponent<Rigidbody2D>();//重力
+        last = this.GetComponent<PlayerLastField>();//プレイヤーが最後まで立っていた地面
+        box = this.GetComponent<BoxCollider2D>();//箱当たり判定
+        change = Camera.main.GetComponent<ChangeCamera>();//カメラチェンジスクリプト
     }
 
     // Update is called once per frame
@@ -44,7 +47,7 @@ public class PlayerGimmick : MonoBehaviour
             Debug.DrawLine(EndPosi + new Vector2(0.0f, -1.0f), EndPosi + new Vector2(0.0f, 1.0f), Color.red);
 #endif
 
-
+            
             rb.position = Move(StartPosi, EndPosi, (float)FlameCount / (float)MoveFlame);
             rb.velocity = new Vector2(rb.velocity.x, 0.0f);
 
@@ -55,6 +58,7 @@ public class PlayerGimmick : MonoBehaviour
                 HitFlag = false;
                 FlameCount = 0;
                 rb.position = EndPosi;
+                change.StartDollyCart();
             }
         }
     }
@@ -66,31 +70,19 @@ public class PlayerGimmick : MonoBehaviour
     }
 
     //ギミックに当たった時に呼ばれる関数
-    public void HitGimmick(Collider2D collision)
+    public void HitGimmick(Collider2D collider)
     {
-        RespawnPoint rp = collision.gameObject.GetComponent<RespawnPoint>();
-        if (rp != null)
-        {
-            Transform vec = rp.GetRespawnPoint();
-            if (vec == null)
-            {
-                GimmickSet(last.LastPosition);
-            }
-            else
-            {
-                GimmickSet(vec.position);
-            }
-        }
-        else
-        {
-            GimmickSet(last.LastPosition);
-        }
+        SetHitGimmick(collider.gameObject.GetComponent<RespawnPoint>());
     }
 
     //ギミックに当たった時に呼ばれる関数
     public void HitGimmick(Collision2D collision)
     {
-        RespawnPoint rp = collision.gameObject.GetComponent<RespawnPoint>();
+        SetHitGimmick(collision.gameObject.GetComponent<RespawnPoint>());
+    }
+
+    private void SetHitGimmick(RespawnPoint rp)
+    {
         if (rp != null)
         {
             Transform vec = rp.GetRespawnPoint();
@@ -115,6 +107,9 @@ public class PlayerGimmick : MonoBehaviour
         StartPosi = rb.position;
         last.LastPosiFlag = false;
         HitFlag = true;
+        change.StopDollyCart();
+        change.ResetDollyCart();
+
     }
     
     //ヒットした際指定した場所に移動中かを確認する関数
