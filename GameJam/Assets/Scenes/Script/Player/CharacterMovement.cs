@@ -423,6 +423,8 @@ public class CharacterMovement : MonoBehaviour
         }
         //各角度リセット
         now_Rotate = rotateZ = 0f;
+
+        Ending_Manager.AddDead_Count();
     }
 
     //生死判断用bool取得用
@@ -448,14 +450,6 @@ public class CharacterMovement : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        //地面との当たり判定
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            //ジャンプカウントリセット
-            jumpCount = 2;
-            UseInertia = Inertia;//慣性を付ける
-        }
-
         //氷の地面との当たり判定
         if (collision.gameObject.CompareTag("IceGround"))
         {
@@ -480,6 +474,13 @@ public class CharacterMovement : MonoBehaviour
         {
             bFall = true;
         }
+        //地面との当たり判定
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            //ジャンプカウントリセット
+            jumpCount = 2;
+            UseInertia = Inertia;//慣性を付ける
+        }
     }
 
     void OnTriggerExit2D(Collider2D collision)
@@ -489,6 +490,7 @@ public class CharacterMovement : MonoBehaviour
         {
             bFall = false;
         }
+
     }
 
 }
