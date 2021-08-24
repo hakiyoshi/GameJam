@@ -60,9 +60,5 @@ public class Stage3IventManager : IventManager
         yield break;
     }
 
-    //‹ÈÄ¶
-    AudioController PlayAudio(PlaySound sound)
-    {
-        return AudioManager.PlayAudio(sound.name, sound.loop, sound.fade);
-    }
+    
 }

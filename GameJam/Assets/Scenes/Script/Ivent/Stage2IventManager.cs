@@ -84,9 +84,4 @@ public class Stage2IventManager : IventManager
             //yield return new WaitForFixedUpdate();
         }
     }
-
-    AudioController PlayAudio(PlaySound sound)
-    {
-        return AudioManager.PlayAudio(sound.name, sound.loop, sound.fade);
-    }
 }
