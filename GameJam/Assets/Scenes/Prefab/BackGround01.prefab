@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f12c706245f02414d9e70ccb43b41820, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Cam: {fileID: 8824462102188981031, guid: ae97fd589bdacba45b67b568517964c9, type: 3}
   ScrollSpeed: 0.001
   BackGroundCount: 1
 --- !u!1 &5336139506590023232
@@ -106,7 +107,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4990e7bfe9e20e44095a1bc74f03e621, type: 2}
+  - {fileID: 2100000, guid: 3b7435970ba29dc4e8dde12a5abaa85a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -187,7 +188,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a91335994f416414da08a18d951f1559, type: 2}
+  - {fileID: 2100000, guid: 9c52e682c6289a946aca496035be16d9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

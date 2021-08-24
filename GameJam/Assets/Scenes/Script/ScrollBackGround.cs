@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class ScrollBackGround : MonoBehaviour
 {
-    CharacterMovement CM;
+    public GameObject Cam;
+
+    GameObject CinemaCam;
 
     [Header("スクロール速度")]
     [SerializeField]float ScrollSpeed;
@@ -19,7 +21,7 @@ public class ScrollBackGround : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CM = GameObject.Find("Player").GetComponent<CharacterMovement>();
+        CinemaCam = Cam.transform.GetChild(0).gameObject;
 
         BackGround = new Renderer[BackGroundCount];
 
@@ -35,11 +37,13 @@ public class ScrollBackGround : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if(CM.GetbRight())
-            Time++;
-        else if (CM.GetbLeft())
-            Time--;
+        if (0.05f < Mathf.Abs(CinemaCam.transform.localPosition.x))
+        {
+            if (0< CinemaCam.transform.localPosition.x)
+                Time++;
+            else if (CinemaCam.transform.localPosition.x < 0)
+                Time--;
+        }
 
             for (int i = 0; i < BackGroundCount; i++)
                 BackGround[i].material.SetFloat("_XSpeed", ScrollSpeed * Time);

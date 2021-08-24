@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4720263161929810813}
   - component: {fileID: 7669859032197871290}
   m_Layer: 0
-  m_Name: BG_Move02
+  m_Name: BG_Move03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b195e7ac10321f74a979509908b82aee, type: 2}
+  - {fileID: 2100000, guid: 71bd2e78028908346a1c6ef2a179e0ba, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -127,6 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f12c706245f02414d9e70ccb43b41820, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Cam: {fileID: 8824462102188981031, guid: ae97fd589bdacba45b67b568517964c9, type: 3}
   ScrollSpeed: 0.02
   BackGroundCount: 2
 --- !u!1 &5543739088455967793
@@ -141,7 +142,7 @@ GameObject:
   - component: {fileID: 6849973941394884819}
   - component: {fileID: 6546364696525949859}
   m_Layer: 0
-  m_Name: BG_Move03
+  m_Name: BG_Move04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -188,7 +189,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 98aec7b89b407274684a88635ca1cf2e, type: 2}
+  - {fileID: 2100000, guid: 01cc59145b1c67f49824444549933f44, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -222,7 +223,7 @@ GameObject:
   - component: {fileID: 9034281227310837740}
   - component: {fileID: 2812622189928730385}
   m_Layer: 0
-  m_Name: BG_Move04
+  m_Name: BG_Move05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -269,7 +270,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2d832a1d8cdcc86419c1b48bf9571b36, type: 2}
+  - {fileID: 2100000, guid: 642c3039cae17fa4cb0522e08b363805, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
