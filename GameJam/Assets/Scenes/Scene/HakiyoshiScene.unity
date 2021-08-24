@@ -487,6 +487,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1397656005}
   - component: {fileID: 1397656004}
+  - component: {fileID: 1397656006}
   m_Layer: 0
   m_Name: IventManager
   m_TagString: Untagged
@@ -501,7 +502,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1397656003}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 160bc435f91359745be1f2e28c56ef96, type: 3}
   m_Name: 
@@ -529,6 +530,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1397656006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397656003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3e2764f8cc5daa48861f5004aa9226b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ForceSound:
+    name: Force
+    loop: 1
+    fade: 1
+  EndForceSound:
+    name: Stage1
+    loop: 1
+    fade: 1
 --- !u!1 &1449389322
 GameObject:
   m_ObjectHideFlags: 0
@@ -1076,10 +1097,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8824462103058419091, guid: ae97fd589bdacba45b67b568517964c9, type: 3}
       propertyPath: m_Follow
-      value: 
-      objectReference: {fileID: 1965249587}
-    - target: {fileID: 8824462103058419091, guid: ae97fd589bdacba45b67b568517964c9, type: 3}
-      propertyPath: m_LookAt
       value: 
       objectReference: {fileID: 1965249587}
     m_RemovedComponents:

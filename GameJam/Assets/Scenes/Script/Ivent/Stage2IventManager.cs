@@ -2,16 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stage2IventManager : MonoBehaviour
+public class Stage2IventManager : IventManager
 {
-    [System.Serializable]
-    public struct PlaySound
-    {
-        public string name;
-        public bool loop;
-        public bool fade;
-    }
-
     [Header("ŠJn‚É—¬‚·BGMî•ñ")]
     [SerializeField] PlaySound StartSound;
 
