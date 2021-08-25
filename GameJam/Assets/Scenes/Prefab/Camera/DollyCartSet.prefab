@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6368127404984977461}
   - component: {fileID: 646093387839142582}
+  - component: {fileID: 7436950401891438474}
   m_Layer: 0
   m_Name: DollyCart
   m_TagString: Untagged
@@ -48,6 +49,18 @@ MonoBehaviour:
   m_PositionUnits: 1
   m_Speed: 5
   m_Position: 0
+--- !u!114 &7436950401891438474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6368127404984977451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 095d2edbc6a822144a29ed4b0d425974, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6368127405088256230
 GameObject:
   m_ObjectHideFlags: 0
