@@ -6,9 +6,11 @@ using UnityEngine.UI;
 public class End_Branch : MonoBehaviour
 {
     [Header("imageスプライトの表示順(上から)")]
-    //後から増やす可能性あり
+    //後から増やすことも可能
     public Image image1;
     public Image image2;
+    public Image image3;
+    public Image image4;
 
     [Header("imageスプライトの数")]
     public int image_Num;
@@ -75,13 +77,20 @@ public class End_Branch : MonoBehaviour
     //image
     void Letter_Display()
     {
+        //imageスプライトの表示分だけswitch処理を増築する
         switch (Now_imageNo)
         {
         case 1:
-            image1.GetComponent<Image>().color = new Color(red,green,blue,alfa);
+            image1.GetComponent<Image>().color = new Color(red, green, blue, alfa);
             break;
         case 2:
-            image2.GetComponent<Image>().color = new Color(red,green,blue,alfa);
+            image2.GetComponent<Image>().color = new Color(red, green, blue, alfa);
+            break;
+        case 3:
+            image3.GetComponent<Image>().color = new Color(red, green, blue, alfa);
+            break;
+        case 4:
+            image4.GetComponent<Image>().color = new Color(red, green, blue, alfa);
             break;
         default:
             Text_Flag = true;
@@ -103,9 +112,9 @@ public class End_Branch : MonoBehaviour
     void Start()
     {
         //デスカウントの値を入手する
-        //Get_Count = Ending_Manager.GetDead_Count();
+        Get_Count = Ending_Manager.GetDead_Count();
         //イメージ分岐をする
-        //Image_Branch();
+        Image_Branch();
         //変数の初期化
         Init();
     }
@@ -126,7 +135,7 @@ public class End_Branch : MonoBehaviour
             if(Now_time >= Limit_time)
             {
                 //タイトルに移動する
-                Fade.FadeOut("Title");
+                Fade.FadeOut("TitleScene");
             }
         }
 
