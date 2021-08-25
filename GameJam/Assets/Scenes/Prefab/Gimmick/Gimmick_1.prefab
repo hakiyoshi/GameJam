@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6185658795301797147}
   - component: {fileID: 6708661184921994752}
   - component: {fileID: 8894835711848759420}
+  - component: {fileID: -1945418655811423647}
   m_Layer: 6
   m_Name: Gimmick_1
   m_TagString: Ice
@@ -168,3 +169,16 @@ MonoBehaviour:
   YSpeed: 0.1
   YHight: 5
   ReSpeed: 0.1
+--- !u!114 &-1945418655811423647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8894835711848759423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c2a803c153afc346b81f388bd5d74c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Point: {fileID: 0}
