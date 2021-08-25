@@ -11,7 +11,7 @@ public class Ending_Manager : MonoBehaviour
     void Start()
     {
         //シーン移動したときにオブジェクトを破棄させない   
-        DontDestroyOnLoad(this);
+        //DontDestroyOnLoad(this);
         
     }
 
@@ -22,7 +22,7 @@ public class Ending_Manager : MonoBehaviour
     }
 
     //デスカウントの初期化(スタートボタンを押したときに呼び出す
-    public static void Init()
+    public static void Reset()
     {
         Dead_Count = 0;
     }

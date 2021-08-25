@@ -70,3 +70,13 @@ MonoBehaviour:
     audiotype: 0
     loopstart: 0
     loopend: 0
+  - name: GateOpen
+    audioclip: {fileID: 8300000, guid: 778baa45c187f634f90cb0f2e72ec921, type: 3}
+    audiotype: 1
+    loopstart: 0
+    loopend: 0
+  - name: Goal
+    audioclip: {fileID: 8300000, guid: 7b79efd9d7fdd1b41941729e431a6ae2, type: 3}
+    audiotype: 1
+    loopstart: 0
+    loopend: 0
