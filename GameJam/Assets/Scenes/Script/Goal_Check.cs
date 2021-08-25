@@ -68,11 +68,11 @@ public class Goal_Check : MonoBehaviour
         if(collider.tag == "Player")
         {
             //ゲージを開けるSE再生
-            //AudioManager.PlayAudio("GageOpen",false,false);
+            AudioManager.PlayAudio("GageOpen",false,false);
             //アニメーションを再生する(triggerをonにする
             anim.SetTrigger("Goal");
             //ゴールSE再生
-            //AudioManager.PlayAudio("Goal",false,false);
+            AudioManager.PlayAudio("Goal",false,false);
             //ステージの移動
             Invoke("Scene_Move",delay);
         }
