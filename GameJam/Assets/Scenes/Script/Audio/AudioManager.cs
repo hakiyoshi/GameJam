@@ -82,6 +82,7 @@ public class AudioManager : MonoBehaviour
         {
             Destroy(obj);
             Debug.LogError("ƒTƒEƒ“ƒh‚ª‘¶İ‚µ‚Ü‚¹‚ñ");
+            return null;
         }
 
         audiolist.Add(audiocon);
