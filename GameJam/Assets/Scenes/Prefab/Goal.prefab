@@ -73,6 +73,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Stage: 0
+  friend: {fileID: 6443677639290797562}
 --- !u!1 &5506540446438885780
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,18 +14,25 @@ public class Goal_Check : MonoBehaviour
 
     [Header("ゴールを置くステージ選択")]
     public Game_Stage Stage;
+    [Header("ゴールして動かすアニメーションのオブジェクト")]
+    public GameObject friend;
+    [Header("シーン移動の遅延")]
+    public float delay;
 
     //次のシーンの名前を保存する
     string Next_Stage;
+    
+    Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
-       
+       anim = friend.GetComponent<Animator>();
     }
 
     void Update()
     {
+    
     }
 
     //ステージ(シーン)を移動する
@@ -60,10 +67,14 @@ public class Goal_Check : MonoBehaviour
         //接触したオブジェクトがプレイヤーだったら
         if(collider.tag == "Player")
         {
-            //ゴールSE再生(名前追加予定
-            //AudioManager.PlayAudio("",false,false);
+            //ゲージを開けるSE再生
+            //AudioManager.PlayAudio("GageOpen",false,false);
+            //アニメーションを再生する(triggerをonにする
+            anim.SetTrigger("Goal");
+            //ゴールSE再生
+            //AudioManager.PlayAudio("Goal",false,false);
             //ステージの移動
-            Scene_Move();
+            Invoke("Scene_Move",delay);
         }
     }
 
