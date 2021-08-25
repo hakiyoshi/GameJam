@@ -73,7 +73,7 @@ public class ChangeCamera : MonoBehaviour
         while (true)
         {
             //最終地点にたどり着いてプレイヤーの位置がカメラより右に行ったらメインカメラに移動
-            if (IfCameraFlag(CAMERAFLAG.DOLLY) && cart.m_Position >= path.PathLength - 1.0f)
+            if (IfCameraFlag(CAMERAFLAG.DOLLY) && cart.m_Position >= path.PathLength && this.transform.position.x - player.position.x < 0)
             {
                 ChangeMain();
                 cart.m_Speed = 0.0f;
