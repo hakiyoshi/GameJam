@@ -31,16 +31,17 @@ public class ChangeDollyTrack : MonoBehaviour
         while (true)
         {
             //パスが最後当たりに近づいたら次のパスに移行
-            if (cart.m_Position >= track[nowtrack].PathLength - 1.0f)
+            if (cart.m_Position >= track[nowtrack].PathLength)
             {
-                if (track.Length <= nowtrack - 1)//次のパスがない場合は終了
-                    yield break;
-
                 //次のトラックに変更
                 nowtrack++;
 
                 //トラックをセット
                 ChangePath(nowtrack);
+
+                //次のパスがない場合は終了
+                if (track.Length <= nowtrack + 1)
+                    yield break;
             }
 
             yield return new WaitForFixedUpdate();

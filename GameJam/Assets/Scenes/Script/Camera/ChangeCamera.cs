@@ -15,7 +15,6 @@ public class ChangeCamera : MonoBehaviour
     [SerializeField] CinemachineVirtualCamera targetcamera = null;//ターゲットカメラ
 
     private OriginalDollyCart cart = null;
-    private CinemachinePathBase path = null;
     private float speed;
 
     public enum CAMERAFLAG
@@ -37,7 +36,6 @@ public class ChangeCamera : MonoBehaviour
         if (dollycart != null && dollycart.Follow != null)
         {
             cart = dollycart.Follow.GetComponent<OriginalDollyCart>();//強制移動カート取得
-            path = cart.m_Path;//パス取得
             speed = cart.m_Speed;//スピードを避難
             cart.m_Speed = 0.0f;//スピードを0に設定
 
@@ -72,8 +70,9 @@ public class ChangeCamera : MonoBehaviour
     {
         while (true)
         {
+            
             //最終地点にたどり着いてプレイヤーの位置がカメラより右に行ったらメインカメラに移動
-            if (IfCameraFlag(CAMERAFLAG.DOLLY) && cart.m_Position >= path.PathLength && this.transform.position.x - player.position.x < 0)
+            if (IfCameraFlag(CAMERAFLAG.DOLLY) && cart.m_Position >= cart.m_Path.PathLength && this.transform.position.x - player.position.x < 0)
             {
                 ChangeMain();
                 cart.m_Speed = 0.0f;
