@@ -74,6 +74,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Stage: 0
   friend: {fileID: 6443677639290797562}
+  delay: 0
 --- !u!1 &5506540446438885780
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,7 +183,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6443677639290797562}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.07, y: -1.29, z: 0}
+  m_LocalPosition: {x: 0, y: -1.29, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2812321987485300978}
@@ -249,7 +250,7 @@ Animator:
   m_GameObject: {fileID: 6443677639290797562}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a6255ccb8f95a4e418d6bc1463bc65a1, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1063db8e8ff1b174b863deb8f0d87ff2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
