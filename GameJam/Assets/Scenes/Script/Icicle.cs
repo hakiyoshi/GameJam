@@ -16,7 +16,9 @@ public class Icicle : MonoBehaviour
     public float Range;
     [Header("つららが落ちる速度0.0f～1.0f")]
     public float YSpeed;
-    [Header("つららの復活する高さ")]
+    [Header("つららの加速度(1フレームごと)")]
+    public float Boost;
+    [Header("つららの復活する高さ(元あった座標から)")]
     public float YHight;
     [Header("つららが復活する速度0.0f～1.0f")]
     public float ReSpeed;
@@ -25,6 +27,8 @@ public class Icicle : MonoBehaviour
     int Fall_Flag;
     //プレイヤーのデスのフラグをゲットする
     bool Re_Flag;
+    //つららの速度の加速度
+    float Accele;
     //PlayerGimmick のスクリプトをゲットする
     private PlayerGimmick PG;
 
@@ -38,6 +42,8 @@ public class Icicle : MonoBehaviour
         IcePos = Ice.y;
         //落下フラグを立てる
         Fall_Flag = 0;
+        //加速度の値を初期化する
+        Accele = 1.0f;
     }
     //落下の判定をする
     void Fall()
@@ -52,7 +58,8 @@ public class Icicle : MonoBehaviour
             //つららを落とすフラグを1にする
             Fall_Flag = 1;
             //落下処理
-            IcePos -= YSpeed;
+            IcePos -= YSpeed * Accele;
+            Accele += Boost;
         }
     }
     //つららが上から生えてくる処理
@@ -110,6 +117,7 @@ public class Icicle : MonoBehaviour
         {
             Fall_Flag = -2;
             IcePos = Ice.y + YHight;
+            Accele = 1.0f;
         }
     }
 }
