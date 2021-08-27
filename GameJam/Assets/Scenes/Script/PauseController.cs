@@ -18,9 +18,9 @@ public class PauseController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Select = new GameObject[3];
+        Select = new GameObject[4];
 
-        for(int i = 0; i < 3; i++)
+        for(int i = 0; i < Select.Length; i++)
         {
             Select[i] = Selects.transform.GetChild(i).gameObject;
         }
@@ -78,13 +78,13 @@ public class PauseController : MonoBehaviour
         {
             SelectCount++;
 
-            if (SelectCount == 3)
+            if (SelectCount == Select.Length)
             {
                 SelectCount = 0;
                 Arrow.transform.localPosition = new Vector3(0, 0, 0);
             }
             else
-                Arrow.transform.localPosition += new Vector3(0, -150, 0);
+                Arrow.transform.localPosition += new Vector3(0, -155, 0);
         }
     }
 
@@ -96,11 +96,11 @@ public class PauseController : MonoBehaviour
 
             if (SelectCount == -1)
             {
-                SelectCount = 2;
-                Arrow.transform.localPosition = new Vector3(0, -300, 0);
+                SelectCount = Select.Length;
+                Arrow.transform.localPosition = new Vector3(0, -465, 0);
             }
             else
-                Arrow.transform.localPosition += new Vector3(0, 150, 0);
+                Arrow.transform.localPosition += new Vector3(0, 155, 0);
         }
     }
 

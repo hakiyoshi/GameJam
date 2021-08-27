@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4b856b0fa703bc547a2950dca10caf28
+guid: 28cbee8313ae3ab44a3e87cdd89167bb
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -20,12 +20,6 @@ TextureImporter:
   - first:
       213: -4016195548052122353
     second: Pause_5
-  - first:
-      213: 7922140729185695463
-    second: Pause_6
-  - first:
-      213: -3827059348739822701
-    second: Pause_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -143,7 +137,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 3240
+        y: 4320
         width: 1920
         height: 1080
       alignment: 0
@@ -164,7 +158,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1920
-        y: 3240
+        y: 4320
         width: 1920
         height: 1080
       alignment: 0
@@ -185,7 +179,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 2160
+        y: 3240
         width: 1920
         height: 1080
       alignment: 0
@@ -206,7 +200,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1920
-        y: 2160
+        y: 3240
         width: 1920
         height: 1080
       alignment: 0
@@ -226,8 +220,8 @@ TextureImporter:
       name: Pause_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1080
+        x: 1920
+        y: 2160
         width: 1920
         height: 1080
       alignment: 0
@@ -260,48 +254,6 @@ TextureImporter:
       bones: []
       spriteID: f0519d18d6b9348c0800000000000000
       internalID: -4016195548052122353
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pause_6
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1920
-        height: 1080
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7e674c7150911fd60800000000000000
-      internalID: 7922140729185695463
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pause_7
-      rect:
-        serializedVersion: 2
-        x: 1920
-        y: 0
-        width: 1920
-        height: 1080
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 39b66088ccd83eac0800000000000000
-      internalID: -3827059348739822701
       vertices: []
       indices: 
       edges: []

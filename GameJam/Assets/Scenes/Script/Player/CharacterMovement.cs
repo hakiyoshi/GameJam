@@ -37,6 +37,7 @@ public class CharacterMovement : MonoBehaviour
     //移動方向判別用
     [Header("移動速度")]
     [SerializeField] float MaxSpeed;//最高速度
+    float init_Maxspeed;
     float direction;
 
     [Header("ダッシュ時移動速度")]
@@ -103,6 +104,8 @@ public class CharacterMovement : MonoBehaviour
         //移動方向用数値初期化
         direction = 0f;
 
+        init_Maxspeed = MaxSpeed;
+
         //角度初期化
         rotateZ = 0f;
         rotateY = 0f;
@@ -162,11 +165,11 @@ public class CharacterMovement : MonoBehaviour
         //ダッシュ判定用
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            MaxSpeed = 0.192f;
+            MaxSpeed = init_Maxspeed * dashPower;
         }
         else
         {
-            MaxSpeed = 0.15f;
+            MaxSpeed = init_Maxspeed;
         }
 
         //キー入力での移動処理
