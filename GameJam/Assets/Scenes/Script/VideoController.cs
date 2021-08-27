@@ -20,8 +20,10 @@ public class VideoController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.V))
-            bPlay = !bPlay;
+        if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.V) && !bPlay)
+            bPlay = true;
+        else if (Input.anyKeyDown && bPlay)
+            bPlay = false;
 
         Video.SetActive(bPlay);
     }
