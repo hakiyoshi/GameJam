@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class TitleCommand : MonoBehaviour
 {
+    [SerializeField] SelectAnimation Guid;
+    [SerializeField] Animator Player;
+
     //ÇÕÇ∂ÇﬂÇ©ÇÁ
     public void NewPlayCommand()
     {
@@ -20,7 +23,15 @@ public class TitleCommand : MonoBehaviour
     //Ç†ÇªÇ—Ç©ÇΩ
     public void HowToPlayCommand()
     {
+        Guid.Open(0.1f, 0.0f, 1.2f);
+        Player.SetBool("HowToPlay", true);
+    }
 
+    //Ç†ÇªÇ—Ç©ÇΩï¬Ç∂ÇÈ
+    public void CloseHowToPlayCommand()
+    {
+        Guid.Close(0.1f);
+        Player.SetBool("HowToPlay", false);
     }
 
     //èIóπ
@@ -39,7 +50,7 @@ public class TitleCommand : MonoBehaviour
         switch (command)
         {
             case TitleManager.SWITCH.NEWPLAY: NewPlayCommand(); break;
-            case TitleManager.SWITCH.CONTINUE: ContinueCommand(); break;
+            //case TitleManager.SWITCH.CONTINUE: ContinueCommand(); break;
             case TitleManager.SWITCH.HOWTOPLAY: HowToPlayCommand(); break;
             case TitleManager.SWITCH.EXIT: ExitCommand(); break;
             default: break;

@@ -16,7 +16,7 @@ public class TitleManager : MonoBehaviour
     public enum SWITCH
     {
         NEWPLAY = 0,//はじめから
-        CONTINUE,//つづきから
+        //CONTINUE,//つづきから
         HOWTOPLAY,//あそびかた
         EXIT,//終了
         MAX,
@@ -26,6 +26,8 @@ public class TitleManager : MonoBehaviour
     [SerializeField] SWITCH StartSelect = SWITCH.NEWPLAY;
     private SWITCH nowselect;
     private SWITCH nextselect;
+
+    private bool select = false;
 
     private bool inputflag = true;
     private TitleCommand command;
@@ -42,6 +44,17 @@ public class TitleManager : MonoBehaviour
 
     private void Update()
     {
+        if (select)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                command.CloseHowToPlayCommand();
+                select = false;
+                inputflag = true;
+            }
+            return;
+        }
+
         if (inputflag)
         {
             InputProcess();
@@ -68,6 +81,7 @@ public class TitleManager : MonoBehaviour
         {
             command.ExeCommand(nowselect);
             inputflag = false;
+            select = true;
         }
     }
 
@@ -103,9 +117,9 @@ public class TitleManager : MonoBehaviour
             case SWITCH.NEWPLAY:
                 ChangeNewPlayIcon();
                 break;
-            case SWITCH.CONTINUE:
-                ChangeContinueIcon();
-                break;
+            //case SWITCH.CONTINUE:
+                //ChangeContinueIcon();
+                //break;
             case SWITCH.HOWTOPLAY:
                 ChangeHowToPlayIcon();
                 break;
@@ -124,7 +138,11 @@ public class TitleManager : MonoBehaviour
         Switch[0].SetActive(true);
         Switch[1].SetActive(false);
         Switch[2].SetActive(false);
-        Switch[3].SetActive(false);
+        //Switch[3].SetActive(false);
+
+        Switch[0].GetComponent<SelectAnimation>().Open(0.1f);
+        Switch[1].GetComponent<SelectAnimation>().Close(0.1f);
+        Switch[2].GetComponent<SelectAnimation>().Close(0.1f);
 
         //アイコン
         for (int i = 0; i < Icon.Length; i++)
@@ -133,30 +151,34 @@ public class TitleManager : MonoBehaviour
         }
     }
 
-    //つづきからにアイコン変更
-    void ChangeContinueIcon()
-    {
-        //選択
-        Switch[0].SetActive(false);
-        Switch[1].SetActive(true);
-        Switch[2].SetActive(false);
-        Switch[3].SetActive(false);
+    ////つづきからにアイコン変更
+    //void ChangeContinueIcon()
+    //{
+    //    //選択
+    //    Switch[0].SetActive(false);
+    //    Switch[1].SetActive(true);
+    //    Switch[2].SetActive(false);
+    //    //Switch[3].SetActive(false);
 
-        //アイコン
-        for (int i = 0; i < Icon.Length; i++)
-        {
-            Icon[i].SetActive(!Switch[i].activeSelf);
-        }
-    }
+    //    //アイコン
+    //    for (int i = 0; i < Icon.Length; i++)
+    //    {
+    //        Icon[i].SetActive(!Switch[i].activeSelf);
+    //    }
+    //}
 
     //あそびかたにアイコン変更
     void ChangeHowToPlayIcon()
     {
         //選択
         Switch[0].SetActive(false);
-        Switch[1].SetActive(false);
-        Switch[2].SetActive(true);
-        Switch[3].SetActive(false);
+        Switch[1].SetActive(true);
+        Switch[2].SetActive(false);
+        //Switch[3].SetActive(false);
+
+        Switch[0].GetComponent<SelectAnimation>().Close(0.1f);
+        Switch[1].GetComponent<SelectAnimation>().Open(0.1f);
+        Switch[2].GetComponent<SelectAnimation>().Close(0.1f);
 
         //アイコン
         for (int i = 0; i < Icon.Length; i++)
@@ -171,8 +193,12 @@ public class TitleManager : MonoBehaviour
         //選択
         Switch[0].SetActive(false);
         Switch[1].SetActive(false);
-        Switch[2].SetActive(false);
-        Switch[3].SetActive(true);
+        Switch[2].SetActive(true);
+        //Switch[3].SetActive(true);
+
+        Switch[0].GetComponent<SelectAnimation>().Close(0.1f);
+        Switch[1].GetComponent<SelectAnimation>().Close(0.1f);
+        Switch[2].GetComponent<SelectAnimation>().Open(0.1f);
 
         //アイコン
         for (int i = 0; i < Icon.Length; i++)

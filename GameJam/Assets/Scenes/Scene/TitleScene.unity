@@ -148,7 +148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 346612000}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.37, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2073873078}
@@ -385,7 +385,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &680561634
 Transform:
   m_ObjectHideFlags: 0
@@ -707,6 +707,7 @@ GameObject:
   m_Component:
   - component: {fileID: 911843130}
   - component: {fileID: 911843129}
+  - component: {fileID: 911843131}
   m_Layer: 0
   m_Name: SelectNewPlay
   m_TagString: Untagged
@@ -773,12 +774,24 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 911843128}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.51, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1095480906}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &911843131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 911843128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6bf0d274a7a6ff4abdec2875b6b163f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &935906458
 GameObject:
   m_ObjectHideFlags: 0
@@ -878,7 +891,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &982698556
 Transform:
   m_ObjectHideFlags: 0
@@ -1003,7 +1016,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1296634072}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.51, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2073873078}
@@ -1070,6 +1083,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1334769281}
   - component: {fileID: 1334769282}
+  - component: {fileID: 1334769283}
   m_Layer: 0
   m_Name: SelectExit
   m_TagString: Untagged
@@ -1142,6 +1156,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1334769283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334769280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6bf0d274a7a6ff4abdec2875b6b163f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1649410076
 GameObject:
   m_ObjectHideFlags: 0
@@ -1152,6 +1178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1649410077}
   - component: {fileID: 1649410078}
+  - component: {fileID: 1649410079}
   m_Layer: 0
   m_Name: SelectHowToPlay
   m_TagString: Untagged
@@ -1167,7 +1194,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1649410076}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.37, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1095480906}
@@ -1224,6 +1251,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1649410079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649410076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6bf0d274a7a6ff4abdec2875b6b163f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1793101278
 GameObject:
   m_ObjectHideFlags: 0
@@ -1454,12 +1493,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Switch:
   - {fileID: 911843128}
-  - {fileID: 680561633}
   - {fileID: 1649410076}
   - {fileID: 1334769280}
   Icon:
   - {fileID: 1296634072}
-  - {fileID: 982698555}
   - {fileID: 346612000}
   - {fileID: 750590279}
   StartSelect: 0
