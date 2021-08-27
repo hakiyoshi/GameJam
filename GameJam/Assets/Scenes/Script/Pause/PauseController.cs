@@ -6,14 +6,20 @@ using UnityEngine.UI;
 
 public class PauseController : MonoBehaviour
 {
+    [Header("ポーズ背景")]
     [SerializeField] GameObject Selects;
+    [Header("ポーズ矢印")]
     [SerializeField] GameObject Arrow;
+    [Header("ポーズ操作説明画像")]
+    [SerializeField] GameObject Infomation;
 
     GameObject[] Select;
 
     int SelectCount;
 
     bool bPause;
+
+    bool bInfomation;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +37,9 @@ public class PauseController : MonoBehaviour
 
         Selects.SetActive(bPause);
         Arrow.SetActive(bPause);
+        Infomation.SetActive(bPause);
+
+        Fade.FadeIn();
     }
 
     // Update is called once per frame
@@ -49,6 +58,9 @@ public class PauseController : MonoBehaviour
             PushSelect();
         }
         Debug.Log(SelectCount);
+
+        if(!bPause)
+            Debug.Log(bPause);
     }
 
     void ChangeTimeScale()
@@ -56,20 +68,20 @@ public class PauseController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             bPause = !bPause;
-            
-            if(bPause)
+
+            if (bPause)
+            {
+                Selects.SetActive(bPause);
+                Arrow.SetActive(bPause);
                 ResetSelects();
+            }
         }
 
         if (bPause)
-        {
             Time.timeScale = 0f;
-        }
         else
             Time.timeScale = 1f;
 
-        Selects.SetActive(bPause);
-        Arrow.SetActive(bPause);
     }
 
     void DownSelect()
@@ -81,7 +93,7 @@ public class PauseController : MonoBehaviour
             if (SelectCount == Select.Length)
             {
                 SelectCount = 0;
-                Arrow.transform.localPosition = new Vector3(0, 0, 0);
+                Arrow.transform.localPosition = new Vector3(-140, 0, 0);
             }
             else
                 Arrow.transform.localPosition += new Vector3(0, -155, 0);
@@ -97,7 +109,7 @@ public class PauseController : MonoBehaviour
             if (SelectCount == -1)
             {
                 SelectCount = Select.Length;
-                Arrow.transform.localPosition = new Vector3(0, -465, 0);
+                Arrow.transform.localPosition = new Vector3(-140, -465, 0);
             }
             else
                 Arrow.transform.localPosition += new Vector3(0, 155, 0);
@@ -106,7 +118,7 @@ public class PauseController : MonoBehaviour
 
     void NowSelect()
     {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < Select.Length; i++)
         {
             if (i == SelectCount)
                 Select[i].GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
@@ -117,7 +129,7 @@ public class PauseController : MonoBehaviour
 
     void ResetSelects()
     {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < Select.Length; i++)
         {
             if (i == 0)
                 Select[i].GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
@@ -125,9 +137,10 @@ public class PauseController : MonoBehaviour
                 Select[i].GetComponent<Image>().color = new Color(1f, 1f, 1f, 0.5f);
         }
 
-        Arrow.transform.localPosition = Vector3.zero;
+        Arrow.transform.localPosition = new Vector3(-140,0,0);
 
         SelectCount = 0;
+
     }
 
     void PushSelect()
@@ -140,10 +153,18 @@ public class PauseController : MonoBehaviour
                     bPause = false;
                     break;
                 case 1:
+                    bPause = false;
                     Fade.FadeOut(SceneManager.GetActiveScene().name);
                     break;
                 case 2:
+                    bPause = false;
                     Fade.FadeOut("TitleScene");
+                    break;
+                case 3:
+                    bInfomation = !bInfomation;
+                    Infomation.SetActive(bInfomation);
+                    Selects.SetActive(!bInfomation);
+                    Arrow.SetActive(!bInfomation);
                     break;
             }
         }

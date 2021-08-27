@@ -1,15 +1,15 @@
-Shader "Custom/uv"
+Shader "Custom/uv2"
 {
     Properties
     {
         _MainTex("Texture", 2D) = "white" {}
 
-        //X方向のシフトとスピードに関するパラメータを追加
-        _XShift("Xuv Shift", Range(-1.0, 1.0)) = 0.1
-        _XSpeed("X Scroll Speed", Range(0.0, 1.0)) = 0.0
+    //X方向のシフトとスピードに関するパラメータを追加
+    _XShift("Xuv Shift", Range(-1.0, 1.0)) = 0.1
+    _XSpeed("X Scroll Speed", Range(0.0, 1.0)) = 0.0
 
-        _Color("Color",Color) = (1,1,1,1)
-        _Alpha("Alpha",Range(0.0, 1.0)) = 1.0
+    _Color("Color",Color) = (1,1,1,1)
+    _Alpha("Alpha",Range(0.0, 1.0)) = 1.0
     }
         SubShader
     {
@@ -70,16 +70,17 @@ Shader "Custom/uv"
                 //Speed
                 _XShift = _XShift * _XSpeed;
 
-                //add Shift
-                i.uv.x += _XShift / 10000;
+            //add Shift
+            i.uv.x += _XShift / 10000;
 
-                //i.uvの適用
-                fixed4 col = tex2D(_MainTex, i.uv);
-                UNITY_APPLY_FOG(i.fogCoord, col);
-                return col;
-            }
-
-            ENDCG
+            //i.uvの適用
+            fixed4 col = tex2D(_MainTex, i.uv) * _Color;
+            col.a = _Alpha;
+            UNITY_APPLY_FOG(i.fogCoord, col);
+            return col;
         }
+
+        ENDCG
+    }
     }
 }

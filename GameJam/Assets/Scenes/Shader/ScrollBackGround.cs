@@ -8,6 +8,8 @@ public class ScrollBackGround : MonoBehaviour
 
     GameObject CinemaCam;
 
+    ChangeCamera cg;
+
     [Header("スクロール速度")]
     [SerializeField]float ScrollSpeed;
 
@@ -18,10 +20,20 @@ public class ScrollBackGround : MonoBehaviour
 
     float Time;
 
+    float Alpha;
+
+    [Header("ボス戦があるかどうか")]
+    [SerializeField]bool bChange = false;
+
+    [Header("透明化スピード")]
+    [SerializeField]float Minus_Alpha = 0.1f;
+
     // Start is called before the first frame update
     void Start()
     {
         CinemaCam = Cam.transform.GetChild(0).gameObject;
+
+        cg = GameObject.Find("Main Camera").GetComponent<ChangeCamera>();
 
         BackGround = new Renderer[BackGroundCount];
 
@@ -32,6 +44,8 @@ public class ScrollBackGround : MonoBehaviour
         }
 
         Time = 0f;
+
+        Alpha = 1.0f;
     }
 
     // Update is called once per frame
@@ -47,5 +61,11 @@ public class ScrollBackGround : MonoBehaviour
 
             for (int i = 0; i < BackGroundCount; i++)
                 BackGround[i].material.SetFloat("_XSpeed", ScrollSpeed * Time);
+
+        if (bChange && cg.IfCameraFlag(ChangeCamera.CAMERAFLAG.TARGET))
+            Alpha -= Minus_Alpha;
+
+        if (bChange)
+            BackGround[1].material.SetFloat("_Alpha",Alpha);
     }
 }
