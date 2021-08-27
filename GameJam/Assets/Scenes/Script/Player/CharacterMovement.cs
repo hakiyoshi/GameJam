@@ -224,9 +224,8 @@ public class CharacterMovement : MonoBehaviour
 
     void Jump()
     {
-
         //スペースキーを押したときのジャンプ処理
-        if (Input.GetKeyDown(KeyCode.Space) && jumpCount != 0)
+        if (((Input.GetKeyDown(KeyCode.Space) && !Input.GetKeyDown(KeyCode.Return)) || (!Input.GetKeyDown(KeyCode.Space) && Input.GetKeyDown(KeyCode.Return))) && jumpCount != 0)
         {
             AudioManager.PlayAudio("Jamp",false,false);
 
@@ -384,6 +383,8 @@ public class CharacterMovement : MonoBehaviour
 
                         //各角度リセット
                         now_Rotate = rotateZ = 0f;
+
+                        break;
                     }
                         jumpCount = 1;
                 }

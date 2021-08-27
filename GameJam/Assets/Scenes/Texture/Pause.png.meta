@@ -1,49 +1,31 @@
 fileFormatVersion: 2
-guid: 1f4e40389ea765848827b7d73c4c7ded
+guid: 4b856b0fa703bc547a2950dca10caf28
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8155527424415009682
-    second: CHA&Gate_1
+      213: -7762350047352875558
+    second: Pause_0
   - first:
-      213: -3861108608252157591
-    second: CHA&Gate_2
+      213: 7690072442612862611
+    second: Pause_1
   - first:
-      213: 5142830028257512768
-    second: CHA&Gate_3
+      213: -2715382943813668581
+    second: Pause_2
   - first:
-      213: 232877108824096497
-    second: CHA&Gate_4
+      213: -7931945028459697436
+    second: Pause_3
   - first:
-      213: 1547113712456280873
-    second: CHA&Gate_5
+      213: -8385702829058726207
+    second: Pause_4
   - first:
-      213: -5583356392623063643
-    second: CHA&Gate_6
+      213: -4016195548052122353
+    second: Pause_5
   - first:
-      213: 7817549007097719335
-    second: CHA&Gate_7
+      213: 7922140729185695463
+    second: Pause_6
   - first:
-      213: -3354392004794186326
-    second: CHA&Gate_8
-  - first:
-      213: -281617596361410531
-    second: CHA&Gate_9
-  - first:
-      213: 9074182440452464364
-    second: CHA&Gate_10
-  - first:
-      213: 1450603941915134412
-    second: CHA&Gate_11
-  - first:
-      213: 7361344378862203480
-    second: CHA&Gate_12
-  - first:
-      213: -1431366650175288891
-    second: CHA&Gate_13
-  - first:
-      213: -4747872031406891487
-    second: CHA&Gate_14
+      213: -3827059348739822701
+    second: Pause_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -157,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CHA&Gate_0
+      name: Pause_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 768
-        width: 256
-        height: 256
+        y: 3240
+        width: 1920
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,20 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 27b1479d86f5ad990800000000000000
-      internalID: -7360465737054151822
+      spriteID: ad59b4532c7964490800000000000000
+      internalID: -7762350047352875558
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CHA&Gate_1
+      name: Pause_1
       rect:
         serializedVersion: 2
-        x: 256
-        y: 768
-        width: 256
-        height: 256
+        x: 1920
+        y: 3240
+        width: 1920
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,62 +174,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29b86309bf04e2170800000000000000
-      internalID: 8155527424415009682
+      spriteID: 39ec5fe8420a8ba60800000000000000
+      internalID: 7690072442612862611
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CHA&Gate_2
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 768
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9616de58d269a6ac0800000000000000
-      internalID: -3861108608252157591
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CHA&Gate_3
-      rect:
-        serializedVersion: 2
-        x: 768
-        y: 768
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 04d408ea9a00f5740800000000000000
-      internalID: 5142830028257512768
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CHA&Gate_4
+      name: Pause_2
       rect:
         serializedVersion: 2
         x: 0
-        y: 512
-        width: 256
-        height: 256
+        y: 2160
+        width: 1920
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -255,20 +195,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1feb7c32f785b3300800000000000000
-      internalID: 232877108824096497
+      spriteID: b11f4dc6995015ad0800000000000000
+      internalID: -2715382943813668581
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CHA&Gate_5
+      name: Pause_3
       rect:
         serializedVersion: 2
-        x: 256
-        y: 512
-        width: 256
-        height: 256
+        x: 1920
+        y: 2160
+        width: 1920
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -276,41 +216,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92ba71a79b3787510800000000000000
-      internalID: 1547113712456280873
+      spriteID: 4eaebb895021ce190800000000000000
+      internalID: -7931945028459697436
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CHA&Gate_6
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 512
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5adbb4b51fee382b0800000000000000
-      internalID: -5583356392623063643
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CHA&Gate_7
+      name: Pause_4
       rect:
         serializedVersion: 2
         x: 0
-        y: 256
-        width: 256
-        height: 256
+        y: 1080
+        width: 1920
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -318,20 +237,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72a644e17638d7c60800000000000000
-      internalID: 7817549007097719335
+      spriteID: 1c667f1d4bfff9b80800000000000000
+      internalID: -8385702829058726207
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CHA&Gate_8
+      name: Pause_5
       rect:
         serializedVersion: 2
-        x: 256
-        y: 256
-        width: 256
-        height: 256
+        x: 1920
+        y: 1080
+        width: 1920
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -339,41 +258,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa505d47e3ec271d0800000000000000
-      internalID: -3354392004794186326
+      spriteID: f0519d18d6b9348c0800000000000000
+      internalID: -4016195548052122353
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CHA&Gate_9
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 256
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d18f066c94e771cf0800000000000000
-      internalID: -281617596361410531
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CHA&Gate_10
+      name: Pause_6
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 256
-        height: 256
+        width: 1920
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -381,20 +279,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cee914e3ad8fded70800000000000000
-      internalID: 9074182440452464364
+      spriteID: 7e674c7150911fd60800000000000000
+      internalID: 7922140729185695463
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CHA&Gate_11
+      name: Pause_7
       rect:
         serializedVersion: 2
-        x: 256
+        x: 1920
         y: 0
-        width: 256
-        height: 256
+        width: 1920
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -402,71 +300,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc902ab7994912410800000000000000
-      internalID: 1450603941915134412
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CHA&Gate_12
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 0
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8527663e5bfb82660800000000000000
-      internalID: 7361344378862203480
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CHA&Gate_13
-      rect:
-        serializedVersion: 2
-        x: 768
-        y: 512
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5c906f88d93c22ce0800000000000000
-      internalID: -1431366650175288891
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CHA&Gate_14
-      rect:
-        serializedVersion: 2
-        x: 768
-        y: 0
-        width: 512
-        height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 12edaf0fa8b2c1eb0800000000000000
-      internalID: -4747872031406891487
+      spriteID: 39b66088ccd83eac0800000000000000
+      internalID: -3827059348739822701
       vertices: []
       indices: 
       edges: []
