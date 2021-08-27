@@ -23,6 +23,8 @@ public class PlayerGimmick : MonoBehaviour
 
     private ChangeCamera change;//強制移動制御
 
+    private bool restartdolly = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,7 +60,11 @@ public class PlayerGimmick : MonoBehaviour
                 HitFlag = false;
                 FlameCount = 0;
                 rb.position = EndPosi;
-                change.StartDollyCart();
+
+                if(restartdolly)
+                    change.StartDollyCart();
+
+                restartdolly = false;
             }
         }
     }
@@ -107,9 +113,13 @@ public class PlayerGimmick : MonoBehaviour
         StartPosi = rb.position;
         last.LastPosiFlag = false;
         HitFlag = true;
-        change.StopDollyCart();
-        change.ResetDollyCart();
 
+        if (change.IfCameraFlag(ChangeCamera.CAMERAFLAG.DOLLY))
+        {
+            change.StopDollyCart();
+            change.ResetDollyCart();
+            restartdolly = true;
+        }
     }
     
     //ヒットした際指定した場所に移動中かを確認する関数

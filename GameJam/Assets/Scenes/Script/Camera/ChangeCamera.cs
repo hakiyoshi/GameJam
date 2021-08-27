@@ -23,7 +23,7 @@ public class ChangeCamera : MonoBehaviour
         DOLLY,//強制移動
         TARGET,//ターゲット
     }
-    private CAMERAFLAG moveflag = CAMERAFLAG.MAIN;//移動フラグ
+    public CAMERAFLAG moveflag = CAMERAFLAG.MAIN;//移動フラグ
 
     private Transform player = null;
 
