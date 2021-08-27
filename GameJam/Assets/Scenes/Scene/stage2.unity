@@ -4952,6 +4952,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2556530443332123296, guid: f5e7bc92acdfd3a46b61df6867261746, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: a3be6d9d6472d0d4399930af822641ba, type: 2}
     - target: {fileID: 2812321987485300978, guid: f5e7bc92acdfd3a46b61df6867261746, type: 3}
       propertyPath: m_RootOrder
       value: 30
@@ -5003,6 +5007,18 @@ PrefabInstance:
     - target: {fileID: 2812321987485300991, guid: f5e7bc92acdfd3a46b61df6867261746, type: 3}
       propertyPath: Stage
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3896698492883564253, guid: f5e7bc92acdfd3a46b61df6867261746, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5288026537888832805, guid: f5e7bc92acdfd3a46b61df6867261746, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -281617596361410531, guid: 1f4e40389ea765848827b7d73c4c7ded, type: 3}
+    - target: {fileID: 5288026537888832805, guid: f5e7bc92acdfd3a46b61df6867261746, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5e7bc92acdfd3a46b61df6867261746, type: 3}

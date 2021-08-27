@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AngleZ: 0
-  Dis: -2.5
+  Dis: 2.5
   Speed: 0.01
 --- !u!1 &7861594849177133020
 GameObject:

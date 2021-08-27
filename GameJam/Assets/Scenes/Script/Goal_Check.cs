@@ -60,6 +60,12 @@ public class Goal_Check : MonoBehaviour
         //フェードして次のステージへ
         Fade.FadeOut(Next_Stage);
     }
+
+    void Goal_SE()
+    {
+        //ゴールSE再生
+        AudioManager.PlayAudio("Goal", false, false);
+    }
     
     //ゴールオブジェクトに接触したか判定
     void OnTriggerEnter2D(Collider2D collider)
@@ -68,11 +74,10 @@ public class Goal_Check : MonoBehaviour
         if(collider.tag == "Player")
         {
             //ゲージを開けるSE再生
-            AudioManager.PlayAudio("GageOpen",false,false);
+            AudioManager.PlayAudio("GateOpen",false,false);
             //アニメーションを再生する(triggerをonにする
             anim.SetTrigger("Goal");
-            //ゴールSE再生
-            AudioManager.PlayAudio("Goal",false,false);
+            Invoke("Goal_SE",delay / 2);
             //ステージの移動
             Invoke("Scene_Move",delay);
         }

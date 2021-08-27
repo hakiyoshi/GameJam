@@ -55687,6 +55687,18 @@ PrefabInstance:
       propertyPath: Stage
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3896698492883564253, guid: f5e7bc92acdfd3a46b61df6867261746, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5288026537888832805, guid: f5e7bc92acdfd3a46b61df6867261746, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -4747872031406891487, guid: 1f4e40389ea765848827b7d73c4c7ded, type: 3}
+    - target: {fileID: 5288026537888832805, guid: f5e7bc92acdfd3a46b61df6867261746, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5e7bc92acdfd3a46b61df6867261746, type: 3}
 --- !u!1001 &1951893756

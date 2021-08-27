@@ -4275,6 +4275,10 @@ PrefabInstance:
       value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 1445288597315430273, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
+      propertyPath: Dis
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445288597315430273, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
       propertyPath: AngleZ
       value: 180
       objectReference: {fileID: 0}
@@ -4891,6 +4895,10 @@ PrefabInstance:
     - target: {fileID: 1052788437434152879, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445288597315430273, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
+      propertyPath: Dis
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1940417648540084413, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
       propertyPath: Point
@@ -5799,6 +5807,10 @@ PrefabInstance:
     - target: {fileID: 1052788437434152879, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445288597315430273, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
+      propertyPath: Dis
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1445288597315430273, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
       propertyPath: AngleZ
@@ -7188,6 +7200,10 @@ PrefabInstance:
     - target: {fileID: 7199654742656727453, guid: d930423ee96efdc4cb9ae0500393fcc0, type: 3}
       propertyPath: m_Name
       value: NeedleB (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7199654742656727453, guid: d930423ee96efdc4cb9ae0500393fcc0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d930423ee96efdc4cb9ae0500393fcc0, type: 3}
@@ -9140,6 +9156,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1445288597315430273, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
+      propertyPath: Dis
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1940417648540084413, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
       propertyPath: Point
       value: 
@@ -9479,6 +9499,10 @@ PrefabInstance:
       propertyPath: Point
       value: 
       objectReference: {fileID: 2091631306}
+    - target: {fileID: 6718958539296184035, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7861594849177133020, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
       propertyPath: m_Name
       value: Needles
@@ -11609,6 +11633,10 @@ PrefabInstance:
     - target: {fileID: 1052788437434152879, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445288597315430273, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
+      propertyPath: Dis
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1940417648540084413, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
       propertyPath: Point
@@ -13940,6 +13968,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NeedleB (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 7199654742656727453, guid: d930423ee96efdc4cb9ae0500393fcc0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d930423ee96efdc4cb9ae0500393fcc0, type: 3}
 --- !u!4 &881792743 stripped
@@ -14023,7 +14055,7 @@ PrefabInstance:
     - target: {fileID: 6219657211380265711, guid: 6b7369e6e0adf2944bf1bad6b7df4a6c, type: 3}
       propertyPath: Point
       value: 
-      objectReference: {fileID: 865177578}
+      objectReference: {fileID: 2093592035}
     - target: {fileID: 7185400930551370856, guid: 6b7369e6e0adf2944bf1bad6b7df4a6c, type: 3}
       propertyPath: m_Name
       value: Lava Wave (2)
@@ -15124,6 +15156,10 @@ PrefabInstance:
     - target: {fileID: 1052788437434152879, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445288597315430273, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
+      propertyPath: Dis
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1940417648540084413, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
       propertyPath: Point
@@ -19314,6 +19350,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 69633291}
     m_Modifications:
+    - target: {fileID: 781290959401073927, guid: 70f7ec3b6e1cb7d4ba6eb16ed114127c, type: 3}
+      propertyPath: m_Color.b
+      value: 0.07450981
+      objectReference: {fileID: 0}
+    - target: {fileID: 781290959401073927, guid: 70f7ec3b6e1cb7d4ba6eb16ed114127c, type: 3}
+      propertyPath: m_Color.g
+      value: 0.03529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 781290959401073927, guid: 70f7ec3b6e1cb7d4ba6eb16ed114127c, type: 3}
+      propertyPath: m_Color.r
+      value: 0.015686275
+      objectReference: {fileID: 0}
     - target: {fileID: 2026704900949101765, guid: 70f7ec3b6e1cb7d4ba6eb16ed114127c, type: 3}
       propertyPath: m_Name
       value: Ground (1)
@@ -22444,6 +22492,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NeedleB (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7199654742656727453, guid: d930423ee96efdc4cb9ae0500393fcc0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d930423ee96efdc4cb9ae0500393fcc0, type: 3}
 --- !u!4 &1428928600 stripped
@@ -23274,6 +23326,10 @@ PrefabInstance:
     - target: {fileID: 1052788437434152879, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445288597315430273, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
+      propertyPath: Dis
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1940417648540084413, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
       propertyPath: Point
@@ -27548,6 +27604,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2556530443332123296, guid: f5e7bc92acdfd3a46b61df6867261746, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: a6255ccb8f95a4e418d6bc1463bc65a1, type: 2}
     - target: {fileID: 2812321987485300978, guid: f5e7bc92acdfd3a46b61df6867261746, type: 3}
       propertyPath: m_RootOrder
       value: 23
@@ -27599,6 +27659,10 @@ PrefabInstance:
     - target: {fileID: 2812321987485300991, guid: f5e7bc92acdfd3a46b61df6867261746, type: 3}
       propertyPath: Stage
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2812321987485300991, guid: f5e7bc92acdfd3a46b61df6867261746, type: 3}
+      propertyPath: delay
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5e7bc92acdfd3a46b61df6867261746, type: 3}
@@ -29430,6 +29494,10 @@ PrefabInstance:
     - target: {fileID: 1052788437434152879, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445288597315430273, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
+      propertyPath: Dis
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1940417648540084413, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
       propertyPath: Point
@@ -32079,6 +32147,10 @@ PrefabInstance:
     - target: {fileID: 1052788437434152879, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445288597315430273, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
+      propertyPath: Dis
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1940417648540084413, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
       propertyPath: Point
