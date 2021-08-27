@@ -35,7 +35,7 @@ public class ScrollBackGround : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (0.05f < Mathf.Abs(CinemaCam.transform.localPosition.x))
         {
