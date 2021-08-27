@@ -7994,7 +7994,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1145879204}
-  m_RootOrder: 54
+  m_RootOrder: 40
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &251497922
 Transform:
@@ -20726,6 +20726,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7185400930551370858, guid: 6b7369e6e0adf2944bf1bad6b7df4a6c, type: 3}
   m_PrefabInstance: {fileID: 637345639}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &639600137 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8894835711848759423, guid: c55a9249447515844b43ccf074da6d7e, type: 3}
+  m_PrefabInstance: {fileID: 2011982369}
+  m_PrefabAsset: {fileID: 0}
+--- !u!58 &639600138
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639600137}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.13468575, y: -1.9185977}
+  serializedVersion: 2
+  m_Radius: 0.05124426
 --- !u!1 &640626088
 GameObject:
   m_ObjectHideFlags: 0
@@ -22184,7 +22205,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1145879204}
-  m_RootOrder: 50
+  m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &688793238 stripped
 Transform:
@@ -27213,7 +27234,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1145879204}
-  m_RootOrder: 53
+  m_RootOrder: 38
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &854188581
 PrefabInstance:
@@ -36564,7 +36585,12 @@ Transform:
   - {fileID: 1332755483}
   - {fileID: 1307134356}
   - {fileID: 505524390}
+  - {fileID: 688546778}
+  - {fileID: 1523657455}
+  - {fileID: 1622347254}
+  - {fileID: 852512810}
   - {fileID: 1305371628}
+  - {fileID: 250294660}
   - {fileID: 2074690629}
   - {fileID: 1949282505}
   - {fileID: 168577350}
@@ -36575,20 +36601,15 @@ Transform:
   - {fileID: 2012634952}
   - {fileID: 1762478018}
   - {fileID: 460944050}
-  - {fileID: 1208261773}
   - {fileID: 1148583868}
+  - {fileID: 1208261773}
   - {fileID: 1009477710}
+  - {fileID: 1625772326}
   - {fileID: 1811337919}
-  - {fileID: 688546778}
-  - {fileID: 1523657455}
-  - {fileID: 1622347254}
-  - {fileID: 852512810}
-  - {fileID: 250294660}
+  - {fileID: 521379019}
   - {fileID: 1240990649}
   - {fileID: 2068976023}
   - {fileID: 637345640}
-  - {fileID: 1625772326}
-  - {fileID: 521379019}
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -49411,7 +49432,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1145879204}
-  m_RootOrder: 51
+  m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1523739909 stripped
 Transform:
@@ -52932,7 +52953,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1145879204}
-  m_RootOrder: 52
+  m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1622491649
 PrefabInstance:
@@ -56040,11 +56061,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1420062704487482779, guid: ae97fd589bdacba45b67b568517964c9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -599.9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1420062704487482779, guid: ae97fd589bdacba45b67b568517964c9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10.45
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1420062704487482779, guid: ae97fd589bdacba45b67b568517964c9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -65443,7 +65464,7 @@ PrefabInstance:
       objectReference: {fileID: 1432836738}
     - target: {fileID: 5062964358579361384, guid: c55a9249447515844b43ccf074da6d7e, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8894835711848759420, guid: c55a9249447515844b43ccf074da6d7e, type: 3}
       propertyPath: m_Enabled
