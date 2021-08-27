@@ -96,9 +96,11 @@ public class MoveGround : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        GameObject parent = ChackParent(collision.gameObject);
+
+        if (parent.tag == "Player")
         {
-            player = collision.gameObject.GetComponent<Rigidbody2D>();
+            player = parent.GetComponent<Rigidbody2D>();
         }
     }
 
@@ -108,5 +110,16 @@ public class MoveGround : MonoBehaviour
         {
             player = null;
         }
+    }
+
+
+    GameObject ChackParent(GameObject obj)
+    {
+        if (obj.transform.parent == null)//êeÇ™Ç¢Ç»Ç¢èÍçá
+        {
+            return obj;
+        }
+
+        return ChackParent(obj.transform.parent.gameObject);
     }
 }

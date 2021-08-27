@@ -392,7 +392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c84c5000b3d0526449b382880c9b026d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveFlame: 50
+  MoveFlame: 20
 --- !u!70 &7673262703282779572
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -406,8 +406,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0035464764, y: -0.024135351}
-  m_Size: {x: 2.1492333, y: 2.4849172}
+  m_Offset: {x: 0.003540039, y: 0.00045895576}
+  m_Size: {x: 2.2476196, y: 2.5341058}
   m_Direction: 0
 --- !u!1 &7973623528665178923
 GameObject:
