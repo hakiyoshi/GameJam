@@ -17,7 +17,9 @@ public class Goal_Check : MonoBehaviour
     [Header("ゴールして動かすアニメーションのオブジェクト")]
     public GameObject friend;
     [Header("シーン移動の遅延")]
-    public float delay;
+    public float Scene_delay;
+    [Header("サウンドの遅延")]
+    public float Sound_delay;
 
     //次のシーンの名前を保存する
     string Next_Stage;
@@ -77,9 +79,9 @@ public class Goal_Check : MonoBehaviour
             AudioManager.PlayAudio("GateOpen",false,false);
             //アニメーションを再生する(triggerをonにする
             anim.SetTrigger("Goal");
-            Invoke("Goal_SE",delay / 2);
+            Invoke("Goal_SE",Sound_delay);
             //ステージの移動
-            Invoke("Scene_Move",delay);
+            Invoke("Scene_Move",Scene_delay);
         }
     }
 
