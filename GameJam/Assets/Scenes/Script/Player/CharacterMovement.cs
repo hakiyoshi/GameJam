@@ -25,11 +25,6 @@ public class CharacterMovement : MonoBehaviour
     //死亡時の表情変化用
     Animator anim;
 
-    //移動可能か判定用のbool
-    bool bMove;
-
-    bool bFall;
-
     //移動方向判別用
     [Header("移動速度")]
     [SerializeField] float MaxSpeed;//最高速度
@@ -55,6 +50,8 @@ public class CharacterMovement : MonoBehaviour
 
     //2段ジャンプカウント用
     int jumpCount;
+
+    string DamageSound;
 
     // Start is called before the first frame update
     void Start()
@@ -88,11 +85,6 @@ public class CharacterMovement : MonoBehaviour
         //アニメーター取得
         anim = this.GetComponent<Animator>();
 
-        //移動可能判定bool初期化
-        SetMove(true);
-
-        bFall = false;
-
         //移動方向用数値初期化
         direction = 0f;
 
@@ -110,6 +102,8 @@ public class CharacterMovement : MonoBehaviour
 
         //慣性セット
         UseInertia = Inertia;
+
+        DamageSound = null;
     }
 
     void Update()
@@ -284,9 +278,9 @@ public class CharacterMovement : MonoBehaviour
 
         //rayの各終点設定(右)
         end_Position[0] = sta_Position + Dire_Vec[0] * end_distance;
-        end_Position[1] = end_Position[0] + Dire_Vec[1] * 0.2f;
+        end_Position[1] = end_Position[0] + Dire_Vec[1] * 0.5f;
         end_Position[2] = end_Position[0] + Dire_Vec[1] * end_distance * 0.9f;
-        end_Position[3] = end_Position[0] + Dire_Vec[3] * 0.2f;
+        end_Position[3] = end_Position[0] + Dire_Vec[3] * 0.5f;
         end_Position[4] = end_Position[0] + Dire_Vec[3] * end_distance * 0.9f;
 
         //rayの各終点設定(上)
@@ -298,9 +292,9 @@ public class CharacterMovement : MonoBehaviour
 
         //rayの各終点設定(左)
         end_Position[10] = sta_Position + Dire_Vec[2] * end_distance;
-        end_Position[11] = end_Position[10] + Dire_Vec[1] * 0.2f;
+        end_Position[11] = end_Position[10] + Dire_Vec[1] * 0.5f;
         end_Position[12] = end_Position[10] + Dire_Vec[1] * end_distance * 0.9f;
-        end_Position[13] = end_Position[10] + Dire_Vec[3] * 0.2f;
+        end_Position[13] = end_Position[10] + Dire_Vec[3] * 0.5f;
         end_Position[14] = end_Position[10] + Dire_Vec[3] * end_distance * 0.9f;
 
         //rayの各終点設定(下)
@@ -334,37 +328,41 @@ public class CharacterMovement : MonoBehaviour
                     Destroy(hits[i].collider.gameObject);
                 }
 
+                //針ギミックに当たったか
+                if (hits[i].collider.gameObject.tag == "Needle")
+                {
+                    //変更スプライトを針に設定
+                    change_Sprite = NeedleSprite;
+                    DamageSound = "Damage_Needle";
+                }
+                //マグマギミックに当たったか
+                else if (hits[i].collider.gameObject.tag == "Lava")
+                {
+                    //変更スプライトをマグマに設定
+                    change_Sprite = LavaSprite;
+                    DamageSound = "Damage_Lava";
+                }
+                //氷ギミックに当たったか
+                else if (hits[i].collider.gameObject.tag == "Ice" || hits[i].collider.gameObject.tag == "IceGround")
+                {
+                    //変更スプライトを氷に設定
+                    change_Sprite = IceSprite;
+                    DamageSound = "Damage_Ice";
+
+                }
+                else if (hits[i].collider.gameObject.tag == "Fall")
+                {
+                    DamageSound = null;
+                    Deth();
+                    PG.HitGimmick(hits[i].collider);
+                }
+
                 //足元以外に当たったか
                 if (0 <= i && i <= 14)
                 {
                 
                     //当たった部分に色(耐性)を表示
                     Cols[i / 5].GetComponent<Renderer>().material.color = new Color(1, 1, 1, 1);
-
-
-                    //針ギミックに当たったか
-                    if (hits[i].collider.gameObject.tag == "Needle")
-                    {
-                        //変更スプライトを針に設定
-                        change_Sprite = NeedleSprite;
-                    }
-                    //マグマギミックに当たったか
-                    else if (hits[i].collider.gameObject.tag == "Lava")
-                    {
-                        //変更スプライトをマグマに設定
-                        change_Sprite = LavaSprite;
-                    }
-                    //氷ギミックに当たったか
-                    else if (hits[i].collider.gameObject.tag == "Ice" || hits[i].collider.gameObject.tag == "IceGround")
-                    {
-                        //変更スプライトを氷に設定
-                        change_Sprite = IceSprite;
-                    }
-                    else if(hits[i].collider.gameObject.tag == "Fall")
-                    {
-                        Deth();
-                        PG.HitGimmick(hits[i].collider);
-                    }
                       
 
                     //当たった面がギミック耐性を持っていないか判定
@@ -373,6 +371,9 @@ public class CharacterMovement : MonoBehaviour
                         //ギミックに対応した耐性を付与
                         Cols[i / 5].GetComponent<SpriteRenderer>().sprite = change_Sprite;
                         Cols[i / 5].GetComponent<BoxCollider2D>().enabled = true;
+
+                        if(DamageSound != null)
+                            AudioManager.PlayAudio(DamageSound, false, false);
 
                         //ギミックにヒットしたことを通知してチェックポイントに戻す
                         PG.HitGimmick(hits[i].collider);
@@ -388,6 +389,11 @@ public class CharacterMovement : MonoBehaviour
                 {
                     Deth();
                     PG.HitGimmick(hits[i].collider);
+
+                    if (DamageSound!= null)
+                        AudioManager.PlayAudio(DamageSound, false, false);
+                   
+                    break;
                 }
             }
             else
@@ -414,16 +420,6 @@ public class CharacterMovement : MonoBehaviour
         Ending_Manager.AddDead_Count();
     }
 
-    //生死判断用bool取得用
-    public bool GetMove()
-    {
-        return bMove;
-    }
-    //生死判断用bool設定用
-    public void SetMove(bool set)
-    {
-        bMove = set;
-    }
 
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -447,11 +443,6 @@ public class CharacterMovement : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        //落とし穴との当たり判定
-        if (collision.gameObject.CompareTag("Fall"))
-        {
-            bFall = true;
-        }
         //地面との当たり判定
         if (collision.gameObject.CompareTag("Ground"))
         {
@@ -459,16 +450,6 @@ public class CharacterMovement : MonoBehaviour
             jumpCount = 2;
             UseInertia = Inertia;//慣性を付ける
         }
-    }
-
-    void OnTriggerExit2D(Collider2D collision)
-    {
-        //落とし穴との当たり判定リセット
-        if (collision.gameObject.CompareTag("Fall"))
-        {
-            bFall = false;
-        }
-
     }
 
 }
