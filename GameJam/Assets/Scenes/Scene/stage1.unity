@@ -304,11 +304,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7973623528100968259, guid: b59aba602970da249954a76fb55a2aea, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.3999939
+      value: 2.3
       objectReference: {fileID: 0}
     - target: {fileID: 7973623528100968259, guid: b59aba602970da249954a76fb55a2aea, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.8000002
+      value: 4.7
       objectReference: {fileID: 0}
     - target: {fileID: 7973623528100968259, guid: b59aba602970da249954a76fb55a2aea, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2759,11 +2759,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8824462102188981034, guid: ae97fd589bdacba45b67b568517964c9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.3999939
+      value: 2.3
       objectReference: {fileID: 0}
     - target: {fileID: 8824462102188981034, guid: ae97fd589bdacba45b67b568517964c9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.8000002
+      value: 4.7
       objectReference: {fileID: 0}
     - target: {fileID: 8824462102188981034, guid: ae97fd589bdacba45b67b568517964c9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -34310,6 +34310,14 @@ PrefabInstance:
     - target: {fileID: 2812321987485300991, guid: f5e7bc92acdfd3a46b61df6867261746, type: 3}
       propertyPath: delay
       value: 2.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2812321987485300991, guid: f5e7bc92acdfd3a46b61df6867261746, type: 3}
+      propertyPath: Scene_delay
+      value: 3.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2812321987485300991, guid: f5e7bc92acdfd3a46b61df6867261746, type: 3}
+      propertyPath: Sound_delay
+      value: 1.82
       objectReference: {fileID: 0}
     - target: {fileID: 3896698492883564253, guid: f5e7bc92acdfd3a46b61df6867261746, type: 3}
       propertyPath: m_SortingOrder
