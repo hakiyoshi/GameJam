@@ -8435,7 +8435,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1603825087}
-  m_RootOrder: 174
+  m_RootOrder: 136
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &274089128 stripped
 Transform:
@@ -17189,7 +17189,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2054420147465358252, guid: 8c234bb3329e06048a8bb48f1f17aa3b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2054420147465358252, guid: 8c234bb3329e06048a8bb48f1f17aa3b, type: 3}
       propertyPath: m_LocalScale.y
@@ -17197,11 +17197,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2054420147465358252, guid: 8c234bb3329e06048a8bb48f1f17aa3b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 110.5
+      value: 110.22
       objectReference: {fileID: 0}
     - target: {fileID: 2054420147465358252, guid: 8c234bb3329e06048a8bb48f1f17aa3b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5
+      value: 1.5079994
       objectReference: {fileID: 0}
     - target: {fileID: 2054420147465358252, guid: 8c234bb3329e06048a8bb48f1f17aa3b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -26378,7 +26378,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2054420147465358252, guid: 8c234bb3329e06048a8bb48f1f17aa3b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2054420147465358252, guid: 8c234bb3329e06048a8bb48f1f17aa3b, type: 3}
       propertyPath: m_LocalScale.y
@@ -26386,7 +26386,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2054420147465358252, guid: 8c234bb3329e06048a8bb48f1f17aa3b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 112
+      value: 112.25
       objectReference: {fileID: 0}
     - target: {fileID: 2054420147465358252, guid: 8c234bb3329e06048a8bb48f1f17aa3b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -46309,6 +46309,7 @@ Transform:
   - {fileID: 235516935}
   - {fileID: 72595223}
   - {fileID: 1683935405}
+  - {fileID: 273361251}
   - {fileID: 11682377}
   - {fileID: 944017747}
   - {fileID: 1722450509}
@@ -46347,7 +46348,6 @@ Transform:
   - {fileID: 765250264}
   - {fileID: 1887529773}
   - {fileID: 28520088}
-  - {fileID: 273361251}
   - {fileID: 95573771}
   - {fileID: 1984744112}
   - {fileID: 2143641761}
@@ -59332,6 +59332,10 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 1898805156}
+    - target: {fileID: 8538146903121534827, guid: ae97fd589bdacba45b67b568517964c9, type: 3}
+      propertyPath: bChange
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8824462102188981031, guid: ae97fd589bdacba45b67b568517964c9, type: 3}
       propertyPath: m_Name
       value: Main Camera
