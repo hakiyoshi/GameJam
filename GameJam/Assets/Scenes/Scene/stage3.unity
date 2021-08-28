@@ -8435,7 +8435,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1603825087}
-  m_RootOrder: 197
+  m_RootOrder: 174
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &274089128 stripped
 Transform:
@@ -46301,7 +46301,6 @@ Transform:
   - {fileID: 904188479}
   - {fileID: 751899531}
   - {fileID: 367015987}
-  - {fileID: 1065968994}
   - {fileID: 2047156590}
   - {fileID: 1281875403}
   - {fileID: 1591800588}
@@ -46348,6 +46347,7 @@ Transform:
   - {fileID: 765250264}
   - {fileID: 1887529773}
   - {fileID: 28520088}
+  - {fileID: 273361251}
   - {fileID: 95573771}
   - {fileID: 1984744112}
   - {fileID: 2143641761}
@@ -46370,7 +46370,6 @@ Transform:
   - {fileID: 836204470}
   - {fileID: 913480827}
   - {fileID: 299223875}
-  - {fileID: 273361251}
   - {fileID: 1353490923}
   - {fileID: 552935713}
   - {fileID: 1991798386}
@@ -46384,6 +46383,7 @@ Transform:
   - {fileID: 1640781810}
   - {fileID: 298876656}
   - {fileID: 1900212745}
+  - {fileID: 1065968994}
   - {fileID: 29701811}
   - {fileID: 1378907833}
   - {fileID: 1839960595}
@@ -55602,12 +55602,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3896698492883564253, guid: f5e7bc92acdfd3a46b61df6867261746, type: 3}
       propertyPath: m_SortingOrder
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5288026537888832805, guid: f5e7bc92acdfd3a46b61df6867261746, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -4747872031406891487, guid: 1f4e40389ea765848827b7d73c4c7ded, type: 3}
+      objectReference: {fileID: 1450603941915134412, guid: 1f4e40389ea765848827b7d73c4c7ded, type: 3}
     - target: {fileID: 5288026537888832805, guid: f5e7bc92acdfd3a46b61df6867261746, type: 3}
       propertyPath: m_SortingOrder
       value: -1
