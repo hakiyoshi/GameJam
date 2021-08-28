@@ -18,6 +18,8 @@ public class Icicle : MonoBehaviour
     public float YSpeed;
     [Header("つららの加速度(1フレームごと)")]
     public float Boost;
+    [Header("最大加速度")]
+    public float Max_Boost;
     [Header("つららの復活する高さ(元あった座標から)")]
     public float YHight;
     [Header("つららが復活する速度0.0f～1.0f")]
@@ -59,7 +61,13 @@ public class Icicle : MonoBehaviour
             Fall_Flag = 1;
             //落下処理
             IcePos -= YSpeed * Accele;
-            Accele += Boost;
+            if(Accele < Max_Boost) { 
+                Accele += Boost;
+            }
+            else
+            {
+                Accele = Max_Boost;
+            }
         }
     }
     //つららが上から生えてくる処理
@@ -76,7 +84,12 @@ public class Icicle : MonoBehaviour
             Fall_Flag = 0;
         }
     }
-
+    void Reset()
+    {
+        Fall_Flag = -2;
+        IcePos = Ice.y + YHight;
+        Accele = 1.0f;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -104,10 +117,9 @@ public class Icicle : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collider)
     {
         //つららを初期よりも少し大きめに設定する
-        if (Fall_Flag == 1)
+        if (Fall_Flag == 1 || Fall_Flag == -1)
         {
-            Fall_Flag = -2;
-            IcePos = Ice.y + YHight;
+            Reset();
         }
     }
 
@@ -115,9 +127,7 @@ public class Icicle : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Fall_Flag = -2;
-            IcePos = Ice.y + YHight;
-            Accele = 1.0f;
+           Reset();
         }
     }
 }
