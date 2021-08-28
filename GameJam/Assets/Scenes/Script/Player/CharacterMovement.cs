@@ -130,11 +130,6 @@ public class CharacterMovement : MonoBehaviour
             anim.SetBool("isDeth", true);
             cc.enabled = false;
         }
-
-        if (jumpCount == 1)
-        {
-            Debug.Log(jumpCount);
-        }
     }
 
     void FixedUpdate()
