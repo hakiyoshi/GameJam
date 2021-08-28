@@ -53,6 +53,8 @@ public class CharacterMovement : MonoBehaviour
 
     string DamageSound;
 
+    bool bGimmickHit;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -104,6 +106,8 @@ public class CharacterMovement : MonoBehaviour
         UseInertia = Inertia;
 
         DamageSound = null;
+
+        bGimmickHit = false;
     }
 
     void Update()
@@ -115,8 +119,8 @@ public class CharacterMovement : MonoBehaviour
 
             if (Time.timeScale != 0)
             {
-                Jump();
                 Collision();
+                Jump();
                 cc.enabled = true;
             }
         }
@@ -127,16 +131,27 @@ public class CharacterMovement : MonoBehaviour
             cc.enabled = false;
         }
 
+        if (jumpCount == 1)
+        {
             Debug.Log(jumpCount);
-
+        }
     }
 
     void FixedUpdate()
     {
         if (!PG.GetHitMoveFlag())
         {
-            //移動
-            Move();
+            if (Time.timeScale != 0)
+            {
+                //移動
+                Move();
+
+                if (bGimmickHit)
+                {
+                    bGimmickHit = false;
+                    jumpCount = 1;
+                }
+            }
         }
 
         //回転処理反映 
@@ -204,8 +219,9 @@ public class CharacterMovement : MonoBehaviour
     void Jump()
     {
         //スペースキーを押したときのジャンプ処理
-        if (((Input.GetKeyDown(KeyCode.Space)|| Input.GetKeyDown(KeyCode.Return))) && jumpCount != 0)
+        if (((Input.GetKeyDown(KeyCode.Space)|| Input.GetKeyDown(KeyCode.Return))) && 0 < jumpCount)
         {
+
             AudioManager.PlayAudio("Jamp",false,false);
 
             //物理演算リセット
@@ -249,6 +265,7 @@ public class CharacterMovement : MonoBehaviour
             //今の角度から90度回転
             rotateZ = Mathf.Lerp(now_Rotate - angle, now_Rotate, time / 0.1f);
 
+
             //インターバル加算
             time += Time.deltaTime;
 
@@ -274,35 +291,35 @@ public class CharacterMovement : MonoBehaviour
         //rayの終点配列
         Vector3[] end_Position = new Vector3[20];
 
-        float end_distance = 1.3f;
+        float end_distance = 1.35f;
 
         //rayの各終点設定(右)
         end_Position[0] = sta_Position + Dire_Vec[0] * end_distance;
         end_Position[1] = end_Position[0] + Dire_Vec[1] * 0.5f;
-        end_Position[2] = end_Position[0] + Dire_Vec[1] * end_distance * 0.9f;
+        end_Position[2] = end_Position[0] + Dire_Vec[1] * end_distance * 0.8f;
         end_Position[3] = end_Position[0] + Dire_Vec[3] * 0.5f;
-        end_Position[4] = end_Position[0] + Dire_Vec[3] * end_distance * 0.9f;
+        end_Position[4] = end_Position[0] + Dire_Vec[3] * end_distance * 0.8f;
 
         //rayの各終点設定(上)
-        end_Position[5] = sta_Position + Dire_Vec[1] * end_distance * 1.33f;
+        end_Position[5] = sta_Position + Dire_Vec[1] * end_distance * 1.3f;
         end_Position[6] = end_Position[5] + Dire_Vec[0] * 0.5f;
-        end_Position[7] = end_Position[5] + Dire_Vec[0];
+        end_Position[7] = end_Position[5] + Dire_Vec[0] * 0.8f;
         end_Position[8] = end_Position[5] + Dire_Vec[2] * 0.5f;
-        end_Position[9] = end_Position[5] + Dire_Vec[2];
+        end_Position[9] = end_Position[5] + Dire_Vec[2] * 0.8f;
 
         //rayの各終点設定(左)
         end_Position[10] = sta_Position + Dire_Vec[2] * end_distance;
         end_Position[11] = end_Position[10] + Dire_Vec[1] * 0.5f;
-        end_Position[12] = end_Position[10] + Dire_Vec[1] * end_distance * 0.9f;
+        end_Position[12] = end_Position[10] + Dire_Vec[1] * end_distance * 0.8f;
         end_Position[13] = end_Position[10] + Dire_Vec[3] * 0.5f;
-        end_Position[14] = end_Position[10] + Dire_Vec[3] * end_distance * 0.9f;
+        end_Position[14] = end_Position[10] + Dire_Vec[3] * end_distance * 0.8f;
 
         //rayの各終点設定(下)
-        end_Position[15] = sta_Position + Dire_Vec[3] * end_distance * 1.33f;
+        end_Position[15] = sta_Position + Dire_Vec[3] * end_distance * 1.3f;
         end_Position[16] = end_Position[15] + Dire_Vec[0] * 0.6f;
-        end_Position[17] = end_Position[15] + Dire_Vec[0];
+        end_Position[17] = end_Position[15] + Dire_Vec[0] * 0.8f;
         end_Position[18] = end_Position[15] + Dire_Vec[2] * 0.6f;
-        end_Position[19] = end_Position[15] + Dire_Vec[2];
+        end_Position[19] = end_Position[15] + Dire_Vec[2] * 0.8f;
 
         //rayの各設定(上下座右)
         for (int i = 0; i < hits.Length; i++)
@@ -317,11 +334,9 @@ public class CharacterMovement : MonoBehaviour
             //i番目のRayが当たったか
             if (hits[i])
             {
-
                 //デバッグでLineを見る用
                 Debug.DrawLine(sta_Position, end_Position[i], Color.red);
 
-                jumpCount = 2;
 
                 if (hits[i].collider.gameObject.name == "DropLava(Clone)")
                 {
@@ -360,10 +375,8 @@ public class CharacterMovement : MonoBehaviour
                 //足元以外に当たったか
                 if (0 <= i && i <= 14)
                 {
-                
                     //当たった部分に色(耐性)を表示
                     Cols[i / 5].GetComponent<Renderer>().material.color = new Color(1, 1, 1, 1);
-                      
 
                     //当たった面がギミック耐性を持っていないか判定
                     if (Cols[i / 5].GetComponent<SpriteRenderer>().sprite != change_Sprite)
@@ -380,9 +393,10 @@ public class CharacterMovement : MonoBehaviour
 
                         //各角度リセット
                         now_Rotate = rotateZ = 0f;
+
                         break;
                     }
-                  
+                    bGimmickHit = true;
                 }
                 //足元に当たったら
                 else
@@ -398,7 +412,7 @@ public class CharacterMovement : MonoBehaviour
             }
             else
             {
-                    Debug.DrawLine(sta_Position, end_Position[i], Color.yellow);
+                Debug.DrawLine(sta_Position, end_Position[i], Color.yellow);
             }
         }
     }
@@ -419,7 +433,6 @@ public class CharacterMovement : MonoBehaviour
 
         Ending_Manager.AddDead_Count();
     }
-
 
 
     void OnCollisionEnter2D(Collision2D collision)
