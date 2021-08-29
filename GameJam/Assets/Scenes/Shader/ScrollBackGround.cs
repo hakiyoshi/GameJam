@@ -62,8 +62,11 @@ public class ScrollBackGround : MonoBehaviour
             for (int i = 0; i < BackGroundCount; i++)
                 BackGround[i].material.SetFloat("_XSpeed", ScrollSpeed * Time);
 
-        if (bChange && cg.IfCameraFlag(ChangeCamera.CAMERAFLAG.TARGET))
-            Alpha -= Minus_Alpha;
+
+        if (cg.IfCameraFlag(ChangeCamera.CAMERAFLAG.MAIN) && Alpha < 1)
+            Alpha += 0.01f;
+        else if (!cg.IfCameraFlag(ChangeCamera.CAMERAFLAG.MAIN) && 0 < Alpha)
+            Alpha -= 0.1f;
 
         if (bChange)
             BackGround[1].material.SetFloat("_Alpha",Alpha);

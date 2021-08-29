@@ -17,7 +17,6 @@ public class CharacterMovement : MonoBehaviour
     //Rigidbody2D
     Rigidbody2D rb;
 
-
     CapsuleCollider2D cc;
 
     //Gimmick取得用レイヤー
@@ -25,14 +24,6 @@ public class CharacterMovement : MonoBehaviour
 
     //死亡時の表情変化用
     Animator anim;
-
-    //移動可能か判定用のbool
-    bool bMove;
-
-    bool bFall;
-
-    bool bRight;
-    bool bLeft;
 
     //移動方向判別用
     [Header("移動速度")]
@@ -59,6 +50,11 @@ public class CharacterMovement : MonoBehaviour
 
     //2段ジャンプカウント用
     int jumpCount;
+
+    string DamageSound;
+
+
+    RaycastHit2D[] hits;
 
     // Start is called before the first frame update
     void Start()
@@ -92,15 +88,6 @@ public class CharacterMovement : MonoBehaviour
         //アニメーター取得
         anim = this.GetComponent<Animator>();
 
-        //移動可能判定bool初期化
-        SetMove(true);
-
-        bFall = false;
-
-        bRight = false;
-
-        bLeft = false;
-
         //移動方向用数値初期化
         direction = 0f;
 
@@ -118,6 +105,8 @@ public class CharacterMovement : MonoBehaviour
 
         //慣性セット
         UseInertia = Inertia;
+
+        DamageSound = null;
     }
 
     void Update()
@@ -129,9 +118,17 @@ public class CharacterMovement : MonoBehaviour
 
             if (Time.timeScale != 0)
             {
-                Jump();
                 Collision();
+                Jump();
                 cc.enabled = true;
+
+                foreach (RaycastHit2D hit in hits)
+                {
+                    if (hit)
+                    {
+                        jumpCount = 1;
+                    }
+                }
             }
         }
         else
@@ -139,20 +136,18 @@ public class CharacterMovement : MonoBehaviour
             //死んだときの表情変更
             anim.SetBool("isDeth", true);
             cc.enabled = false;
-            bRight = false;
-            bLeft = false;
         }
-
-            Debug.Log(jumpCount);
-
     }
 
     void FixedUpdate()
     {
         if (!PG.GetHitMoveFlag())
         {
-            //移動
-            Move();
+            if (Time.timeScale != 0)
+            {
+                //移動
+                Move();
+            }
         }
 
         //回転処理反映 
@@ -176,8 +171,6 @@ public class CharacterMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             direction = MaxSpeed;
-            bRight = true; 
-            bLeft = false;
 
             if (jumpCount == 2)
             {
@@ -196,8 +189,7 @@ public class CharacterMovement : MonoBehaviour
         else if (Input.GetKey(KeyCode.A))
         {
             direction = -MaxSpeed;
-            bRight = false;
-            bLeft = true;
+
             if (jumpCount == 2)
             {
                 //プレイヤーの左右反転
@@ -212,11 +204,6 @@ public class CharacterMovement : MonoBehaviour
                 }
             }
         }
-        else
-        {
-            bRight = false;
-            bLeft = false;
-        }
 
         //左右移動
         rb.position += new Vector2(direction, 0.0f);
@@ -228,18 +215,18 @@ public class CharacterMovement : MonoBehaviour
     void Jump()
     {
         //スペースキーを押したときのジャンプ処理
-        if (((Input.GetKeyDown(KeyCode.Space)|| Input.GetKeyDown(KeyCode.Return))) && jumpCount != 0)
+        if (((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))) && 0 < jumpCount)
         {
-            AudioManager.PlayAudio("Jamp",false,false);
+            //ジャンプカウント-1
+            jumpCount--;
+
+            AudioManager.PlayAudio("Jamp", false, false);
 
             //物理演算リセット
             rb.velocity = Vector2.zero;
 
             //ジャンプ処理
             rb.AddForce(Vector2.up * JumpPower);
-
-            //ジャンプカウント-1
-            jumpCount--;
 
             if (0 < this.transform.localScale.x)
             {
@@ -284,7 +271,7 @@ public class CharacterMovement : MonoBehaviour
     void Collision()
     {
         //当たり判定用Ray
-        RaycastHit2D[] hits = new RaycastHit2D[12];
+        hits = new RaycastHit2D[20];
 
         //方向ベクトル
         Vector3[] Dire_Vec = { rb.transform.right, //右
@@ -293,32 +280,40 @@ public class CharacterMovement : MonoBehaviour
                               -rb.transform.up};   //下 
 
         //rayの始点
-        Vector3 sta_Position = new Vector3(this.rb.transform.position.x
-                                         , this.rb.transform.position.y);
+        Vector3 sta_Position = new Vector3(this.rb.transform.position.x + cc.offset.x
+                                         , this.rb.transform.position.y + cc.offset.y);
         //rayの終点配列
-        Vector3[] end_Position = new Vector3[12];
+        Vector3[] end_Position = new Vector3[20];
 
-        float end_distance = 1.1f;
+        float end_distance = 1.35f;
 
         //rayの各終点設定(右)
         end_Position[0] = sta_Position + Dire_Vec[0] * end_distance;
-        end_Position[1] = end_Position[0] + Dire_Vec[1] / 2f;
-        end_Position[2] = end_Position[0] + Dire_Vec[3] / 2f;
+        end_Position[1] = end_Position[0] + Dire_Vec[1] * 0.5f;
+        end_Position[2] = end_Position[0] + Dire_Vec[1] * end_distance * 0.7f;
+        end_Position[3] = end_Position[0] + Dire_Vec[3] * 0.5f;
+        end_Position[4] = end_Position[0] + Dire_Vec[3] * end_distance * 0.7f;
 
         //rayの各終点設定(上)
-        end_Position[3] = sta_Position + Dire_Vec[1] * end_distance * 1.2f;
-        end_Position[4] = end_Position[3] + Dire_Vec[0] / 2f;
-        end_Position[5] = end_Position[3] + Dire_Vec[2] / 2f;
+        end_Position[5] = sta_Position + Dire_Vec[1] * end_distance * 1.25f;
+        end_Position[6] = end_Position[5] + Dire_Vec[0] * 0.5f;
+        end_Position[7] = end_Position[5] + Dire_Vec[0] * 1.2f;
+        end_Position[8] = end_Position[5] + Dire_Vec[2] * 0.5f;
+        end_Position[9] = end_Position[5] + Dire_Vec[2] * 1.2f;
 
         //rayの各終点設定(左)
-        end_Position[6] = sta_Position + Dire_Vec[2] * end_distance;
-        end_Position[7] = end_Position[6] + Dire_Vec[1] / 2f;
-        end_Position[8] = end_Position[6] + Dire_Vec[3] / 2f;
+        end_Position[10] = sta_Position + Dire_Vec[2] * end_distance;
+        end_Position[11] = end_Position[10] + Dire_Vec[1] * 0.5f;
+        end_Position[12] = end_Position[10] + Dire_Vec[1] * end_distance * 0.7f;
+        end_Position[13] = end_Position[10] + Dire_Vec[3] * 0.5f;
+        end_Position[14] = end_Position[10] + Dire_Vec[3] * end_distance * 0.7f;
 
         //rayの各終点設定(下)
-        end_Position[9] = sta_Position + Dire_Vec[3] * end_distance;
-        end_Position[10] = end_Position[9] + Dire_Vec[0] / 2f;
-        end_Position[11] = end_Position[9] + Dire_Vec[2] / 2f;
+        end_Position[15] = sta_Position + Dire_Vec[3] * end_distance * 1.25f;
+        end_Position[16] = end_Position[15] + Dire_Vec[0] * 0.6f;
+        end_Position[17] = sta_Position + Dire_Vec[3] + Dire_Vec[0];
+        end_Position[18] = end_Position[15] + Dire_Vec[2] * 0.6f;
+        end_Position[19] = sta_Position + Dire_Vec[3] + Dire_Vec[2];
 
         //rayの各設定(上下座右)
         for (int i = 0; i < hits.Length; i++)
@@ -328,81 +323,91 @@ public class CharacterMovement : MonoBehaviour
         Sprite change_Sprite = null;
 
         //当たり判定確認用ループ
-        for (int i = 0; i < hits.Length; i++)
+        for (int i = hits.Length - 1; 0 <= i; i--)
         {
             //i番目のRayが当たったか
             if (hits[i])
             {
-
                 //デバッグでLineを見る用
                 Debug.DrawLine(sta_Position, end_Position[i], Color.red);
 
-                jumpCount = 2;
-
-
-                //足元以外に当たったか
-                if (0 <= i && i <= 8)
+                if (hits[i].collider.gameObject.name == "DropLava(Clone)")
                 {
-                
+                    Destroy(hits[i].collider.gameObject);
+                }
+
+                //針ギミックに当たったか
+                if (hits[i].collider.gameObject.tag == "Needle")
+                {
+                    //変更スプライトを針に設定
+                    change_Sprite = NeedleSprite;
+                    DamageSound = "Damage_Needle";
+                }
+                //マグマギミックに当たったか
+                else if (hits[i].collider.gameObject.tag == "Lava")
+                {
+                    Debug.Log(hits[i].collider.gameObject.name);
+
+                    //変更スプライトをマグマに設定
+                    change_Sprite = LavaSprite;
+                    DamageSound = "Damage_Lava";
+                }
+                //氷ギミックに当たったか
+                else if (hits[i].collider.gameObject.tag == "Ice" || hits[i].collider.gameObject.tag == "IceGround")
+                {
+                    //変更スプライトを氷に設定
+                    change_Sprite = IceSprite;
+                    DamageSound = "Damage_Ice";
+                }
+                else if (hits[i].collider.gameObject.tag == "Fall")
+                {
+                    DamageSound = null;
+                    Deth();
+                    PG.HitGimmick(hits[i].collider);
+                }
+                //足元以外に当たったか
+                if (0 <= i && i <= 14)
+                {
                     //当たった部分に色(耐性)を表示
-                    Cols[i / 3].GetComponent<Renderer>().material.color = new Color(1, 1, 1, 1);
-
-                    //針ギミックに当たったか
-                    if (hits[i].collider.gameObject.tag == "Needle")
-                    {
-                        //変更スプライトを針に設定
-                        change_Sprite = NeedleSprite;
-                    }
-                    //マグマギミックに当たったか
-                    else if (hits[i].collider.gameObject.tag == "Lava")
-                    {
-                        //変更スプライトをマグマに設定
-                        change_Sprite = LavaSprite;
-                        if(hits[i].collider.gameObject.name == "DropLava(Clone)")
-                        {
-                            Destroy(hits[i].collider.gameObject);
-                        }
-
-                    }
-                    //氷ギミックに当たったか
-                    else if (hits[i].collider.gameObject.tag == "Ice" || hits[i].collider.gameObject.tag == "IceGround")
-                    {
-                        //変更スプライトを氷に設定
-                        change_Sprite = IceSprite;
-                    }
-                    else if(hits[i].collider.gameObject.tag == "Fall")
-                    {
-                        Deth();
-                        PG.HitGimmick(hits[i].collider);
-                    }
-                      
+                    Cols[i / 5].GetComponent<Renderer>().material.color = new Color(1, 1, 1, 1);
 
                     //当たった面がギミック耐性を持っていないか判定
-                    if (Cols[i / 3].GetComponent<SpriteRenderer>().sprite != change_Sprite)
+                    if (Cols[i / 5].GetComponent<SpriteRenderer>().sprite != change_Sprite)
                     {
                         //ギミックに対応した耐性を付与
-                        Cols[i / 3].GetComponent<SpriteRenderer>().sprite = change_Sprite;
-                        Cols[i / 3].GetComponent<BoxCollider2D>().enabled = true;
+                        Cols[i / 5].GetComponent<SpriteRenderer>().sprite = change_Sprite;
+                        Cols[i / 5].GetComponent<BoxCollider2D>().enabled = true;
+
+                        if (DamageSound != null)
+                            AudioManager.PlayAudio(DamageSound, false, false);
 
                         //ギミックにヒットしたことを通知してチェックポイントに戻す
                         PG.HitGimmick(hits[i].collider);
 
                         //各角度リセット
                         now_Rotate = rotateZ = 0f;
+
+                        Ending_Manager.AddDead_Count();
+
                         break;
                     }
-                        
                 }
                 //足元に当たったら
                 else
                 {
                     Deth();
                     PG.HitGimmick(hits[i].collider);
+
+                    if (DamageSound != null)
+                        AudioManager.PlayAudio(DamageSound, false, false);
+
+                    Ending_Manager.AddDead_Count();
+                    break;
                 }
             }
             else
             {
-                    Debug.DrawLine(sta_Position, end_Position[i], Color.yellow);
+                Debug.DrawLine(sta_Position, end_Position[i], Color.yellow);
             }
         }
     }
@@ -420,30 +425,8 @@ public class CharacterMovement : MonoBehaviour
         }
         //各角度リセット
         now_Rotate = rotateZ = 0f;
-
-        Ending_Manager.AddDead_Count();
     }
 
-    //生死判断用bool取得用
-    public bool GetMove()
-    {
-        return bMove;
-    }
-    //生死判断用bool設定用
-    public void SetMove(bool set)
-    {
-        bMove = set;
-    }
-
-    public bool GetbRight()
-    {
-        return bRight;
-    }
-
-    public bool GetbLeft()
-    {
-        return bLeft;
-    }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -460,17 +443,12 @@ public class CharacterMovement : MonoBehaviour
         //地面との当たり判定
         if (collision.gameObject.CompareTag("Ground") && !collision.gameObject.CompareTag("IceGround"))
         {
-           UseInertia = 0.0f;//慣性を消す
+            UseInertia = 0.0f;//慣性を消す
         }
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerStay2D(Collider2D collision)
     {
-        //落とし穴との当たり判定
-        if (collision.gameObject.CompareTag("Fall"))
-        {
-            bFall = true;
-        }
         //地面との当たり判定
         if (collision.gameObject.CompareTag("Ground"))
         {
@@ -479,15 +457,4 @@ public class CharacterMovement : MonoBehaviour
             UseInertia = Inertia;//慣性を付ける
         }
     }
-
-    void OnTriggerExit2D(Collider2D collision)
-    {
-        //落とし穴との当たり判定リセット
-        if (collision.gameObject.CompareTag("Fall"))
-        {
-            bFall = false;
-        }
-
-    }
-
 }

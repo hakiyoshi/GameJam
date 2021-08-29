@@ -67,7 +67,13 @@ public class PauseController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            bPause = !bPause;
+            if (bPause)
+            {
+                bPause = false;
+                bInfomation = false;
+            }
+            else if (!bPause)
+                bPause = true;
 
             if (bPause)
             {
@@ -81,7 +87,10 @@ public class PauseController : MonoBehaviour
             Time.timeScale = 0f;
         else
             Time.timeScale = 1f;
-
+       
+        Selects.SetActive(bPause);
+        Arrow.SetActive(bPause);
+        Infomation.SetActive(bInfomation);
     }
 
     void DownSelect()
@@ -93,7 +102,7 @@ public class PauseController : MonoBehaviour
             if (SelectCount == Select.Length)
             {
                 SelectCount = 0;
-                Arrow.transform.localPosition = new Vector3(-140, 0, 0);
+                Arrow.transform.localPosition = new Vector3(-500, 220, 0);
             }
             else
                 Arrow.transform.localPosition += new Vector3(0, -155, 0);
@@ -108,8 +117,8 @@ public class PauseController : MonoBehaviour
 
             if (SelectCount == -1)
             {
-                SelectCount = Select.Length;
-                Arrow.transform.localPosition = new Vector3(-140, -465, 0);
+                SelectCount = Select.Length -1;
+                Arrow.transform.localPosition = new Vector3(-500, -245, 0);
             }
             else
                 Arrow.transform.localPosition += new Vector3(0, 155, 0);
@@ -137,7 +146,7 @@ public class PauseController : MonoBehaviour
                 Select[i].GetComponent<Image>().color = new Color(1f, 1f, 1f, 0.5f);
         }
 
-        Arrow.transform.localPosition = new Vector3(-140,0,0);
+        Arrow.transform.localPosition = new Vector3(-500,220,0);
 
         SelectCount = 0;
 
@@ -155,6 +164,7 @@ public class PauseController : MonoBehaviour
                 case 1:
                     bPause = false;
                     Fade.FadeOut(SceneManager.GetActiveScene().name);
+
                     break;
                 case 2:
                     bPause = false;

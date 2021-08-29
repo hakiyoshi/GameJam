@@ -85,3 +85,18 @@ MonoBehaviour:
     audiotype: 0
     loopstart: 0
     loopend: 0
+  - name: Damage_Needle
+    audioclip: {fileID: 8300000, guid: 4f3cefde712cb5049bd8138edb0693be, type: 3}
+    audiotype: 1
+    loopstart: 0
+    loopend: 0
+  - name: Damage_Lava
+    audioclip: {fileID: 8300000, guid: 9ba802787823b9b438cfb87360539237, type: 3}
+    audiotype: 1
+    loopstart: 0
+    loopend: 0
+  - name: Damage_Ice
+    audioclip: {fileID: 8300000, guid: 30f0aa11ce8f6b94c931892bbdfebe57, type: 3}
+    audiotype: 1
+    loopstart: 0
+    loopend: 0
