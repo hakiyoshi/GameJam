@@ -67,7 +67,13 @@ public class PauseController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            bPause = !bPause;
+            if (bPause)
+            {
+                bPause = false;
+                bInfomation = false;
+            }
+            else if (!bPause)
+                bPause = true;
 
             if (bPause)
             {
@@ -81,7 +87,10 @@ public class PauseController : MonoBehaviour
             Time.timeScale = 0f;
         else
             Time.timeScale = 1f;
-
+       
+        Selects.SetActive(bPause);
+        Arrow.SetActive(bPause);
+        Infomation.SetActive(bInfomation);
     }
 
     void DownSelect()
@@ -155,6 +164,7 @@ public class PauseController : MonoBehaviour
                 case 1:
                     bPause = false;
                     Fade.FadeOut(SceneManager.GetActiveScene().name);
+
                     break;
                 case 2:
                     bPause = false;
