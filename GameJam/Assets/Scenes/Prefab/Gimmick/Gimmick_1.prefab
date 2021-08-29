@@ -150,6 +150,8 @@ MonoBehaviour:
   Charcter: {fileID: 0}
   Range: 2
   YSpeed: 0.1
+  Boost: 0.02
+  Max_Boost: 2.8
   YHight: 5
   ReSpeed: 0.1
 --- !u!114 &-1945418655811423647
