@@ -41,7 +41,10 @@ public class ChangeDollyTrack : MonoBehaviour
 
                 //Ÿ‚ÌƒpƒX‚ª‚È‚¢ê‡‚ÍI—¹
                 if (track.Length <= nowtrack + 1)
+                {
+                    nowtrack = -1;
                     yield break;
+                }
             }
 
             yield return new WaitForFixedUpdate();
@@ -53,5 +56,11 @@ public class ChangeDollyTrack : MonoBehaviour
     {
         cart.m_Path = track[id];
         cart.m_Position = 0.0f;
+    }
+
+    //‹­§ˆÚ“®Ä¶’†‚©
+    public bool GetDollyCartPlay()
+    {
+        return nowtrack != -1 ? true : false;
     }
 }
