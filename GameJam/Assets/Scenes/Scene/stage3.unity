@@ -8435,7 +8435,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1603825087}
+<<<<<<< HEAD
   m_RootOrder: 136
+=======
+  m_RootOrder: 174
+>>>>>>> parent of aac9a53 (修正)
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &274089128 stripped
 Transform:
@@ -17189,7 +17193,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2054420147465358252, guid: 8c234bb3329e06048a8bb48f1f17aa3b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2054420147465358252, guid: 8c234bb3329e06048a8bb48f1f17aa3b, type: 3}
       propertyPath: m_LocalScale.y
@@ -17197,11 +17201,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2054420147465358252, guid: 8c234bb3329e06048a8bb48f1f17aa3b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 110.22
+      value: 110.5
       objectReference: {fileID: 0}
     - target: {fileID: 2054420147465358252, guid: 8c234bb3329e06048a8bb48f1f17aa3b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5079994
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2054420147465358252, guid: 8c234bb3329e06048a8bb48f1f17aa3b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -26378,7 +26382,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2054420147465358252, guid: 8c234bb3329e06048a8bb48f1f17aa3b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2054420147465358252, guid: 8c234bb3329e06048a8bb48f1f17aa3b, type: 3}
       propertyPath: m_LocalScale.y
@@ -26386,7 +26390,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2054420147465358252, guid: 8c234bb3329e06048a8bb48f1f17aa3b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 112.25
+      value: 112
       objectReference: {fileID: 0}
     - target: {fileID: 2054420147465358252, guid: 8c234bb3329e06048a8bb48f1f17aa3b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -46309,7 +46313,6 @@ Transform:
   - {fileID: 235516935}
   - {fileID: 72595223}
   - {fileID: 1683935405}
-  - {fileID: 273361251}
   - {fileID: 11682377}
   - {fileID: 944017747}
   - {fileID: 1722450509}
@@ -46348,6 +46351,10 @@ Transform:
   - {fileID: 765250264}
   - {fileID: 1887529773}
   - {fileID: 28520088}
+<<<<<<< HEAD
+=======
+  - {fileID: 273361251}
+>>>>>>> parent of aac9a53 (修正)
   - {fileID: 95573771}
   - {fileID: 1984744112}
   - {fileID: 2143641761}
@@ -59288,6 +59295,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5965015276703511814, guid: 79edfd7e012be8640b901cea339bb90a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
+<<<<<<< HEAD
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5965015276703511814, guid: 79edfd7e012be8640b901cea339bb90a, type: 3}
@@ -59298,6 +59306,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+=======
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5965015276703511814, guid: 79edfd7e012be8640b901cea339bb90a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5965015276703511814, guid: 79edfd7e012be8640b901cea339bb90a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+>>>>>>> parent of aac9a53 (修正)
     - target: {fileID: 6225630466172571305, guid: 79edfd7e012be8640b901cea339bb90a, type: 3}
       propertyPath: m_FlipX
       value: 1
@@ -59332,10 +59352,6 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 1898805156}
-    - target: {fileID: 8538146903121534827, guid: ae97fd589bdacba45b67b568517964c9, type: 3}
-      propertyPath: bChange
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8824462102188981031, guid: ae97fd589bdacba45b67b568517964c9, type: 3}
       propertyPath: m_Name
       value: Main Camera
