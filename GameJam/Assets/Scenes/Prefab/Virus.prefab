@@ -679,6 +679,7 @@ GameObject:
   - component: {fileID: 4378409595034271709}
   - component: {fileID: 2275732499023746814}
   - component: {fileID: 4378409595034271708}
+  - component: {fileID: 6420165710938436081}
   m_Layer: 0
   m_Name: Virus
   m_TagString: Untagged
@@ -782,6 +783,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShiftSize: {x: -21, y: 4, z: 0}
   activespeed: 1
+--- !u!95 &6420165710938436081
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4378409595034271711}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1fda8e184bea0574f89702d2caa3496b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4378409595331689633
 GameObject:
   m_ObjectHideFlags: 0

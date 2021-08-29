@@ -160,6 +160,7 @@ public class AudioController : MonoBehaviour
     public void FadeOutStart(int fadeflame = 60)
     {
         SetFadeOut(fadeflame);
+        audiostate = AudioState.STOP;
     }
 
     //ˆêŽž’âŽ~

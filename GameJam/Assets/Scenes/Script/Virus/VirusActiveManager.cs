@@ -46,9 +46,17 @@ public class VirusActiveManager : MonoBehaviour
                 VirusObject.SetActive(true);
                 VirusMove.StartActive();
             }
-            else if (IfActive(ACTIVE.FORCED))//強制移動開始
+            else if (IfActive(ACTIVE.FORCED) && change.IfCameraFlag(ChangeCamera.CAMERAFLAG.TARGET))//強制移動開始
             {
                 change.StartDollyCart();//強制移動開始
+            }
+            else if (IfActive(ACTIVE.FORCED) && change.IfCameraFlag(ChangeCamera.CAMERAFLAG.MAIN))
+            {
+                activeflag = ACTIVE.END;
+            }
+            else if (IfActive(ACTIVE.END))
+            {
+                VirusMove.EndActiveStart();
                 yield break;
             }
 

@@ -16,6 +16,8 @@ public class VirusMove : MonoBehaviour
     //出現
     [Header("出現速度")]
     [SerializeField] float activespeed = 1.0f;
+
+    private Animator anime;
    
 
     private void Start()
@@ -25,6 +27,8 @@ public class VirusMove : MonoBehaviour
 
         //移動
         this.transform.position = CalPosition();
+
+        anime = this.GetComponent<Animator>();
     }
 
     private void Update()
@@ -41,6 +45,10 @@ public class VirusMove : MonoBehaviour
         else if (active.IfActive(VirusActiveManager.ACTIVE.ACTIVE))//出現
         {
             PlayActive();
+        }
+        else if (active.IfActive(VirusActiveManager.ACTIVE.END) && anime.GetCurrentAnimatorStateInfo(0).IsName("EndIdle"))
+        {
+            this.gameObject.SetActive(false);
         }
     }
 
@@ -70,6 +78,11 @@ public class VirusMove : MonoBehaviour
     public void StartActive()
     {
         this.transform.position = CalPosition() + new Vector3(0.0f, 60.0f, 0.0f);
+    }
+
+    public void EndActiveStart()
+    {
+        anime.SetTrigger("End");
     }
 
 #if UNITY_EDITOR
