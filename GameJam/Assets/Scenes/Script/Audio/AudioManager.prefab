@@ -80,3 +80,8 @@ MonoBehaviour:
     audiotype: 1
     loopstart: 0
     loopend: 0
+  - name: Title
+    audioclip: {fileID: 8300000, guid: 2dfb1bc679c78bf4ea8b61f23678ca90, type: 3}
+    audiotype: 0
+    loopstart: 0
+    loopend: 0

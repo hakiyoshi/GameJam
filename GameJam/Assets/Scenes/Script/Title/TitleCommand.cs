@@ -14,11 +14,11 @@ public class TitleCommand : MonoBehaviour
         Ending_Manager.Reset();//リセット
     }
 
-    //コンティニュー
-    public void ContinueCommand()
-    {
-        Fade.FadeOut("Stage1");
-    }
+    ////コンティニュー
+    //public void ContinueCommand()
+    //{
+    //    Fade.FadeOut("Stage1");
+    //}
 
     //あそびかた
     public void HowToPlayCommand()

@@ -40,6 +40,11 @@ public class AudioManager : MonoBehaviour
         audiolist = new List<AudioController>();
     }
 
+    private void OnDisable()
+    {
+        AllFadeOutAudio();
+    }
+
     private void Update()
     {
 

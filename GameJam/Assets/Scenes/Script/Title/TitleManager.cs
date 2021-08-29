@@ -32,6 +32,8 @@ public class TitleManager : MonoBehaviour
     private bool inputflag = true;
     private TitleCommand command;
 
+    AudioController titleaudio;
+
     private void Start()
     {
         nowselect = StartSelect;
@@ -40,6 +42,8 @@ public class TitleManager : MonoBehaviour
         command = this.GetComponent<TitleCommand>();
 
         ChangeIcon(nowselect);
+
+        titleaudio = AudioManager.PlayAudio("Title", true, true);
     }
 
     private void Update()
@@ -79,7 +83,10 @@ public class TitleManager : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Space))
         {
-            command.ExeCommand(nowselect);
+            command.ExeCommand(nowselect);//コマンド
+            if(IfNowSelectSwicth(SWITCH.NEWPLAY))//始めるの場合
+                titleaudio.FadeOutStart();
+
             inputflag = false;
             select = true;
         }
