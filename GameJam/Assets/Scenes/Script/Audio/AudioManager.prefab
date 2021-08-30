@@ -100,3 +100,8 @@ MonoBehaviour:
     audiotype: 1
     loopstart: 0
     loopend: 0
+  - name: TitleMoveCursor
+    audioclip: {fileID: 8300000, guid: fd8bb8f08240d8642a9eb4a07dbcb4d3, type: 3}
+    audiotype: 1
+    loopstart: 0
+    loopend: 0

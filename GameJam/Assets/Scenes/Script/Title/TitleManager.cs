@@ -68,6 +68,7 @@ public class TitleManager : MonoBehaviour
         {
             ChangeSelect();
             ChangeIcon(nowselect);
+            AudioManager.PlayAudio("TitleMoveCursor", false, false);
         }
     }
 

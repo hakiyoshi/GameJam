@@ -25,6 +25,9 @@ public class PlayerGimmick : MonoBehaviour
 
     private bool restartdolly = false;
 
+    //ディレイ
+    int Delay = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +51,11 @@ public class PlayerGimmick : MonoBehaviour
             Debug.DrawLine(EndPosi + new Vector2(-1.0f, 0.0f), EndPosi + new Vector2(1.0f, 0.0f), Color.red);
             Debug.DrawLine(EndPosi + new Vector2(0.0f, -1.0f), EndPosi + new Vector2(0.0f, 1.0f), Color.red);
 #endif
+            if (Delay > 0)//ディレイが0より大きい場合
+            {
+                Delay--;
+                return;
+            }
 
             
             rb.position = Move(StartPosi, EndPosi, (float)FlameCount / (float)MoveFlame);
@@ -76,18 +84,18 @@ public class PlayerGimmick : MonoBehaviour
     }
 
     //ギミックに当たった時に呼ばれる関数
-    public void HitGimmick(Collider2D collider)
+    public void HitGimmick(Collider2D collider, int delay = 0)
     {
-        SetHitGimmick(collider.gameObject.GetComponent<RespawnPoint>());
+        SetHitGimmick(collider.gameObject.GetComponent<RespawnPoint>(), delay);
     }
 
     //ギミックに当たった時に呼ばれる関数
-    public void HitGimmick(Collision2D collision)
+    public void HitGimmick(Collision2D collision, int delay = 0)
     {
-        SetHitGimmick(collision.gameObject.GetComponent<RespawnPoint>());
+        SetHitGimmick(collision.gameObject.GetComponent<RespawnPoint>(), delay);
     }
 
-    private void SetHitGimmick(RespawnPoint rp)
+    private void SetHitGimmick(RespawnPoint rp, int delay)
     {
         if (rp != null)
         {
@@ -105,6 +113,8 @@ public class PlayerGimmick : MonoBehaviour
         {
             GimmickSet(last.LastPosition);
         }
+
+        Delay = delay;
     }
 
     private void GimmickSet(Vector2 LastPosi)

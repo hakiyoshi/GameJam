@@ -66,7 +66,8 @@ public class AudioController : MonoBehaviour
                 setaudio.time = loopstart;
             }
         }
-        else if (!setaudio.loop && setaudio.clip.length <= setaudio.time)
+        
+        if (setaudio.clip.length <= setaudio.time)
         {
             Stop();
         }
