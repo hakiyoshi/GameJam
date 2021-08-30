@@ -20,7 +20,7 @@ public class ChangeDollyTrack : MonoBehaviour
         cart = this.GetComponent<CinemachineDollyCart>();
 
         //パスを一番最初に設定
-        ChangePath(nowtrack);
+        ChangePath(0);
 
         //コルーチンスタート
         StartCoroutine("CheckCartPosition");

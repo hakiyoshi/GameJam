@@ -66,9 +66,7 @@ public class AudioController : MonoBehaviour
                 setaudio.time = loopstart;
             }
         }
-
-        //音が流し終わった場合ストップ処理をする
-        if (!setaudio.isPlaying)
+        else if (!setaudio.loop && setaudio.clip.length <= setaudio.time)
         {
             Stop();
         }
