@@ -333,7 +333,7 @@ public class CharacterMovement : MonoBehaviour
         Sprite change_Sprite = null;
 
         //当たり判定確認用ループ
-        for (int i = 0; i <= hits.Length; i++)
+        for (int i = hits.Length - 1; 0 <= i; i--)
         {
             //i番目のRayが当たったか
             if (hits[i])
