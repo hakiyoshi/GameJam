@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Charcter: {fileID: 0}
-  Range: 2
+  Range: 1.2
   YSpeed: 0.1
   Boost: 0.02
   Max_Boost: 2.7
