@@ -774,10 +774,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1940417648540084413, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
+      propertyPath: Point
+      value: 
+      objectReference: {fileID: 82507313}
+    - target: {fileID: 2857678302926077863, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
+      propertyPath: Point
+      value: 
+      objectReference: {fileID: 82507313}
+    - target: {fileID: 4773115856417129904, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
+      propertyPath: Point
+      value: 
+      objectReference: {fileID: 82507313}
+    - target: {fileID: 4773115856617304837, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
+      propertyPath: Point
+      value: 
+      objectReference: {fileID: 82507313}
     - target: {fileID: 7861594849177133020, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
       propertyPath: m_Name
       value: Needles (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 8190108882625564796, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
+      propertyPath: Point
+      value: 
+      objectReference: {fileID: 82507313}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
 --- !u!1001 &28769252
@@ -8309,10 +8329,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1940417648540084413, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
+      propertyPath: Point
+      value: 
+      objectReference: {fileID: 82507313}
+    - target: {fileID: 2857678302926077863, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
+      propertyPath: Point
+      value: 
+      objectReference: {fileID: 82507313}
+    - target: {fileID: 4773115856417129904, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
+      propertyPath: Point
+      value: 
+      objectReference: {fileID: 82507313}
+    - target: {fileID: 4773115856617304837, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
+      propertyPath: Point
+      value: 
+      objectReference: {fileID: 82507313}
     - target: {fileID: 7861594849177133020, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
       propertyPath: m_Name
       value: Needles (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 8190108882625564796, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
+      propertyPath: Point
+      value: 
+      objectReference: {fileID: 82507313}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
 --- !u!4 &289917981 stripped
@@ -10214,10 +10254,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1940417648540084413, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
+      propertyPath: Point
+      value: 
+      objectReference: {fileID: 254474222}
+    - target: {fileID: 2857678302926077863, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
+      propertyPath: Point
+      value: 
+      objectReference: {fileID: 254474222}
+    - target: {fileID: 4773115856417129904, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
+      propertyPath: Point
+      value: 
+      objectReference: {fileID: 254474222}
+    - target: {fileID: 4773115856617304837, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
+      propertyPath: Point
+      value: 
+      objectReference: {fileID: 254474222}
     - target: {fileID: 7861594849177133020, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
       propertyPath: m_Name
       value: Needles (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 8190108882625564796, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
+      propertyPath: Point
+      value: 
+      objectReference: {fileID: 254474222}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
 --- !u!1001 &383461172
@@ -22256,10 +22316,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1940417648540084413, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
+      propertyPath: Point
+      value: 
+      objectReference: {fileID: 254474222}
+    - target: {fileID: 2857678302926077863, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
+      propertyPath: Point
+      value: 
+      objectReference: {fileID: 254474222}
+    - target: {fileID: 4773115856417129904, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
+      propertyPath: Point
+      value: 
+      objectReference: {fileID: 254474222}
+    - target: {fileID: 4773115856617304837, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
+      propertyPath: Point
+      value: 
+      objectReference: {fileID: 254474222}
     - target: {fileID: 7861594849177133020, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
       propertyPath: m_Name
       value: Needles (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 8190108882625564796, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
+      propertyPath: Point
+      value: 
+      objectReference: {fileID: 254474222}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
 --- !u!4 &797497300 stripped
@@ -39588,10 +39668,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1940417648540084413, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
+      propertyPath: Point
+      value: 
+      objectReference: {fileID: 254474222}
+    - target: {fileID: 2857678302926077863, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
+      propertyPath: Point
+      value: 
+      objectReference: {fileID: 254474222}
+    - target: {fileID: 4773115856417129904, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
+      propertyPath: Point
+      value: 
+      objectReference: {fileID: 254474222}
+    - target: {fileID: 4773115856617304837, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
+      propertyPath: Point
+      value: 
+      objectReference: {fileID: 254474222}
     - target: {fileID: 7861594849177133020, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
       propertyPath: m_Name
       value: Needles (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 8190108882625564796, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
+      propertyPath: Point
+      value: 
+      objectReference: {fileID: 254474222}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
 --- !u!1001 &1357469093
@@ -60725,10 +60825,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1940417648540084413, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
+      propertyPath: Point
+      value: 
+      objectReference: {fileID: 82507313}
+    - target: {fileID: 2857678302926077863, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
+      propertyPath: Point
+      value: 
+      objectReference: {fileID: 82507313}
+    - target: {fileID: 4773115856417129904, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
+      propertyPath: Point
+      value: 
+      objectReference: {fileID: 82507313}
+    - target: {fileID: 4773115856617304837, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
+      propertyPath: Point
+      value: 
+      objectReference: {fileID: 82507313}
     - target: {fileID: 7861594849177133020, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
       propertyPath: m_Name
       value: Needles (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 8190108882625564796, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
+      propertyPath: Point
+      value: 
+      objectReference: {fileID: 82507313}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
 --- !u!1001 &2047317657
