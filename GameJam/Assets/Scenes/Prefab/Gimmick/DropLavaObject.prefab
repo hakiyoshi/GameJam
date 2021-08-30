@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3483328358d46104cbf061197d900384, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DropIntervalFlame: 60
+  DropIntervalFlame: 120
   Speed: 0.1
   DropObject: {fileID: 1066464262398419253, guid: 60f85731eaad8864095512aaed855e2a, type: 3}
   DropStartLength: 50
