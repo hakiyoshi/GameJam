@@ -319,7 +319,7 @@ public class CharacterMovement : MonoBehaviour
         end_Position[14] = end_Position[10] + Dire_Vec[3] * end_distance * 0.7f;
 
         //rayの各終点設定(下)
-        end_Position[15] = sta_Position + Dire_Vec[3] * end_distance * 1.12f;
+        end_Position[15] = sta_Position + Dire_Vec[3] * end_distance * 1.25f;
         end_Position[16] = end_Position[15] + Dire_Vec[0] * 0.6f;
         end_Position[17] = sta_Position + Dire_Vec[3] + Dire_Vec[0] * 0.8f;
         end_Position[18] = end_Position[15] + Dire_Vec[2] * 0.6f;
@@ -475,5 +475,11 @@ public class CharacterMovement : MonoBehaviour
             jumpCount = 2;
             UseInertia = Inertia;//慣性を付ける
         }
+
+        if (collision.gameObject.CompareTag("Virus"))
+        {
+            Deth();
+        }
     }
+
 }
