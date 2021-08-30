@@ -137,10 +137,6 @@ public class CharacterMovement : MonoBehaviour
                         jumpCount = 1;
                         PreGimmick = hit.collider.gameObject;
                     }
-                    else if(!bJump && PreGimmick != null && PreGimmick.layer == 6)
-                    {
-                        jumpCount = 2;
-                    }
                 }
             }
         }
@@ -337,7 +333,7 @@ public class CharacterMovement : MonoBehaviour
         Sprite change_Sprite = null;
 
         //当たり判定確認用ループ
-        for (int i = hits.Length - 1; 0 <= i; i--)
+        for (int i = 0; i <= hits.Length; i++)
         {
             //i番目のRayが当たったか
             if (hits[i])

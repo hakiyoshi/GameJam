@@ -91,7 +91,7 @@ public class Icicle : MonoBehaviour
         Accele = 1.0f;
     }
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Re_Flag = PG.GetHitMoveFlag();
         //ƒtƒ‰ƒO‚ğ”»•Ê‚µ‚Äˆ—‚ğ‚·‚é

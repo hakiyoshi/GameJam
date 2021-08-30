@@ -850,6 +850,26 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6873528357200549519, guid: 70f7ec3b6e1cb7d4ba6eb16ed114127c, type: 3}
   m_PrefabInstance: {fileID: 2124910721}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &860948224 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1524052542340002283, guid: d3bb5b8c0ab8e924393a084384bad808, type: 3}
+  m_PrefabInstance: {fileID: 1524052541123549760}
+  m_PrefabAsset: {fileID: 0}
+--- !u!111 &860948225
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860948224}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!4 &870928286 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6873528357200549519, guid: 70f7ec3b6e1cb7d4ba6eb16ed114127c, type: 3}
@@ -2854,6 +2874,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1524052542340002283, guid: d3bb5b8c0ab8e924393a084384bad808, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1524052542507438520, guid: d3bb5b8c0ab8e924393a084384bad808, type: 3}
       propertyPath: m_Name
       value: Pause
