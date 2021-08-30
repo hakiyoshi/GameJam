@@ -682,7 +682,7 @@ GameObject:
   - component: {fileID: 6420165710938436081}
   m_Layer: 0
   m_Name: Virus
-  m_TagString: Untagged
+  m_TagString: Virus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -816,7 +816,7 @@ GameObject:
   - component: {fileID: 4378409595331689639}
   m_Layer: 0
   m_Name: Virus_8
-  m_TagString: Untagged
+  m_TagString: Virus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
