@@ -115,7 +115,7 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 10
+  m_Priority: 0
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
@@ -360,6 +360,7 @@ MonoBehaviour:
   maincamera: {fileID: 8824462103058419091}
   dollycart: {fileID: 4396489689140684216}
   targetcamera: {fileID: 4981843809593415245}
+  moveflag: 0
 --- !u!1 &8824462103058419089
 GameObject:
   m_ObjectHideFlags: 0
@@ -620,6 +621,10 @@ PrefabInstance:
       value: BackGround01
       objectReference: {fileID: 0}
     - target: {fileID: 2487015059871465152, guid: fec0cbeaf8f7a6642903c9b4043c5b05, type: 3}
+      propertyPath: Cam
+      value: 
+      objectReference: {fileID: 8824462102188981031}
+    - target: {fileID: 2487015059871465152, guid: fec0cbeaf8f7a6642903c9b4043c5b05, type: 3}
       propertyPath: ScrollSpeed
       value: 0.01
       objectReference: {fileID: 0}
@@ -693,6 +698,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8824462102188981034}
     m_Modifications:
+    - target: {fileID: 284454992611589780, guid: 53f131ecbff11e04093b38725051efc1, type: 3}
+      propertyPath: Cam
+      value: 
+      objectReference: {fileID: 8824462102188981031}
     - target: {fileID: 284454992611589780, guid: 53f131ecbff11e04093b38725051efc1, type: 3}
       propertyPath: ScrollSpeed
       value: 20
