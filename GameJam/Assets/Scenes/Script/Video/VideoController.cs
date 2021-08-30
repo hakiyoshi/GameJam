@@ -21,9 +21,15 @@ public class VideoController : MonoBehaviour
     void Update()
     {
         if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.V) && !bPlay)
+        {
+            AudioManager.AllStopAudio();
             bPlay = true;
+        }
         else if (Input.anyKeyDown && bPlay)
+        {
+            AudioManager.PlayAudio("Title", false, true);
             bPlay = false;
+        }
 
         Video.SetActive(bPlay);
     }
