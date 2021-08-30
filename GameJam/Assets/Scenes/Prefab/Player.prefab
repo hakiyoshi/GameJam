@@ -392,7 +392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c84c5000b3d0526449b382880c9b026d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveFlame: 20
+  MoveFlame: 60
 --- !u!70 &7673262703282779572
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
