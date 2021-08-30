@@ -33,6 +33,7 @@ public class ScrollBackGround : MonoBehaviour
     {
         CinemaCam = Cam.transform.GetChild(0).gameObject;
 
+
         cg = GameObject.Find("Main Camera").GetComponent<ChangeCamera>();
 
         BackGround = new Renderer[BackGroundCount];
@@ -51,6 +52,11 @@ public class ScrollBackGround : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (cg.IfCameraFlag(ChangeCamera.CAMERAFLAG.DOLLY))
+            CinemaCam = Cam.transform.GetChild(1).gameObject;
+        else
+            CinemaCam = Cam.transform.GetChild(0).gameObject;
+
         if (0.05f < Mathf.Abs(CinemaCam.transform.localPosition.x))
         {
             if (0< CinemaCam.transform.localPosition.x)

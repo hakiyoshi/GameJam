@@ -9,6 +9,8 @@ public class CharacterMovement : MonoBehaviour
     //上、左右の耐性オブジェクト(仮)
     GameObject[] Cols;
 
+    GameObject PreGimmick;
+
     //各耐性のスプライト
     public Sprite NeedleSprite;
     public Sprite LavaSprite;
@@ -53,6 +55,7 @@ public class CharacterMovement : MonoBehaviour
 
     string DamageSound;
 
+    bool bJump;
 
     RaycastHit2D[] hits;
 
@@ -76,6 +79,8 @@ public class CharacterMovement : MonoBehaviour
             Cols[i].GetComponent<SpriteRenderer>().material.color = new Color(1, 1, 1, 0);
             Cols[i].GetComponent<BoxCollider2D>().enabled = false;
         }
+
+        PreGimmick = null;
 
         //Rayで判定するレイヤー設定
         Gimmick_Layer = LayerMask.GetMask("Gimmick");
@@ -107,6 +112,8 @@ public class CharacterMovement : MonoBehaviour
         UseInertia = Inertia;
 
         DamageSound = null;
+
+        bJump = false;
     }
 
     void Update()
@@ -126,7 +133,13 @@ public class CharacterMovement : MonoBehaviour
                 {
                     if (hit)
                     {
+                        bJump = false;
                         jumpCount = 1;
+                        PreGimmick = hit.collider.gameObject;
+                    }
+                    else if(!bJump && PreGimmick != null && PreGimmick.layer == 6)
+                    {
+                        jumpCount = 2;
                     }
                 }
             }
@@ -217,6 +230,7 @@ public class CharacterMovement : MonoBehaviour
         //スペースキーを押したときのジャンプ処理
         if (((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))) && 0 < jumpCount)
         {
+            bJump = true;
             //ジャンプカウント-1
             jumpCount--;
 
@@ -414,6 +428,8 @@ public class CharacterMovement : MonoBehaviour
 
     void Deth()
     {
+        PreGimmick = null;
+
         //全免疫削除処理
         for (int j = 0; j < Cols.Length; j++)
         {
@@ -452,6 +468,8 @@ public class CharacterMovement : MonoBehaviour
         //地面との当たり判定
         if (collision.gameObject.CompareTag("Ground"))
         {
+            bJump = false;
+            PreGimmick = null;
             //ジャンプカウントリセット
             jumpCount = 2;
             UseInertia = Inertia;//慣性を付ける
