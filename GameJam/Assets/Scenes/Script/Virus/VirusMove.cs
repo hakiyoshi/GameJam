@@ -18,9 +18,8 @@ public class VirusMove : MonoBehaviour
     [SerializeField] float activespeed = 1.0f;
 
     private Animator anime;
-   
 
-    private void Start()
+    private void OnEnable()
     {
         active = this.transform.parent.GetComponent<VirusActiveManager>();
         cameraposi = Camera.main.transform;//ƒJƒƒ‰‚ÌÀ•W‚ğæ“¾
@@ -29,11 +28,6 @@ public class VirusMove : MonoBehaviour
         this.transform.position = CalPosition();
 
         anime = this.GetComponent<Animator>();
-    }
-
-    private void Update()
-    {
-        
     }
 
     private void FixedUpdate()
