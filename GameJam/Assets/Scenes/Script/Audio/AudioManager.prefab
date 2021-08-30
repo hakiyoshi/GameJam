@@ -105,3 +105,8 @@ MonoBehaviour:
     audiotype: 1
     loopstart: 0
     loopend: 0
+  - name: TitleDecision
+    audioclip: {fileID: 8300000, guid: 7867bce4366d4fa498faf7c2ed248c7f, type: 3}
+    audiotype: 1
+    loopstart: 0
+    loopend: 0

@@ -55,6 +55,7 @@ public class TitleManager : MonoBehaviour
                 command.CloseHowToPlayCommand();
                 select = false;
                 inputflag = true;
+                AudioManager.PlayAudio("TitleDecision", false, false);
             }
             return;
         }
@@ -90,6 +91,8 @@ public class TitleManager : MonoBehaviour
 
             inputflag = false;
             select = true;
+
+            AudioManager.PlayAudio("TitleDecision", false, false);
         }
     }
 
