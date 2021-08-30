@@ -74,7 +74,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Stage: 0
   friend: {fileID: 6443677639290797562}
-  delay: 0
+  Scene_delay: 3.9
+  Sound_delay: 1.82
 --- !u!1 &5506540446438885780
 GameObject:
   m_ObjectHideFlags: 0
