@@ -120,7 +120,7 @@ public class End_Branch : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {   
         if(Text_Flag == false)
         {
