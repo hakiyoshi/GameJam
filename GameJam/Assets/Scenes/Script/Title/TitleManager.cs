@@ -44,6 +44,8 @@ public class TitleManager : MonoBehaviour
         ChangeIcon(nowselect);
 
         titleaudio = AudioManager.PlayAudio("Title", true, true);
+
+        Cursor.visible = false;
     }
 
     private void Update()
