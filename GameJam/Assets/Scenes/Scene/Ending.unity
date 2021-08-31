@@ -697,8 +697,8 @@ MonoBehaviour:
   Good_sprite: {fileID: -3037300421092100543, guid: 46b0b2aeaf89c0c46abcf884846d9cfc, type: 3}
   Normal_sprite: {fileID: 5696436804483781793, guid: 46b0b2aeaf89c0c46abcf884846d9cfc, type: 3}
   Bad_sprite: {fileID: -7547475475978946313, guid: 46b0b2aeaf89c0c46abcf884846d9cfc, type: 3}
-  Speed: 0.001
-  Limit_time: 3
+  Speed: 0.01
+  Limit_time: 2
 --- !u!1 &1773207829
 GameObject:
   m_ObjectHideFlags: 0
