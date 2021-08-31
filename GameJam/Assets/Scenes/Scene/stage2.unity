@@ -33222,6 +33222,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7973623528100968259, guid: b59aba602970da249954a76fb55a2aea, type: 3}
       propertyPath: m_LocalPosition.x
+<<<<<<< HEAD
 <<<<<<< Updated upstream
       value: -0.05
       objectReference: {fileID: 0}
@@ -33235,6 +33236,13 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 2.8
 >>>>>>> Stashed changes
+=======
+      value: 630.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7973623528100968259, guid: b59aba602970da249954a76fb55a2aea, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 13.9
+>>>>>>> parent of a55802b (ステージ２プレイヤーの初期位置に移動)
       objectReference: {fileID: 0}
     - target: {fileID: 7973623528100968259, guid: b59aba602970da249954a76fb55a2aea, type: 3}
       propertyPath: m_LocalPosition.z
@@ -44288,6 +44296,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3036539787146017150, guid: 7d8ee49fd8f5cb542a3bac37daff25f9, type: 3}
       propertyPath: m_LocalPosition.x
+<<<<<<< HEAD
 <<<<<<< Updated upstream
       value: -23.074999
       objectReference: {fileID: 0}
@@ -44301,6 +44310,13 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1.4
 >>>>>>> Stashed changes
+=======
+      value: 292.09995
+      objectReference: {fileID: 0}
+    - target: {fileID: 3036539787146017150, guid: 7d8ee49fd8f5cb542a3bac37daff25f9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.95
+>>>>>>> parent of a55802b (ステージ２プレイヤーの初期位置に移動)
       objectReference: {fileID: 0}
     - target: {fileID: 3036539787146017150, guid: 7d8ee49fd8f5cb542a3bac37daff25f9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -57323,6 +57339,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8824462102188981034, guid: ae97fd589bdacba45b67b568517964c9, type: 3}
       propertyPath: m_LocalPosition.x
+<<<<<<< HEAD
 <<<<<<< Updated upstream
       value: -0.05
       objectReference: {fileID: 0}
@@ -57336,6 +57353,13 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 2.8
 >>>>>>> Stashed changes
+=======
+      value: 630.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8824462102188981034, guid: ae97fd589bdacba45b67b568517964c9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 13.9
+>>>>>>> parent of a55802b (ステージ２プレイヤーの初期位置に移動)
       objectReference: {fileID: 0}
     - target: {fileID: 8824462102188981034, guid: ae97fd589bdacba45b67b568517964c9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -57371,7 +57395,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8824462103058419090, guid: ae97fd589bdacba45b67b568517964c9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.029999997
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8824462103058419090, guid: ae97fd589bdacba45b67b568517964c9, type: 3}
       propertyPath: m_LocalPosition.y
