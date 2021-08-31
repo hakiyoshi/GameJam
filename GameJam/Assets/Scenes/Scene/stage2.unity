@@ -43527,6 +43527,22 @@ PrefabInstance:
       propertyPath: track.Array.data[2]
       value: 
       objectReference: {fileID: 1276110382}
+    - target: {fileID: 7436950401891438474, guid: cb0909429e999c548889de5cc396de92, type: 3}
+      propertyPath: RespawnPoint.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436950401891438474, guid: cb0909429e999c548889de5cc396de92, type: 3}
+      propertyPath: RespawnPoint.Array.data[0]
+      value: 
+      objectReference: {fileID: 1328358134}
+    - target: {fileID: 7436950401891438474, guid: cb0909429e999c548889de5cc396de92, type: 3}
+      propertyPath: RespawnPoint.Array.data[1]
+      value: 
+      objectReference: {fileID: 507883439}
+    - target: {fileID: 7436950401891438474, guid: cb0909429e999c548889de5cc396de92, type: 3}
+      propertyPath: RespawnPoint.Array.data[2]
+      value: 
+      objectReference: {fileID: 277746581}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb0909429e999c548889de5cc396de92, type: 3}
 --- !u!1001 &1325979812
