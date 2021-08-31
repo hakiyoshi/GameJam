@@ -6,6 +6,10 @@ public class CharacterMovement : MonoBehaviour
     //PlayerGimmickスクリプト
     PlayerGimmick PG;
 
+    PauseController PC;
+
+    Goal_Check GC;
+
     //上、左右の耐性オブジェクト(仮)
     GameObject[] Cols;
 
@@ -63,6 +67,10 @@ public class CharacterMovement : MonoBehaviour
     void Start()
     {
         PG = this.GetComponent<PlayerGimmick>();
+
+        PC = GameObject.Find("Pause").GetComponent<PauseController>();
+
+        GC = GameObject.Find("Goal").GetComponent<Goal_Check>();
 
         //ギミック耐性オブジェクト用配列
         Cols = new GameObject[3];
@@ -123,7 +131,7 @@ public class CharacterMovement : MonoBehaviour
             //生き返った時の表情変更
             anim.SetBool("isDeth", false);
 
-            if (Time.timeScale != 0)
+            if (Time.timeScale != 0 && !PC.GetbChangeScene() && !GC.GetbGoal())
             {
                 Collision();
                 Jump();
@@ -152,7 +160,7 @@ public class CharacterMovement : MonoBehaviour
     {
         if (!PG.GetHitMoveFlag())
         {
-            if (Time.timeScale != 0)
+            if (Time.timeScale != 0 && !PC.GetbChangeScene() && !GC.GetbGoal())
             {
                 //移動
                 Move();

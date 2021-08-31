@@ -26,10 +26,14 @@ public class Goal_Check : MonoBehaviour
     
     Animator anim;
 
+    bool bGoal;
+
     // Start is called before the first frame update
     void Start()
     {
        anim = friend.GetComponent<Animator>();
+
+       bGoal = false;
     }
 
     void Update()
@@ -82,7 +86,13 @@ public class Goal_Check : MonoBehaviour
             Invoke("Goal_SE",Sound_delay);
             //ステージの移動
             Invoke("Scene_Move",Scene_delay);
+
+            bGoal = true;
         }
     }
 
+    public bool GetbGoal()
+    {
+        return bGoal;
+    }
 }
