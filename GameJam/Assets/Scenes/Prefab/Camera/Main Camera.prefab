@@ -234,6 +234,7 @@ GameObject:
   - component: {fileID: 8824462102188981032}
   - component: {fileID: 8824462102188981035}
   - component: {fileID: 8174730622727710984}
+  - component: {fileID: 5643773147178417681}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -249,7 +250,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8824462102188981031}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -51.02444, y: 6.1781435, z: -139.0965}
+  m_LocalPosition: {x: -1.68, y: 2.86, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8824462103058419090}
@@ -287,7 +288,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 20
+  orthographic size: 12.3
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -361,6 +362,32 @@ MonoBehaviour:
   dollycart: {fileID: 4396489689140684216}
   targetcamera: {fileID: 4981843809593415245}
   moveflag: 0
+--- !u!61 &5643773147178417681
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8824462102188981031}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 24.308956, y: -13.400423}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.791931, y: 59.178112}
+  m_EdgeRadius: 0
 --- !u!1 &8824462103058419089
 GameObject:
   m_ObjectHideFlags: 0
