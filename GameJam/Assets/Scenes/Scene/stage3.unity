@@ -268,16 +268,6 @@ MonoBehaviour:
     width: 0.2
   m_Looped: 0
   m_Waypoints:
-  - position: {x: 189.6635, y: 21, z: 0}
-    roll: 0
-  - position: {x: 197.44354, y: 22.01574, z: 0}
-    roll: 0
-  - position: {x: 208.7891, y: 24.84582, z: 0}
-    roll: 0
-  - position: {x: 220.89719, y: 28.536587, z: 0}
-    roll: 0
-  - position: {x: 230.56068, y: 30.99335, z: 0}
-    roll: 0
   - position: {x: 240.03935, y: 28.239388, z: 0}
     roll: 0
   - position: {x: 253.68185, y: 28.349472, z: 0}
@@ -5025,7 +5015,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6611388405551541473, guid: 6f8ccb37847c57b4da5f55035e211b3b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5
+      value: -5.01
       objectReference: {fileID: 0}
     - target: {fileID: 6611388405551541473, guid: 6f8ccb37847c57b4da5f55035e211b3b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -14403,7 +14393,7 @@ PrefabInstance:
     - target: {fileID: -6203786205416381773, guid: 5beccbf93a6fc8c4da4343a410c0f02b, type: 3}
       propertyPath: Point
       value: 
-      objectReference: {fileID: 1012051789}
+      objectReference: {fileID: 737749418}
     - target: {fileID: 744383442225408681, guid: 5beccbf93a6fc8c4da4343a410c0f02b, type: 3}
       propertyPath: m_Name
       value: Fall (36)
@@ -17191,11 +17181,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5965015276703511814, guid: 79edfd7e012be8640b901cea339bb90a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 120.06
+      value: 119.94
       objectReference: {fileID: 0}
     - target: {fileID: 5965015276703511814, guid: 79edfd7e012be8640b901cea339bb90a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 18.689999
+      value: 18.720001
       objectReference: {fileID: 0}
     - target: {fileID: 5965015276703511814, guid: 79edfd7e012be8640b901cea339bb90a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -22960,6 +22950,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -4145170662596151402, guid: d7470cd42b1841949be84371207102cb, type: 3}
+    - target: {fileID: 6225630466172571305, guid: 79edfd7e012be8640b901cea339bb90a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79edfd7e012be8640b901cea339bb90a, type: 3}
 --- !u!4 &821117272 stripped
@@ -40104,6 +40098,16 @@ MonoBehaviour:
     roll: 0
   - position: {x: 189.66353, y: 21, z: 0}
     roll: 0
+  - position: {x: 197.4435, y: 22.01574, z: 0}
+    roll: 0
+  - position: {x: 208.7891, y: 24.84582, z: 0}
+    roll: 0
+  - position: {x: 220.8972, y: 28.53659, z: 0}
+    roll: 0
+  - position: {x: 230.5607, y: 30.99335, z: 0}
+    roll: 0
+  - position: {x: 240.0394, y: 28.23939, z: 0}
+    roll: 0
 --- !u!4 &1474936085 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 744383442225408684, guid: 5beccbf93a6fc8c4da4343a410c0f02b, type: 3}
@@ -46385,7 +46389,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6873129232955414350, guid: 6f8ccb37847c57b4da5f55035e211b3b, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f8ccb37847c57b4da5f55035e211b3b, type: 3}
