@@ -1903,10 +1903,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: NeedleD (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 8464575039959611319, guid: 3130f5b97da973447896fb0aa2163705, type: 3}
-      propertyPath: Point
-      value: 
-      objectReference: {fileID: 1568350903}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3130f5b97da973447896fb0aa2163705, type: 3}
 --- !u!4 &64367611 stripped
@@ -3511,10 +3507,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2472815097257143104, guid: 6f8ccb37847c57b4da5f55035e211b3b, type: 3}
-      propertyPath: Point
-      value: 
-      objectReference: {fileID: 1975704702}
     - target: {fileID: 3135027845659727983, guid: 6f8ccb37847c57b4da5f55035e211b3b, type: 3}
       propertyPath: m_Name
       value: IceGroundWave (8)
@@ -4329,10 +4321,6 @@ PrefabInstance:
       propertyPath: Point
       value: 
       objectReference: {fileID: 1618598918}
-    - target: {fileID: 8894835711848759420, guid: c55a9249447515844b43ccf074da6d7e, type: 3}
-      propertyPath: Range
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 8894835711848759420, guid: c55a9249447515844b43ccf074da6d7e, type: 3}
       propertyPath: Charcter
       value: 
@@ -5155,10 +5143,6 @@ PrefabInstance:
       propertyPath: Stage
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3896698492883564253, guid: f5e7bc92acdfd3a46b61df6867261746, type: 3}
-      propertyPath: m_SortingOrder
-      value: -1
-      objectReference: {fileID: 0}
     - target: {fileID: 4968642103902418515, guid: f5e7bc92acdfd3a46b61df6867261746, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
@@ -5167,10 +5151,6 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -3354392004794186326, guid: 1f4e40389ea765848827b7d73c4c7ded, type: 3}
-    - target: {fileID: 5288026537888832805, guid: f5e7bc92acdfd3a46b61df6867261746, type: 3}
-      propertyPath: m_SortingOrder
-      value: -2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5e7bc92acdfd3a46b61df6867261746, type: 3}
 --- !u!1 &160738107
@@ -9644,7 +9624,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2469375755463959123, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.85
+      value: -0.8299999
       objectReference: {fileID: 0}
     - target: {fileID: 2469375755802793190, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10171,10 +10151,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3289890667322049257, guid: 5a574b20021b2e248b287fe8b479e702, type: 3}
-      propertyPath: Point
-      value: 
-      objectReference: {fileID: 1526439458}
     - target: {fileID: 4601607118416472283, guid: 5a574b20021b2e248b287fe8b479e702, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -10504,10 +10480,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4773115856617304837, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
-      propertyPath: Point
-      value: 
-      objectReference: {fileID: 2026853679}
     - target: {fileID: 7861594849177133020, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
       propertyPath: m_Name
       value: Needles (3)
@@ -11381,11 +11353,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6873528357200549519, guid: 70f7ec3b6e1cb7d4ba6eb16ed114127c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 21.25
+      value: 23.75
       objectReference: {fileID: 0}
     - target: {fileID: 6873528357200549519, guid: 70f7ec3b6e1cb7d4ba6eb16ed114127c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.499999
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 6873528357200549519, guid: 70f7ec3b6e1cb7d4ba6eb16ed114127c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -11563,10 +11535,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4773115856617304837, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
-      propertyPath: Point
-      value: 
-      objectReference: {fileID: 2026853679}
     - target: {fileID: 7861594849177133020, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
       propertyPath: m_Name
       value: Needles (5)
@@ -12012,10 +11980,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4773115856617304837, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
-      propertyPath: Point
-      value: 
-      objectReference: {fileID: 2026853679}
     - target: {fileID: 7861594849177133020, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
       propertyPath: m_Name
       value: Needles (4)
@@ -12156,10 +12120,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3289890667322049257, guid: 5a574b20021b2e248b287fe8b479e702, type: 3}
-      propertyPath: Point
-      value: 
-      objectReference: {fileID: 1526439458}
     - target: {fileID: 4601607118416472283, guid: 5a574b20021b2e248b287fe8b479e702, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -13062,10 +13022,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4773115856617304837, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
-      propertyPath: Point
-      value: 
-      objectReference: {fileID: 2026853679}
     - target: {fileID: 7861594849177133020, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
       propertyPath: m_Name
       value: Needles (27)
@@ -13717,10 +13673,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4773115856617304837, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
-      propertyPath: Point
-      value: 
-      objectReference: {fileID: 2026853679}
     - target: {fileID: 7861594849177133020, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
       propertyPath: m_Name
       value: Needles (25)
@@ -17527,10 +17479,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1219691501098850780, guid: d930423ee96efdc4cb9ae0500393fcc0, type: 3}
-      propertyPath: Point
-      value: 
-      objectReference: {fileID: 1526439458}
     - target: {fileID: 7199654742656727453, guid: d930423ee96efdc4cb9ae0500393fcc0, type: 3}
       propertyPath: m_Name
       value: NeedleB
@@ -25180,10 +25128,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: NeedleD (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 8464575039959611319, guid: 3130f5b97da973447896fb0aa2163705, type: 3}
-      propertyPath: Point
-      value: 
-      objectReference: {fileID: 507883439}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3130f5b97da973447896fb0aa2163705, type: 3}
 --- !u!1001 &792429479
@@ -32982,10 +32926,6 @@ PrefabInstance:
       propertyPath: AngleZ
       value: 90
       objectReference: {fileID: 0}
-    - target: {fileID: 4773115856617304837, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
-      propertyPath: Point
-      value: 
-      objectReference: {fileID: 1361432678}
     - target: {fileID: 6450546789453819248, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.2
@@ -33222,19 +33162,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7973623528100968259, guid: b59aba602970da249954a76fb55a2aea, type: 3}
       propertyPath: m_LocalPosition.x
-<<<<<<< Updated upstream
       value: -0.05
       objectReference: {fileID: 0}
     - target: {fileID: 7973623528100968259, guid: b59aba602970da249954a76fb55a2aea, type: 3}
       propertyPath: m_LocalPosition.y
       value: 2.85
-=======
-      value: -2.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7973623528100968259, guid: b59aba602970da249954a76fb55a2aea, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.8
->>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 7973623528100968259, guid: b59aba602970da249954a76fb55a2aea, type: 3}
       propertyPath: m_LocalPosition.z
@@ -38335,10 +38267,6 @@ PrefabInstance:
       propertyPath: AngleZ
       value: 90
       objectReference: {fileID: 0}
-    - target: {fileID: 4773115856617304837, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
-      propertyPath: Point
-      value: 
-      objectReference: {fileID: 1361432678}
     - target: {fileID: 6450546789453819248, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.2
@@ -44073,10 +44001,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: NeedleD
       objectReference: {fileID: 0}
-    - target: {fileID: 8464575039959611319, guid: 3130f5b97da973447896fb0aa2163705, type: 3}
-      propertyPath: Point
-      value: 
-      objectReference: {fileID: 1526439458}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3130f5b97da973447896fb0aa2163705, type: 3}
 --- !u!4 &1347288044
@@ -44288,19 +44212,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3036539787146017150, guid: 7d8ee49fd8f5cb542a3bac37daff25f9, type: 3}
       propertyPath: m_LocalPosition.x
-<<<<<<< Updated upstream
       value: -23.074999
       objectReference: {fileID: 0}
     - target: {fileID: 3036539787146017150, guid: 7d8ee49fd8f5cb542a3bac37daff25f9, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.425
-=======
-      value: -24.349998
-      objectReference: {fileID: 0}
-    - target: {fileID: 3036539787146017150, guid: 7d8ee49fd8f5cb542a3bac37daff25f9, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.4
->>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 3036539787146017150, guid: 7d8ee49fd8f5cb542a3bac37daff25f9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -45563,10 +45479,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: NeedleC
       objectReference: {fileID: 0}
-    - target: {fileID: 5110645568450603996, guid: 26a9974bfbc382b4bab4702e2645a8b7, type: 3}
-      propertyPath: Point
-      value: 
-      objectReference: {fileID: 1526439458}
     - target: {fileID: 5531272101293173205, guid: 26a9974bfbc382b4bab4702e2645a8b7, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -46629,10 +46541,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: NeedleD
       objectReference: {fileID: 0}
-    - target: {fileID: 8464575039959611319, guid: 3130f5b97da973447896fb0aa2163705, type: 3}
-      propertyPath: Point
-      value: 
-      objectReference: {fileID: 1526439458}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3130f5b97da973447896fb0aa2163705, type: 3}
 --- !u!1001 &1432532389
@@ -46919,10 +46827,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: NeedleD (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 8464575039959611319, guid: 3130f5b97da973447896fb0aa2163705, type: 3}
-      propertyPath: Point
-      value: 
-      objectReference: {fileID: 507883439}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3130f5b97da973447896fb0aa2163705, type: 3}
 --- !u!1001 &1440287594
@@ -47379,10 +47283,6 @@ PrefabInstance:
       propertyPath: AngleZ
       value: 90
       objectReference: {fileID: 0}
-    - target: {fileID: 4773115856617304837, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
-      propertyPath: Point
-      value: 
-      objectReference: {fileID: 1361432678}
     - target: {fileID: 6450546789453819248, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.2
@@ -50244,7 +50144,7 @@ PrefabInstance:
     - target: {fileID: -6203786205416381773, guid: 5beccbf93a6fc8c4da4343a410c0f02b, type: 3}
       propertyPath: Point
       value: 
-      objectReference: {fileID: 1686303385}
+      objectReference: {fileID: 1328358134}
     - target: {fileID: 744383442225408681, guid: 5beccbf93a6fc8c4da4343a410c0f02b, type: 3}
       propertyPath: m_Name
       value: Fall
@@ -51907,10 +51807,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4773115856617304837, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
-      propertyPath: Point
-      value: 
-      objectReference: {fileID: 1541950276}
     - target: {fileID: 7861594849177133020, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
       propertyPath: m_Name
       value: Needles (1)
@@ -53258,10 +53154,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4773115856617304837, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
-      propertyPath: Point
-      value: 
-      objectReference: {fileID: 1789146636}
     - target: {fileID: 7861594849177133020, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
       propertyPath: m_Name
       value: Needles (2)
@@ -53441,7 +53333,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1618598917}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 859.76, y: 6.25, z: -235.54466}
+  m_LocalPosition: {x: 872.5, y: 6.25, z: -235.54466}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1439645230}
@@ -54702,18 +54594,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1940417648540084413, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
-      propertyPath: Point
-      value: 
-      objectReference: {fileID: 1526439458}
-    - target: {fileID: 2857678302926077863, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
-      propertyPath: Point
-      value: 
-      objectReference: {fileID: 1526439458}
-    - target: {fileID: 4773115856417129904, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
-      propertyPath: Point
-      value: 
-      objectReference: {fileID: 1526439458}
     - target: {fileID: 4773115856617304837, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
       propertyPath: Point
       value: 
@@ -54750,10 +54630,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Needles (12)
       objectReference: {fileID: 0}
-    - target: {fileID: 8190108882625564796, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
-      propertyPath: Point
-      value: 
-      objectReference: {fileID: 1526439458}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
 --- !u!1001 &1659634235
@@ -56844,10 +56720,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2472815097257143104, guid: 6f8ccb37847c57b4da5f55035e211b3b, type: 3}
-      propertyPath: Point
-      value: 
-      objectReference: {fileID: 1975704702}
     - target: {fileID: 3135027845659727983, guid: 6f8ccb37847c57b4da5f55035e211b3b, type: 3}
       propertyPath: m_Name
       value: IceGroundWave (7)
@@ -56958,10 +56830,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: NeedleC
       objectReference: {fileID: 0}
-    - target: {fileID: 5110645568450603996, guid: 26a9974bfbc382b4bab4702e2645a8b7, type: 3}
-      propertyPath: Point
-      value: 
-      objectReference: {fileID: 1526439458}
     - target: {fileID: 5531272101293173205, guid: 26a9974bfbc382b4bab4702e2645a8b7, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -57323,19 +57191,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8824462102188981034, guid: ae97fd589bdacba45b67b568517964c9, type: 3}
       propertyPath: m_LocalPosition.x
-<<<<<<< Updated upstream
       value: -0.05
       objectReference: {fileID: 0}
     - target: {fileID: 8824462102188981034, guid: ae97fd589bdacba45b67b568517964c9, type: 3}
       propertyPath: m_LocalPosition.y
       value: 2.85
-=======
-      value: -2.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8824462102188981034, guid: ae97fd589bdacba45b67b568517964c9, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.8
->>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 8824462102188981034, guid: ae97fd589bdacba45b67b568517964c9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -57545,10 +57405,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4773115856617304837, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
-      propertyPath: Point
-      value: 
-      objectReference: {fileID: 1568350903}
     - target: {fileID: 7861594849177133020, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
       propertyPath: m_Name
       value: Needles (30)
@@ -57881,7 +57737,7 @@ PrefabInstance:
     - target: {fileID: 4773115856617304837, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
       propertyPath: Point
       value: 
-      objectReference: {fileID: 507883439}
+      objectReference: {fileID: 1361432678}
     - target: {fileID: 6450546789453819248, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -58416,10 +58272,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2472815097257143104, guid: 6f8ccb37847c57b4da5f55035e211b3b, type: 3}
-      propertyPath: Point
-      value: 
-      objectReference: {fileID: 1975704702}
     - target: {fileID: 3135027845659727983, guid: 6f8ccb37847c57b4da5f55035e211b3b, type: 3}
       propertyPath: m_Name
       value: IceGroundWave
@@ -59691,10 +59543,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: NeedleD (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 8464575039959611319, guid: 3130f5b97da973447896fb0aa2163705, type: 3}
-      propertyPath: Point
-      value: 
-      objectReference: {fileID: 1568350903}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3130f5b97da973447896fb0aa2163705, type: 3}
 --- !u!4 &1786505984 stripped
@@ -61321,10 +61169,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4773115856617304837, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
-      propertyPath: Point
-      value: 
-      objectReference: {fileID: 1541950276}
     - target: {fileID: 7861594849177133020, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
       propertyPath: m_Name
       value: Needles
@@ -63870,10 +63714,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2472815097257143104, guid: 6f8ccb37847c57b4da5f55035e211b3b, type: 3}
-      propertyPath: Point
-      value: 
-      objectReference: {fileID: 1975704702}
     - target: {fileID: 3135027845659727983, guid: 6f8ccb37847c57b4da5f55035e211b3b, type: 3}
       propertyPath: m_Name
       value: IceGroundWave (5)
@@ -64871,7 +64711,7 @@ PrefabInstance:
     - target: {fileID: -6203786205416381773, guid: 5beccbf93a6fc8c4da4343a410c0f02b, type: 3}
       propertyPath: Point
       value: 
-      objectReference: {fileID: 1718924144}
+      objectReference: {fileID: 1610928475}
     - target: {fileID: 744383442225408681, guid: 5beccbf93a6fc8c4da4343a410c0f02b, type: 3}
       propertyPath: m_Name
       value: Fall
@@ -64882,7 +64722,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 744383442225408684, guid: 5beccbf93a6fc8c4da4343a410c0f02b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -20.08
+      value: -21.25
       objectReference: {fileID: 0}
     - target: {fileID: 744383442225408684, guid: 5beccbf93a6fc8c4da4343a410c0f02b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -66094,10 +65934,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4773115856617304837, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
-      propertyPath: Point
-      value: 
-      objectReference: {fileID: 2026853679}
     - target: {fileID: 7861594849177133020, guid: 2ffae5319e59e534cafc46a7331d1699, type: 3}
       propertyPath: m_Name
       value: Needles (26)
@@ -66845,7 +66681,7 @@ PrefabInstance:
     - target: {fileID: -1945418655811423647, guid: c55a9249447515844b43ccf074da6d7e, type: 3}
       propertyPath: Point
       value: 
-      objectReference: {fileID: 1618598918}
+      objectReference: {fileID: 1432836738}
     - target: {fileID: 5062964358579361384, guid: c55a9249447515844b43ccf074da6d7e, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -72353,10 +72189,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1219691501098850780, guid: d930423ee96efdc4cb9ae0500393fcc0, type: 3}
-      propertyPath: Point
-      value: 
-      objectReference: {fileID: 1526439458}
     - target: {fileID: 7199654742656727453, guid: d930423ee96efdc4cb9ae0500393fcc0, type: 3}
       propertyPath: m_Name
       value: NeedleB
