@@ -118,6 +118,8 @@ public class PauseController : MonoBehaviour
             //セレクトボタンの番号を+1する
             SelectNumber++;
 
+            AudioManager.PlayAudio("TitleMoveCursor", false, false);
+
             //一番下のボタンでSキーを押したら一番上のボタンに移動させる
             if (SelectNumber == Select.Length)
             {
@@ -139,6 +141,8 @@ public class PauseController : MonoBehaviour
         {
             //セレクトボタンの番号を-1する
             SelectNumber--;
+
+            AudioManager.PlayAudio("TitleMoveCursor", false, false);
 
             //一番上のボタンでWキーを押したら一番下のボタンに移動させる
             if (SelectNumber == -1)
@@ -184,6 +188,8 @@ public class PauseController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            AudioManager.PlayAudio("TitleDecision", false, false);
+
             switch (SelectNumber)
             {
                 case 0:
