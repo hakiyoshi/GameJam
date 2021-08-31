@@ -61,6 +61,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 095d2edbc6a822144a29ed4b0d425974, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  track: []
+  RespawnPoint:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &6368127405088256230
 GameObject:
   m_ObjectHideFlags: 0

@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   VirusObject: {fileID: 4378409595034271711}
+  VirusRP: []
 --- !u!1 &4378409594274040493
 GameObject:
   m_ObjectHideFlags: 0
@@ -57,9 +58,10 @@ GameObject:
   - component: {fileID: 4378409594274040497}
   - component: {fileID: 2757498933925356488}
   - component: {fileID: 4378409594274040496}
+  - component: {fileID: 6253696211666445434}
   m_Layer: 0
   m_Name: Virus_2
-  m_TagString: Untagged
+  m_TagString: Virus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -159,6 +161,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Length: 4
   rotation: 45
+--- !u!114 &6253696211666445434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4378409594274040493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c2a803c153afc346b81f388bd5d74c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Point: {fileID: 0}
 --- !u!1 &4378409594296600698
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,9 +186,10 @@ GameObject:
   - component: {fileID: 4378409594296600702}
   - component: {fileID: 4593474893315111154}
   - component: {fileID: 4378409594296600697}
+  - component: {fileID: 83365720001244436}
   m_Layer: 0
   m_Name: Virus_5
-  m_TagString: Untagged
+  m_TagString: Virus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -273,6 +289,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Length: 4
   rotation: 180
+--- !u!114 &83365720001244436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4378409594296600698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c2a803c153afc346b81f388bd5d74c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Point: {fileID: 0}
 --- !u!1 &4378409594498795292
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,9 +314,10 @@ GameObject:
   - component: {fileID: 4378409594498795360}
   - component: {fileID: 2927090012685580269}
   - component: {fileID: 4378409594498795362}
+  - component: {fileID: 3020845076459846139}
   m_Layer: 0
   m_Name: Virus_1
-  m_TagString: Untagged
+  m_TagString: Virus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -387,6 +417,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Length: 4
   rotation: 0
+--- !u!114 &3020845076459846139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4378409594498795292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c2a803c153afc346b81f388bd5d74c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Point: {fileID: 0}
 --- !u!1 &4378409594596389227
 GameObject:
   m_ObjectHideFlags: 0
@@ -399,9 +442,10 @@ GameObject:
   - component: {fileID: 4378409594596389231}
   - component: {fileID: 4129826615559038609}
   - component: {fileID: 4378409594596389230}
+  - component: {fileID: 295257195140052429}
   m_Layer: 0
   m_Name: Virus_6
-  m_TagString: Untagged
+  m_TagString: Virus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -501,6 +545,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Length: 4
   rotation: -90
+--- !u!114 &295257195140052429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4378409594596389227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c2a803c153afc346b81f388bd5d74c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Point: {fileID: 0}
 --- !u!1 &4378409594629533078
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,9 +570,10 @@ GameObject:
   - component: {fileID: 4378409594629533082}
   - component: {fileID: 8674219645770964191}
   - component: {fileID: 4378409594629533077}
+  - component: {fileID: 7653615907407746091}
   m_Layer: 0
   m_Name: Virus_7
-  m_TagString: Untagged
+  m_TagString: Virus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -615,6 +673,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Length: 4
   rotation: -45
+--- !u!114 &7653615907407746091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4378409594629533078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c2a803c153afc346b81f388bd5d74c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Point: {fileID: 0}
 --- !u!1 &4378409594691349351
 GameObject:
   m_ObjectHideFlags: 0
@@ -680,8 +751,9 @@ GameObject:
   - component: {fileID: 2275732499023746814}
   - component: {fileID: 4378409595034271708}
   - component: {fileID: 6420165710938436081}
+  - component: {fileID: 569937175907246904}
   m_Layer: 0
-  m_Name: Virus
+  m_Name: Virus_A
   m_TagString: Virus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -802,6 +874,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &569937175907246904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4378409595034271711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c2a803c153afc346b81f388bd5d74c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Point: {fileID: 0}
 --- !u!1 &4378409595331689633
 GameObject:
   m_ObjectHideFlags: 0
@@ -814,6 +899,7 @@ GameObject:
   - component: {fileID: 4378409595331689637}
   - component: {fileID: 2000894702600983808}
   - component: {fileID: 4378409595331689639}
+  - component: {fileID: 5424870276345156932}
   m_Layer: 0
   m_Name: Virus_8
   m_TagString: Virus
@@ -916,6 +1002,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Length: 4
   rotation: 225
+--- !u!114 &5424870276345156932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4378409595331689633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c2a803c153afc346b81f388bd5d74c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Point: {fileID: 0}
 --- !u!1 &4378409595420430660
 GameObject:
   m_ObjectHideFlags: 0
@@ -928,9 +1027,10 @@ GameObject:
   - component: {fileID: 4378409595420430664}
   - component: {fileID: 1267046059481583519}
   - component: {fileID: 4378409595420430666}
+  - component: {fileID: 7885226848410605717}
   m_Layer: 0
   m_Name: Virus_3
-  m_TagString: Untagged
+  m_TagString: Virus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1030,6 +1130,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Length: 4
   rotation: 90
+--- !u!114 &7885226848410605717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4378409595420430660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c2a803c153afc346b81f388bd5d74c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Point: {fileID: 0}
 --- !u!1 &4378409595650756505
 GameObject:
   m_ObjectHideFlags: 0
@@ -1042,9 +1155,10 @@ GameObject:
   - component: {fileID: 4378409595650756509}
   - component: {fileID: 868781793361488172}
   - component: {fileID: 4378409595650756511}
+  - component: {fileID: 7527596815086083480}
   m_Layer: 0
   m_Name: Virus_4
-  m_TagString: Untagged
+  m_TagString: Virus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1144,3 +1258,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Length: 4
   rotation: 135
+--- !u!114 &7527596815086083480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4378409595650756505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c2a803c153afc346b81f388bd5d74c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Point: {fileID: 0}

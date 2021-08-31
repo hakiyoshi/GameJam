@@ -8,11 +8,17 @@ public class ChangeDollyTrack : MonoBehaviour
     //トラック
     [SerializeField] CinemachineSmoothPath[] track;
 
+    //チェックポイント
+    [SerializeField] Transform[] RespawnPoint;
+
     //カート
     private CinemachineDollyCart cart;
 
     //現在のトラック
     private int nowtrack = 0;
+
+    //敵の強制移動
+    VirusActiveManager virus;
 
     private void Start()
     {
@@ -24,6 +30,8 @@ public class ChangeDollyTrack : MonoBehaviour
 
         //コルーチンスタート
         StartCoroutine("CheckCartPosition");
+
+        virus = GameObject.Find("Virus").GetComponent<VirusActiveManager>();//敵取得
     }
 
     IEnumerator CheckCartPosition()
@@ -56,6 +64,7 @@ public class ChangeDollyTrack : MonoBehaviour
     {
         cart.m_Path = track[id];
         cart.m_Position = 0.0f;
+        virus.SetRespawnPoint(RespawnPoint[id]);
     }
 
     //強制移動再生中か
