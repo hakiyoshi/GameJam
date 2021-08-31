@@ -30,8 +30,6 @@ public class ChangeDollyTrack : MonoBehaviour
 
         //コルーチンスタート
         StartCoroutine("CheckCartPosition");
-
-        virus.SetRespawnPoint(RespawnPoint[0]);
     }
 
     IEnumerator CheckCartPosition()

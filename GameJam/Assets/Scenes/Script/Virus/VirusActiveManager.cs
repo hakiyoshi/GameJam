@@ -21,6 +21,35 @@ public class VirusActiveManager : MonoBehaviour
 
     [SerializeField] List<RespawnPoint> VirusRP;//ウイルスのリスポーンポイント
 
+    private void Awake()
+    {
+        VirusRP = new List<RespawnPoint>();//リスト生成
+        VirusRP.Add(VirusObject.GetComponent<RespawnPoint>());//親入れる
+
+        foreach (Transform child in VirusObject.transform)//子のリスポーンポイント受け取る
+        {
+            RespawnPoint rp;
+            foreach (Transform item in child)
+            {
+                rp = item.GetComponent<RespawnPoint>();
+                if (rp == null)//ない場合
+                {
+                    continue;
+                }
+
+                VirusRP.Add(rp);
+            }
+
+            rp = child.GetComponent<RespawnPoint>();
+            if (rp == null)//ない場合
+            {
+                continue;
+            }
+
+            VirusRP.Add(rp);
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,30 +58,9 @@ public class VirusActiveManager : MonoBehaviour
 
         VirusMove = VirusObject.GetComponent<VirusMove>();
 
-        VirusRP = new List<RespawnPoint>();//リスト生成
-        VirusRP.Add(VirusObject.GetComponent<RespawnPoint>());//親入れる
+        
 
-        foreach (Transform child in VirusObject.transform)//子のリスポーンポイント受け取る
-        {
-            RespawnPoint rp = child.parent.GetComponent<RespawnPoint>();
-            if (rp == null)//ない場合
-            {
-                continue;
-            }
-
-            VirusRP.Add(rp);
-
-            foreach (var item in child)
-            {
-                rp = child.parent.GetComponent<RespawnPoint>();
-                if (rp == null)//ない場合
-                {
-                    continue;
-                }
-
-                VirusRP.Add(rp);
-            }
-        }
+        
 
         StartCoroutine("CheckChange");
     }
