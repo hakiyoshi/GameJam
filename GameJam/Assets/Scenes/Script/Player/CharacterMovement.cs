@@ -60,15 +60,15 @@ public class CharacterMovement : MonoBehaviour
     string DamageSound;
 
     bool bJump;
-
+     
     RaycastHit2D[] hits;
 
     Vector3[] StartPos;
     Vector3[] EndPos;
 
-    float RayWidth;
+    float RayDistance;
 
-    float RayHeight;
+    float RayDistanceBottom;
 
     // Start is called before the first frame update
     void Start()
@@ -81,16 +81,18 @@ public class CharacterMovement : MonoBehaviour
 
         //ギミック耐性オブジェクト用配列
         Cols = new GameObject[3];
-        //右のギミック耐性オブジェクト用
-        Cols[0] = transform.Find("Right").gameObject;
-        //上のギミック耐性オブジェクト用
-        Cols[1] = transform.Find("Top").gameObject;
-        //左のギミック耐性オブジェクト用
-        Cols[2] = transform.Find("Left").gameObject;
 
-        //各オブジェクトを透明化(仮)
+        ////右のギミック耐性オブジェクト用
+        //Cols[0] = transform.Find("Right").gameObject;
+        ////上のギミック耐性オブジェクト用
+        //Cols[1] = transform.Find("Top").gameObject;
+        ////左のギミック耐性オブジェクト用
+        //Cols[2] = transform.Find("Left").gameObject;
+
+        //各抗体オブジェクトを初期化
         for (int i = 0; i < Cols.Length; i++)
         {
+            Cols[i] = this.transform.GetChild(i).gameObject;
             Cols[i].GetComponent<SpriteRenderer>().material.color = new Color(1, 1, 1, 0);
             Cols[i].GetComponent<BoxCollider2D>().enabled = false;
         }
@@ -130,9 +132,9 @@ public class CharacterMovement : MonoBehaviour
 
         bJump = false;
 
-        RayWidth = 1f;
+        RayDistance = 1.35f;
 
-        RayHeight = 1.45f;
+        RayDistanceBottom = 1f;
     }
 
     void Update()
@@ -144,21 +146,15 @@ public class CharacterMovement : MonoBehaviour
 
             if (Time.timeScale != 0 && !PC.GetbChangeScene() && !GC.GetbGoal())
             {
-                //Collision();
-                MakeRay();
-                RayCollision();
                 Jump();
                 cc.enabled = true;
+                MakeRay();
+                CollisionRay();
 
-                foreach (RaycastHit2D hit in hits)
-                {
-                    if (hit)
-                    {
-                        bJump = false;
-                        jumpCount = 1;
-                        PreGimmick = hit.collider.gameObject;
-                    }
-                }
+                if (rotateZ == 0 && !bJump)
+                    RayDistanceBottom = 1f;
+                else
+                    RayDistanceBottom = 1.35f;
             }
         }
         else
@@ -166,6 +162,8 @@ public class CharacterMovement : MonoBehaviour
             //死んだときの表情変更
             anim.SetBool("isDeth", true);
             cc.enabled = false;
+            //各角度リセット
+            now_Rotate = rotateZ = 0f;
         }
     }
 
@@ -247,9 +245,10 @@ public class CharacterMovement : MonoBehaviour
         //スペースキーを押したときのジャンプ処理
         if (((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))) && 0 < jumpCount)
         {
-            bJump = true;
             //ジャンプカウント-1
             jumpCount--;
+
+            bJump = true;
 
             AudioManager.PlayAudio("Jamp", false, false);
 
@@ -269,18 +268,6 @@ public class CharacterMovement : MonoBehaviour
                 //回転処理開始
                 StartCoroutine("Rotation", 90);
             }
-
-            if (rotateZ % 180 == 0)
-            {
-                RayHeight = 1.45f;
-                RayWidth = 1f;
-            }
-            else
-            {
-                RayHeight = 1f;
-                RayWidth = 1.35f;
-            }
-
         }
     }
 
@@ -309,155 +296,6 @@ public class CharacterMovement : MonoBehaviour
             yield return 0;
         }
     }
-
-    //Ray当たり判定取得用(開発中)&(コルーチン)
-    void Collision()
-    {
-        //当たり判定用Ray
-        hits = new RaycastHit2D[20];
-
-        //方向ベクトル
-        Vector3[] Dire_Vec = { rb.transform.right, //右
-                               rb.transform.up,    //上
-                              -rb.transform.right, //左
-                              -rb.transform.up};   //下 
-
-        //rayの始点
-        Vector3 sta_Position = new Vector3(this.rb.transform.position.x + 0.000005f
-                                         , this.rb.transform.position.y);
-        //rayの終点配列
-        Vector3[] end_Position = new Vector3[20];
-
-        float end_distance = 1.4f;
-
-        //rayの各終点設定(右)
-        end_Position[0] = sta_Position + Dire_Vec[0] * end_distance;
-        end_Position[1] = end_Position[0] + Dire_Vec[1] * 0.5f;
-        end_Position[2] = end_Position[0] + Dire_Vec[1] * end_distance * 0.7f;
-        end_Position[3] = end_Position[0] + Dire_Vec[3] * 0.5f;
-        end_Position[4] = end_Position[0] + Dire_Vec[3] * end_distance * 0.7f;
-
-        //rayの各終点設定(上)
-        end_Position[5] = sta_Position + Dire_Vec[1] * end_distance * 1.15f;
-        end_Position[6] = end_Position[5] + Dire_Vec[0] * 0.5f;
-        end_Position[7] = end_Position[5] + Dire_Vec[0] * 1.2f;
-        end_Position[8] = end_Position[5] + Dire_Vec[2] * 0.5f;
-        end_Position[9] = end_Position[5] + Dire_Vec[2] * 1.2f;
-
-        //rayの各終点設定(左)
-        end_Position[10] = sta_Position + Dire_Vec[2] * end_distance;
-        end_Position[11] = end_Position[10] + Dire_Vec[1] * 0.5f;
-        end_Position[12] = end_Position[10] + Dire_Vec[1] * end_distance * 0.7f;
-        end_Position[13] = end_Position[10] + Dire_Vec[3] * 0.5f;
-        end_Position[14] = end_Position[10] + Dire_Vec[3] * end_distance * 0.7f;
-
-        //rayの各終点設定(下)
-        end_Position[15] = sta_Position + Dire_Vec[3] * end_distance * 1.2f;
-        end_Position[16] = end_Position[15] + Dire_Vec[0] * 0.6f;
-        end_Position[17] = sta_Position + Dire_Vec[3] + Dire_Vec[0] * 0.8f;
-        end_Position[18] = end_Position[15] + Dire_Vec[2] * 0.6f;
-        end_Position[19] = sta_Position + Dire_Vec[3] + Dire_Vec[2] * 0.8f;
-
-        //rayの各設定(上下座右)
-        for (int i = 0; i < hits.Length; i++)
-            hits[i] = Physics2D.Linecast(sta_Position, end_Position[i], Gimmick_Layer);
-
-        //変更スプライト格納用
-        Sprite change_Sprite = null;
-
-        //当たり判定確認用ループ
-        for (int i = 0; i < hits.Length; i++)
-        {
-            //i番目のRayが当たったか
-            if (hits[i])
-            {
-                //デバッグでLineを見る用
-                Debug.DrawLine(sta_Position, end_Position[i], Color.red);
-
-                if (hits[i].collider.gameObject.name == "DropLava(Clone)")
-                {
-                    Destroy(hits[i].collider.gameObject);
-                }
-
-                //針ギミックに当たったか
-                if (hits[i].collider.gameObject.tag == "Needle")
-                {
-                    //変更スプライトを針に設定
-                    change_Sprite = NeedleSprite;
-                    DamageSound = "Damage_Needle";
-                }
-                //マグマギミックに当たったか
-                else if (hits[i].collider.gameObject.tag == "Lava")
-                {
-                    Debug.Log(hits[i].collider.gameObject.name);
-
-                    //変更スプライトをマグマに設定
-                    change_Sprite = LavaSprite;
-                    DamageSound = "Damage_Lava";
-                }
-                //氷ギミックに当たったか
-                else if (hits[i].collider.gameObject.tag == "Ice" || hits[i].collider.gameObject.tag == "IceGround")
-                {
-                    //変更スプライトを氷に設定
-                    change_Sprite = IceSprite;
-                    DamageSound = "Damage_Ice";
-                }
-                else if (hits[i].collider.gameObject.tag == "Fall")
-                {
-                    DamageSound = null;
-                    Deth();
-                    PG.HitGimmick(hits[i].collider);
-                }
-                //足元以外に当たったか
-                if (0 <= i && i <= 14)
-                {
-                    //当たった部分に色(耐性)を表示
-                    Cols[i / 5].GetComponent<Renderer>().material.color = new Color(1, 1, 1, 1);
-
-                    //当たった面がギミック耐性を持っていないか判定
-                    if (Cols[i / 5].GetComponent<SpriteRenderer>().sprite != change_Sprite)
-                    {
-                        //各角度リセット
-                        now_Rotate = rotateZ = 0f;
-
-                        UseInertia = 0.0f;//慣性を消す
-
-                        //ギミックに対応した耐性を付与
-                        Cols[i / 5].GetComponent<SpriteRenderer>().sprite = change_Sprite;
-                        Cols[i / 5].GetComponent<BoxCollider2D>().enabled = true;
-
-                        if (DamageSound != null)
-                            AudioManager.PlayAudio(DamageSound, false, false);
-
-                        //ギミックにヒットしたことを通知してチェックポイントに戻す
-                        PG.HitGimmick(hits[i].collider);
-
-
-                        Ending_Manager.AddDead_Count();
-
-                        break;
-                    }
-                }
-                //足元に当たったら
-                else
-                {
-                    Deth();
-                    PG.HitGimmick(hits[i].collider);
-
-                    if (DamageSound != null)
-                        AudioManager.PlayAudio(DamageSound, false, false);
-
-                    Ending_Manager.AddDead_Count();
-                    break;
-                }
-            }
-            else
-            {
-                Debug.DrawLine(sta_Position, end_Position[i], Color.yellow);
-            }
-        }
-    }
-
     void MakeRay()
     {
         int RayCount = 4;
@@ -465,26 +303,26 @@ public class CharacterMovement : MonoBehaviour
         hits = new RaycastHit2D[RayCount];
 
         //方向ベクトル
-        Vector3[] Dire_Vec = { rb.transform.right, //右
-                               rb.transform.up,    //上
-                              -rb.transform.right, //左
-                              -rb.transform.up};   //下 
+        Vector3[] Dire_Vec = { transform.right, //右
+                               transform.up,    //上
+                              -transform.right, //左
+                              -transform.up};   //下 
 
         StartPos = new Vector3[RayCount];
 
         EndPos = new Vector3[RayCount];
 
-        StartPos[0] = this.rb.transform.position + (Dire_Vec[0] * 1.4f + Dire_Vec[1] * RayHeight);
-        EndPos[0] = this.rb.transform.position + (Dire_Vec[0] * 1.4f + Dire_Vec[3] * RayHeight);
+        StartPos[0] = this.transform.position + (Dire_Vec[1] * 1.6f + Dire_Vec[2] * RayDistance);
+        EndPos[0] = this.transform.position + (Dire_Vec[1] * 1.6f + Dire_Vec[0] * RayDistance);
+        
+        StartPos[1] = this.transform.position + (Dire_Vec[0] * 1.4f + Dire_Vec[1] * RayDistance);
+        EndPos[1] = this.transform.position + (Dire_Vec[0] * 1.4f + Dire_Vec[3] * RayDistance);
 
-        StartPos[1] = this.rb.transform.position + (Dire_Vec[1] * 1.6f + Dire_Vec[2] * RayWidth);
-        EndPos[1] = this.rb.transform.position + (Dire_Vec[1] * 1.6f + Dire_Vec[0] * RayWidth);
+        StartPos[2] = this.transform.position + (Dire_Vec[2] * 1.4f + Dire_Vec[1] * RayDistance);
+        EndPos[2] = this.transform.position + (Dire_Vec[2] * 1.4f + Dire_Vec[3] * RayDistance);
 
-        StartPos[2] = this.rb.transform.position + (Dire_Vec[2] * 1.4f + Dire_Vec[1] * RayHeight);
-        EndPos[2] = this.rb.transform.position + (Dire_Vec[2] * 1.4f + Dire_Vec[3] * RayHeight);
-
-        StartPos[3] = this.rb.transform.position + (Dire_Vec[3] * 1.65f + Dire_Vec[2] * RayWidth);
-        EndPos[3] = this.rb.transform.position + (Dire_Vec[3] * 1.65f + Dire_Vec[0] * RayWidth);
+        StartPos[3] = this.transform.position + (Dire_Vec[3] * 1.65f + Dire_Vec[2] * RayDistanceBottom);
+        EndPos[3] = this.transform.position + (Dire_Vec[3] * 1.65f + Dire_Vec[0] * RayDistanceBottom);
 
         for (int i = 0; i < RayCount; i++)
         {
@@ -493,7 +331,7 @@ public class CharacterMovement : MonoBehaviour
         }
     }
 
-    void RayCollision()
+    void CollisionRay()
     {
         //変更スプライト格納用
         Sprite change_Sprite = null;
@@ -538,7 +376,8 @@ public class CharacterMovement : MonoBehaviour
                     PG.HitGimmick(hits[i].collider);
                 }
 
-                if(i == 3)
+                //足元に当たったら
+                if (i == 3)
                 {
                     Deth();
                     PG.HitGimmick(hits[i].collider);
@@ -549,16 +388,16 @@ public class CharacterMovement : MonoBehaviour
                     Ending_Manager.AddDead_Count();
                     break;
                 }
+                //足元以外に当たったか
                 else
                 {
                     //当たった部分に色(耐性)を表示
                     Cols[i].GetComponent<Renderer>().material.color = new Color(1, 1, 1, 1);
 
+                    jumpCount = 1;
                     //当たった面がギミック耐性を持っていないか判定
                     if (Cols[i].GetComponent<SpriteRenderer>().sprite != change_Sprite)
                     {
-                        //各角度リセット
-                        now_Rotate = rotateZ = 0f;
 
                         UseInertia = 0.0f;//慣性を消す
 
@@ -574,56 +413,14 @@ public class CharacterMovement : MonoBehaviour
 
                         Ending_Manager.AddDead_Count();
 
+                        jumpCount = 2;
                         break;
                     }
                 }
-
-                ////足元以外に当たったか
-                //if (i < 3)
-                //{
-                //    //当たった部分に色(耐性)を表示
-                //    Cols[i].GetComponent<Renderer>().material.color = new Color(1, 1, 1, 1);
-
-                //    //当たった面がギミック耐性を持っていないか判定
-                //    if (Cols[i].GetComponent<SpriteRenderer>().sprite != change_Sprite)
-                //    {
-                //        //各角度リセット
-                //        now_Rotate = rotateZ = 0f;
-
-                //        UseInertia = 0.0f;//慣性を消す
-
-                //        //ギミックに対応した耐性を付与
-                //        Cols[i].GetComponent<SpriteRenderer>().sprite = change_Sprite;
-                //        Cols[i].GetComponent<BoxCollider2D>().enabled = true;
-
-                //        if (DamageSound != null)
-                //            AudioManager.PlayAudio(DamageSound, false, false);
-
-                //        //ギミックにヒットしたことを通知してチェックポイントに戻す
-                //        PG.HitGimmick(hits[i].collider);
-
-                //        Ending_Manager.AddDead_Count();
-
-                //        break;
-                //    }
-                //}
-                ////足元に当たったら
-                //else
-                //{
-                //    Deth();
-                //    PG.HitGimmick(hits[i].collider);
-
-                //    if (DamageSound != null)
-                //        AudioManager.PlayAudio(DamageSound, false, false);
-
-                //    Ending_Manager.AddDead_Count();
-                //    break;
-                //}
             }
 
         }
     }
-  
 
     void Deth()
     {
@@ -670,7 +467,6 @@ public class CharacterMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             bJump = false;
-            PreGimmick = null;
             //ジャンプカウントリセット
             jumpCount = 2;
             UseInertia = Inertia;//慣性を付ける
