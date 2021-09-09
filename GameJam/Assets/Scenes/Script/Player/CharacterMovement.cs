@@ -13,8 +13,6 @@ public class CharacterMovement : MonoBehaviour
     //上、左右の耐性オブジェクト(仮)
     GameObject[] Cols;
 
-    GameObject PreGimmick;
-
     //各耐性のスプライト
     public Sprite NeedleSprite;
     public Sprite LavaSprite;
@@ -66,7 +64,9 @@ public class CharacterMovement : MonoBehaviour
     Vector3[] StartPos;
     Vector3[] EndPos;
 
-    float RayDistance;
+    float RayDistanceLeftRight;
+
+    float RayDistanceTop;
 
     float RayDistanceBottom;
 
@@ -96,8 +96,6 @@ public class CharacterMovement : MonoBehaviour
             Cols[i].GetComponent<SpriteRenderer>().material.color = new Color(1, 1, 1, 0);
             Cols[i].GetComponent<BoxCollider2D>().enabled = false;
         }
-
-        PreGimmick = null;
 
         //Rayで判定するレイヤー設定
         Gimmick_Layer = LayerMask.GetMask("Gimmick");
@@ -132,7 +130,9 @@ public class CharacterMovement : MonoBehaviour
 
         bJump = false;
 
-        RayDistance = 1.35f;
+        RayDistanceLeftRight = 1.3f;
+
+        RayDistanceTop = 1f;
 
         RayDistanceBottom = 1f;
     }
@@ -151,10 +151,22 @@ public class CharacterMovement : MonoBehaviour
                 MakeRay();
                 CollisionRay();
 
-                if (rotateZ == 0 && !bJump)
-                    RayDistanceBottom = 1f;
+                if (rotateZ % 180 == 0)
+                {
+                    RayDistanceLeftRight = 1f;
+                    RayDistanceTop = 1.3f;
+
+                    if (rotateZ == 0 && !bJump)
+                        RayDistanceBottom = 1f;
+                    else
+                        RayDistanceBottom = 1.3f;
+                }
                 else
-                    RayDistanceBottom = 1.35f;
+                {
+                    RayDistanceLeftRight = 1.3f;
+                    RayDistanceTop = 1f;
+                    RayDistanceBottom = 1f;
+                }
             }
         }
         else
@@ -295,7 +307,10 @@ public class CharacterMovement : MonoBehaviour
 
             yield return 0;
         }
+
+        yield return 0;
     }
+
     void MakeRay()
     {
         int RayCount = 4;
@@ -311,18 +326,18 @@ public class CharacterMovement : MonoBehaviour
         StartPos = new Vector3[RayCount];
 
         EndPos = new Vector3[RayCount];
-
-        StartPos[0] = this.transform.position + (Dire_Vec[1] * 1.6f + Dire_Vec[2] * RayDistance);
-        EndPos[0] = this.transform.position + (Dire_Vec[1] * 1.6f + Dire_Vec[0] * RayDistance);
         
-        StartPos[1] = this.transform.position + (Dire_Vec[0] * 1.4f + Dire_Vec[1] * RayDistance);
-        EndPos[1] = this.transform.position + (Dire_Vec[0] * 1.4f + Dire_Vec[3] * RayDistance);
+        StartPos[0] = this.transform.position + (Dire_Vec[1] * 1.6f + Dire_Vec[2] * RayDistanceTop);
+        EndPos[0] = this.transform.position + (Dire_Vec[1] * 1.6f + Dire_Vec[0] * RayDistanceTop);
 
-        StartPos[2] = this.transform.position + (Dire_Vec[2] * 1.4f + Dire_Vec[1] * RayDistance);
-        EndPos[2] = this.transform.position + (Dire_Vec[2] * 1.4f + Dire_Vec[3] * RayDistance);
+        StartPos[1] = this.transform.position + (Dire_Vec[0] * 1.45f + Dire_Vec[1] * RayDistanceLeftRight);
+        EndPos[1] = this.transform.position + (Dire_Vec[0] * 1.45f + Dire_Vec[3] * RayDistanceLeftRight);
 
-        StartPos[3] = this.transform.position + (Dire_Vec[3] * 1.65f + Dire_Vec[2] * RayDistanceBottom);
-        EndPos[3] = this.transform.position + (Dire_Vec[3] * 1.65f + Dire_Vec[0] * RayDistanceBottom);
+        StartPos[2] = this.transform.position + (Dire_Vec[2] * 1.45f + Dire_Vec[1] * RayDistanceLeftRight);
+        EndPos[2] = this.transform.position + (Dire_Vec[2] * 1.45f + Dire_Vec[3] * RayDistanceLeftRight);
+
+        StartPos[3] = this.transform.position + (Dire_Vec[3] * 1.5f + Dire_Vec[2] * RayDistanceBottom);
+        EndPos[3] = this.transform.position + (Dire_Vec[3] * 1.5f + Dire_Vec[0] * RayDistanceBottom);
 
         for (int i = 0; i < RayCount; i++)
         {
@@ -393,6 +408,8 @@ public class CharacterMovement : MonoBehaviour
                 {
                     //当たった部分に色(耐性)を表示
                     Cols[i].GetComponent<Renderer>().material.color = new Color(1, 1, 1, 1);
+                   
+                    Cols[i].GetComponent<BoxCollider2D>().enabled = true;
 
                     jumpCount = 1;
                     //当たった面がギミック耐性を持っていないか判定
@@ -403,7 +420,6 @@ public class CharacterMovement : MonoBehaviour
 
                         //ギミックに対応した耐性を付与
                         Cols[i].GetComponent<SpriteRenderer>().sprite = change_Sprite;
-                        Cols[i].GetComponent<BoxCollider2D>().enabled = true;
 
                         if (DamageSound != null)
                             AudioManager.PlayAudio(DamageSound, false, false);
@@ -424,17 +440,15 @@ public class CharacterMovement : MonoBehaviour
 
     void Deth()
     {
-        PreGimmick = null;
-
         UseInertia = 0.0f;//慣性を消す
         //全免疫削除処理
         for (int j = 0; j < Cols.Length; j++)
         {
             //全ての免疫を透明化
             Cols[j].GetComponent<Renderer>().material.color = new Color(1, 1, 1, 0);
-            Cols[j].GetComponent<BoxCollider2D>().enabled = false;
             //ギミックに対応した耐性を付与
             Cols[j].GetComponent<SpriteRenderer>().sprite = null;
+            Cols[j].GetComponent<BoxCollider2D>().enabled = false;
         }
 
         //各角度リセット
@@ -476,6 +490,11 @@ public class CharacterMovement : MonoBehaviour
         {
             Deth();
             PG.HitGimmick(collision);
+        }
+
+        if(collision.gameObject.CompareTag("Wall"))
+        {
+            UseInertia = 0.0f;//慣性を消す
         }
     }
 
